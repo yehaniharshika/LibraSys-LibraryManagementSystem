@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="453.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.LoginFormController">
+   <children>
+      <AnchorPane prefHeight="467.0" prefWidth="385.0">
+         <children>
+            <ImageView fitHeight="462.0" fitWidth="410.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="471.0" fitWidth="396.0" layoutY="-4.0">
+               <image>
+                  <Image url="@../assets/login.jpeg" />
+               </image>
+            </ImageView>
+            <Label layoutX="192.0" layoutY="21.0" prefHeight="64.0" prefWidth="191.0" text="LybraSys">
+               <font>
+                  <Font name="MathJax_Typewriter-Regular" size="26.0" />
+               </font>
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../icon/book.gif" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <ImageView fitHeight="51.0" fitWidth="218.0" layoutX="179.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="395.0" prefHeight="471.0" prefWidth="293.0" style="-fx-background-color: #a29bfe;">
+         <children>
+            <TextField layoutX="20.0" layoutY="118.0" prefHeight="39.0" prefWidth="218.0" promptText="Service Number" />
+            <TextField layoutX="20.0" layoutY="211.0" prefHeight="39.0" prefWidth="218.0" promptText="User Name" />
+            <TextField layoutX="20.0" layoutY="308.0" prefHeight="39.0" prefWidth="218.0" promptText="Password" />
+            <Label layoutX="2.0" layoutY="82.0" prefHeight="39.0" prefWidth="182.0" text="              Service Number">
+               <font>
+                  <Font name="Gidugu" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="267.0" prefHeight="51.0" prefWidth="198.0" text="           Password">
+               <font>
+                  <Font name="Gidugu" size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="32.0" fitWidth="42.0" layoutX="23.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="20.0" layoutY="181.0" prefHeight="34.0" prefWidth="146.0" text="         User Name">
+               <font>
+                  <Font name="Gidugu" size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="33.0" fitWidth="31.0" layoutX="23.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="26.0" fitWidth="31.0" layoutX="20.0" layoutY="185.0">
+               <image>
+                  <Image url="@../icon/userName.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="31.0" layoutX="20.0" layoutY="89.0">
+               <image>
+                  <Image url="@../icon/service.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="34.0" fitWidth="42.0" layoutX="14.0" layoutY="276.0">
+               <image>
+                  <Image url="@../icon/password.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="93.0" layoutY="375.0" prefHeight="20.0" prefWidth="122.0" style="-fx-background-color: #2d3436;" text="LOGIN" textFill="#fffcfc">
+               <font>
+                  <Font name="Gidugu" size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
