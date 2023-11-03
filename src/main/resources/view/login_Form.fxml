@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="453.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.LoginFormController">
+<AnchorPane fx:id="root" prefHeight="453.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.LoginFormController">
    <children>
       <AnchorPane prefHeight="467.0" prefWidth="385.0">
          <children>
@@ -35,9 +35,9 @@
       </AnchorPane>
       <AnchorPane layoutX="395.0" prefHeight="471.0" prefWidth="293.0" style="-fx-background-color: #a29bfe;">
          <children>
-            <TextField layoutX="20.0" layoutY="118.0" prefHeight="39.0" prefWidth="218.0" promptText="Service Number" />
-            <TextField layoutX="20.0" layoutY="211.0" prefHeight="39.0" prefWidth="218.0" promptText="User Name" />
-            <TextField layoutX="20.0" layoutY="308.0" prefHeight="39.0" prefWidth="218.0" promptText="Password" />
+            <TextField fx:id="txtServiceNumber" layoutX="20.0" layoutY="118.0" prefHeight="39.0" prefWidth="218.0" promptText="Service Number" />
+            <TextField fx:id="txtUserName" layoutX="20.0" layoutY="211.0" prefHeight="39.0" prefWidth="218.0" promptText="User Name" />
+            <TextField fx:id="txtPassword" layoutX="20.0" layoutY="308.0" prefHeight="39.0" prefWidth="218.0" promptText="Password" />
             <Label layoutX="2.0" layoutY="82.0" prefHeight="39.0" prefWidth="182.0" text="              Service Number">
                <font>
                   <Font name="Gidugu" size="20.0" />
@@ -70,7 +70,7 @@
                   <Image url="@../icon/password.png" />
                </image>
             </ImageView>
-            <JFXButton layoutX="93.0" layoutY="375.0" prefHeight="20.0" prefWidth="122.0" style="-fx-background-color: #2d3436;" text="LOGIN" textFill="#fffcfc">
+            <JFXButton layoutX="93.0" layoutY="375.0" onAction="#btnLoginOnAction" prefHeight="20.0" prefWidth="122.0" style="-fx-background-color: #2d3436;" text="LOGIN" textFill="#fffcfc">
                <font>
                   <Font name="Gidugu" size="20.0" />
                </font>
