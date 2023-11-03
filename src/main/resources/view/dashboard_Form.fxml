@@ -1,14 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.LibraSys.controller.DashboardFormController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="469.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.DashboardFormController">
+   <children>
+      <ImageView fitHeight="469.0" fitWidth="782.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="479.0" fitWidth="792.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="490.0" fitWidth="799.0" layoutX="-3.0" layoutY="-5.0">
+         <image>
+            <Image url="@../assets/dashboard.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" contentDisplay="TOP" layoutX="330.0" layoutY="275.0" prefHeight="121.0" prefWidth="136.0" text="Supplier">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <AnchorPane>
+               <children>
+                  <ImageView fitHeight="86.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="77.0" fitWidth="98.0" layoutX="5.0" layoutY="5.0">
+                     <image>
+                        <Image url="@../icon/supplier.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </graphic>
+         <font>
+            <Font name="Gidugu" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" contentDisplay="TOP" layoutX="135.0" layoutY="14.0" prefHeight="164.0" prefWidth="146.0" text="Member">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <AnchorPane>
+               <children>
+                  <ImageView fitHeight="112.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="108.0" fitWidth="85.0" layoutX="15.0" layoutY="5.0">
+                     <image>
+                        <Image url="@../icon/member.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </graphic>
+         <font>
+            <Font name="Gidugu" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" contentDisplay="TOP" layoutX="318.0" layoutY="15.0" prefHeight="156.0" prefWidth="136.0" text="Reservation">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <AnchorPane>
+               <children>
+                  <ImageView fitHeight="103.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="104.0" fitWidth="116.0" layoutX="2.0" layoutY="7.0">
+                     <image>
+                        <Image url="@../icon/reservation.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </graphic>
+         <font>
+            <Font name="Gidugu" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" contentDisplay="TOP" layoutX="510.0" layoutY="14.0" prefHeight="149.0" prefWidth="164.0" text="Manage Books">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <AnchorPane prefHeight="113.0" prefWidth="119.0">
+               <children>
+                  <ImageView fitHeight="89.0" fitWidth="128.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="108.0" fitWidth="125.0" layoutX="1.0" layoutY="3.0">
+                     <image>
+                        <Image url="@../icon/Book.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </graphic>
+         <font>
+            <Font name="Gidugu" size="21.0" />
+         </font>
+      </JFXButton>
+   </children>
 </AnchorPane>
