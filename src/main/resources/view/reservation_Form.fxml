@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="748.0" prefWidth="870.0" style="-fx-background-color: #a29bfe;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.ReservationFormController">
+   <children>
+      <Label layoutX="205.0" layoutY="17.0" prefHeight="90.0" prefWidth="441.0" text="                     MANAGE RESERVATION">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="107.0" fitWidth="127.0" layoutX="225.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="120.0" fitWidth="121.0" layoutX="241.0" layoutY="14.0">
+         <image>
+            <Image url="@../icon/reservation.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="44.0" layoutY="156.0" prefHeight="33.0" prefWidth="111.0" text="Member ID :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="463.0" layoutY="157.0" prefHeight="33.0" prefWidth="138.0" text="Member Name :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="625.0" layoutY="157.0" prefHeight="33.0" prefWidth="200.0" />
+      <JFXComboBox layoutX="151.0" layoutY="152.0" prefHeight="33.0" prefWidth="151.0" />
+      <JFXButton layoutX="315.0" layoutY="152.0" prefHeight="41.0" prefWidth="94.0" style="-fx-background-color: #1dd1a1;" text="      NEW">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <TextField layoutX="44.0" layoutY="230.0" prefHeight="41.0" prefWidth="366.0" />
+      <TextField layoutX="463.0" layoutY="230.0" prefHeight="41.0" prefWidth="366.0" />
+      <TextField layoutX="42.0" layoutY="287.0" prefHeight="41.0" prefWidth="366.0" />
+      <TextField layoutX="463.0" layoutY="287.0" prefHeight="41.0" prefWidth="366.0" />
+   </children>
+</AnchorPane>

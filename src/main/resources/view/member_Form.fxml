@@ -1,14 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.LibraSys.controller.MemberFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="748.0" prefWidth="846.0" style="-fx-background-color: #a29bfe;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MemberFormController">
+   <children>
+      <JFXButton layoutX="697.0" layoutY="390.0" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #95a5a6;" text="        SAVE">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <TextField layoutX="450.0" layoutY="200.0" prefHeight="41.0" prefWidth="351.0" promptText="Member ID" />
+      <TextField layoutX="43.0" layoutY="254.0" prefHeight="41.0" prefWidth="351.0" promptText="Member Name" />
+      <TextField layoutX="43.0" layoutY="200.0" prefHeight="41.0" prefWidth="351.0" promptText="Sevice Number" />
+      <TextField layoutX="450.0" layoutY="254.0" prefHeight="41.0" prefWidth="351.0" promptText="Member Address" />
+      <TextField layoutX="43.0" layoutY="310.0" prefHeight="41.0" prefWidth="351.0" promptText="Gender" />
+      <TextField layoutX="450.0" layoutY="310.0" prefHeight="41.0" prefWidth="351.0" promptText="Contact Number" />
+      <Label layoutX="195.0" layoutY="22.0" prefHeight="75.0" prefWidth="441.0" text="                     MEMBER MANAGE">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="64.0" fitWidth="94.0" layoutX="207.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="710.0" layoutY="390.0">
+         <image>
+            <Image url="@../icon/save.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="567.0" layoutY="390.0" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #2980b9;" text="       SEARCH">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="434.0" layoutY="390.0" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #95a5a6;" text="       UPDATE">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="33.0" fitWidth="31.0" layoutX="535.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="33.0" fitWidth="31.0" layoutX="579.0" layoutY="394.0">
+         <image>
+            <Image url="@../icon/search.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="395.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="440.0" layoutY="396.0">
+         <image>
+            <Image url="@../icon/update.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="301.0" layoutY="390.0" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #2980b9;" text="       CLEAR">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="277.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="308.0" layoutY="396.0">
+         <image>
+            <Image url="@../icon/clear.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="170.0" layoutY="390.0" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #95a5a6;" text="       DELETE">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="137.0" layoutY="380.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="179.0" layoutY="397.0">
+         <image>
+            <Image url="@../icon/delete.png" />
+         </image>
+      </ImageView>
+      <TableView layoutX="7.0" layoutY="453.0" prefHeight="283.0" prefWidth="831.0">
+        <columns>
+          <TableColumn prefWidth="129.0" text="Service Number " />
+          <TableColumn prefWidth="84.0" text="Member ID" />
+            <TableColumn prefWidth="122.5" text="Member Name" />
+            <TableColumn prefWidth="131.0" text="Member Address" />
+            <TableColumn prefWidth="65.0" text="Gender" />
+            <TableColumn prefWidth="143.5" text="Contact Number" />
+            <TableColumn prefWidth="62.0" text="Fee ID" />
+            <TableColumn prefWidth="92.0" text="Paid Date" />
+        </columns>
+      </TableView>
+      <JFXButton layoutX="14.0" layoutY="12.0" prefHeight="41.0" prefWidth="109.0" style="-fx-background-color: #be2edd;" text="          BACK">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="697.0" layoutY="706.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="29.0" layoutY="19.0">
+         <image>
+            <Image url="@../icon/back.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="111.0" fitWidth="86.0" layoutX="258.0" layoutY="2.0">
+         <image>
+            <Image url="@../icon/member.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="43.0" layoutY="147.0" prefHeight="30.0" prefWidth="72.0" text="Fee ID :">
+         <font>
+            <Font name="Gidugu" size="22.0" />
+         </font>
+      </Label>
+      <JFXComboBox layoutX="128.0" layoutY="153.0" prefHeight="25.0" prefWidth="267.0" />
+      <Label layoutX="450.0" layoutY="147.0" prefHeight="25.0" prefWidth="109.0" text="Paid Date : ">
+         <font>
+            <Font name="Gidugu" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="571.0" layoutY="147.0" prefHeight="37.0" prefWidth="160.0" />
+   </children>
 </AnchorPane>

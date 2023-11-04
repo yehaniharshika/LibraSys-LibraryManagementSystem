@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="748.0" prefWidth="846.0" style="-fx-background-color: #a29bfe;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MemberFeeFormController">
+   <children>
+      <Label layoutX="187.0" layoutY="18.0" prefHeight="104.0" prefWidth="423.0" text="                     MEMBER FEE MANAGE">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="98.0" fitWidth="130.0" layoutX="228.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="74.0" fitWidth="92.0" layoutX="247.0" layoutY="33.0">
+         <image>
+            <Image url="@../icon/memberFee.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="127.0" layoutY="134.0" prefHeight="34.0" prefWidth="139.0" />
+      <Label layoutX="627.0" layoutY="134.0" prefHeight="34.0" prefWidth="139.0" />
+      <JFXButton layoutX="18.0" layoutY="13.0" prefHeight="42.0" prefWidth="109.0" style="-fx-background-color: #be2edd;" text="          BACK">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="34.0" fitWidth="39.0" layoutX="25.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="31.0" layoutY="20.0">
+         <image>
+            <Image url="@../icon/back.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="42.0" layoutY="156.0" prefHeight="42.0" prefWidth="446.0" promptText="Fee ID" />
+      <TextField layoutX="42.0" layoutY="316.0" prefHeight="42.0" prefWidth="446.0" promptText="Paid Date" />
+      <TextField layoutX="42.0" layoutY="209.0" prefHeight="42.0" prefWidth="446.0" promptText="Member Name" />
+      <TextField layoutX="42.0" layoutY="370.0" prefHeight="42.0" prefWidth="446.0" promptText="Anually/Monthly" />
+      <TextField layoutX="42.0" layoutY="262.0" prefHeight="42.0" prefWidth="446.0" promptText="Paid Amount" />
+      <JFXButton layoutX="663.0" layoutY="157.0" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #95a5a6;" text="        SAVE">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="663.0" layoutY="210.0" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #2980b9;" text="       SEARCH">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="663.0" layoutY="317.0" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #2980b9;" text="      CLEAR">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="663.0" layoutY="263.0" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #95a5a6;" text="        UPDATE">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="663.0" layoutY="370.0" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #95a5a6;" text="      DELETE">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="671.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="671.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="671.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="680.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="671.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="34.0" fitWidth="39.0" layoutX="674.0" layoutY="161.0">
+         <image>
+            <Image url="@../icon/save.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="670.0" layoutY="214.0">
+         <image>
+            <Image url="@../icon/search.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="667.0" layoutY="269.0">
+         <image>
+            <Image url="@../icon/update.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="666.0" layoutY="323.0">
+         <image>
+            <Image url="@../icon/clear.png" />
+         </image>
+      </ImageView>
+      <TableView layoutX="27.0" layoutY="447.0" prefHeight="290.0" prefWidth="795.0">
+        <columns>
+          <TableColumn prefWidth="140.0" text="Fee ID" />
+          <TableColumn prefWidth="162.0" text="Member Name" />
+            <TableColumn prefWidth="173.5" text="Paid Amount " />
+            <TableColumn prefWidth="148.5" text="Paid Date" />
+            <TableColumn prefWidth="170.0" text="Anually/Monthly" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="671.0" layoutY="377.0">
+         <image>
+            <Image url="@../icon/delete.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
