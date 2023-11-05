@@ -136,7 +136,7 @@
             <Font name="Gidugu" size="21.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" contentDisplay="TOP" layoutX="149.0" layoutY="200.0" onAction="#btnMemberFeeOnAction" prefHeight="106.0" prefWidth="119.0" text="Member Fee">
+      <JFXButton buttonType="RAISED" contentDisplay="TOP" layoutX="142.0" layoutY="200.0" onAction="#btnMembershipFeeOnAction" prefHeight="126.0" prefWidth="154.0" text="Membership Fee">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

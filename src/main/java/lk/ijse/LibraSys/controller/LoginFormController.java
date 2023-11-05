@@ -8,7 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.LibraSys.db.Db;
+import lk.ijse.LibraSys.database.Db;
 
 import java.io.IOException;
 

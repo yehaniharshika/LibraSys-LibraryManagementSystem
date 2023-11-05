@@ -3,14 +3,15 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="748.0" prefWidth="870.0" style="-fx-background-color: #a29bfe;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.ReservationFormController">
+<AnchorPane prefHeight="799.0" prefWidth="928.0" style="-fx-background-color: #a29bfe;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.ReservationFormController">
    <children>
       <Label layoutX="205.0" layoutY="17.0" prefHeight="90.0" prefWidth="441.0" text="                     MANAGE RESERVATION">
          <font>
@@ -28,21 +29,89 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="463.0" layoutY="157.0" prefHeight="33.0" prefWidth="138.0" text="Member Name :">
+      <Label layoutX="473.0" layoutY="157.0" prefHeight="33.0" prefWidth="138.0" text="Member Name :">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="625.0" layoutY="157.0" prefHeight="33.0" prefWidth="200.0" />
+      <Label layoutX="603.0" layoutY="157.0" prefHeight="33.0" prefWidth="200.0" />
       <JFXComboBox layoutX="151.0" layoutY="152.0" prefHeight="33.0" prefWidth="151.0" />
-      <JFXButton layoutX="315.0" layoutY="152.0" prefHeight="41.0" prefWidth="94.0" style="-fx-background-color: #1dd1a1;" text="      NEW">
+      <JFXButton layoutX="315.0" layoutY="152.0" prefHeight="41.0" prefWidth="94.0" style="-fx-background-color: #1dd1a1;" text="      NEW" textFill="#faf8f8">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
-      <TextField layoutX="44.0" layoutY="230.0" prefHeight="41.0" prefWidth="366.0" />
-      <TextField layoutX="463.0" layoutY="230.0" prefHeight="41.0" prefWidth="366.0" />
-      <TextField layoutX="42.0" layoutY="287.0" prefHeight="41.0" prefWidth="366.0" />
-      <TextField layoutX="463.0" layoutY="287.0" prefHeight="41.0" prefWidth="366.0" />
+      <TextField layoutX="35.0" layoutY="305.0" prefHeight="41.0" prefWidth="366.0" promptText="Reservation ID" />
+      <TextField layoutX="473.0" layoutY="305.0" prefHeight="41.0" prefWidth="366.0" promptText="Borrowed Date" />
+      <TextField layoutX="35.0" layoutY="356.0" prefHeight="41.0" prefWidth="366.0" promptText="Due Date" />
+      <TextField layoutX="473.0" layoutY="356.0" prefHeight="41.0" prefWidth="366.0" promptText="BookReturn Date" />
+      <Label layoutX="44.0" layoutY="214.0" prefHeight="33.0" prefWidth="94.0" text="ISBN  :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <JFXComboBox layoutX="44.0" layoutY="247.0" prefHeight="33.0" prefWidth="166.0" />
+      <Label layoutX="332.0" layoutY="214.0" prefHeight="33.0" prefWidth="138.0" text="Book Name :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="580.0" layoutY="214.0" prefHeight="33.0" prefWidth="200.0" />
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="225.0" layoutY="496.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="33.0" fitWidth="41.0" layoutX="315.0" layoutY="156.0">
+         <image>
+            <Image url="@../icon/new.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="35.0" layoutY="408.0" prefHeight="41.0" prefWidth="366.0" promptText="Fine Status" />
+      <TextField layoutX="473.0" layoutY="408.0" prefHeight="41.0" prefWidth="366.0" promptText="Fine Amount" />
+      <Label layoutX="623.0" layoutY="214.0" prefHeight="33.0" prefWidth="138.0" text="Qty On Hand:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TableView layoutX="9.0" layoutY="539.0" prefHeight="253.0" prefWidth="910.0">
+        <columns>
+          <TableColumn prefWidth="100.0" text="Member ID" />
+          <TableColumn prefWidth="77.5" text="ISBN" />
+            <TableColumn prefWidth="113.5" text="Reservation ID" />
+            <TableColumn prefWidth="115.5" text="Borrowed Date" />
+            <TableColumn prefWidth="90.5" text="Due Date" />
+            <TableColumn prefWidth="131.5" text="BookReturn Date" />
+            <TableColumn prefWidth="88.0" text="Fine Status" />
+            <TableColumn prefWidth="100.5" text="Fine Amount" />
+            <TableColumn prefWidth="91.0" text="Action" />
+        </columns>
+      </TableView>
+      <Label layoutX="315.0" layoutY="255.0" prefHeight="33.0" prefWidth="138.0" />
+      <Label layoutX="611.0" layoutY="247.0" prefHeight="33.0" prefWidth="138.0" />
+      <JFXButton layoutX="780.0" layoutY="492.0" prefHeight="41.0" prefWidth="94.0" style="-fx-background-color: #2980b9;" text="       Add">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="786.0" layoutY="466.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="786.0" layoutY="496.0">
+         <image>
+            <Image url="@../icon/add.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="18.0" layoutY="17.0" prefHeight="41.0" prefWidth="109.0" style="-fx-background-color: #be2edd;" text="          BACK">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="27.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="27.0" layoutY="21.0">
+         <image>
+            <Image url="@../icon/back.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="35.0" layoutY="466.0" prefHeight="33.0" prefWidth="320.0" text="Are you sure you will borrow this book ?">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="340.0" layoutY="466.0" prefHeight="33.0" prefWidth="138.0" />
    </children>
 </AnchorPane>
