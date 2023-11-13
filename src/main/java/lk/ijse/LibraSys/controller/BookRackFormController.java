@@ -28,6 +28,9 @@ public class BookRackFormController {
     private TableColumn<?, ?> colCode;
 
     @FXML
+    private TableColumn<?, ?> colCategory;
+
+    @FXML
     private TableColumn<?, ?> colNameOfBooks;
 
     @FXML
@@ -41,6 +44,9 @@ public class BookRackFormController {
 
     @FXML
     private TextField txtQuantity;
+
+    @FXML
+    private TextField txtCategoryOfBooks;
 
     @FXML
     private TextArea txtNameOfBooks;
@@ -71,6 +77,7 @@ public class BookRackFormController {
     private void setCellValueFactory() {
         colCode.setCellValueFactory(new PropertyValueFactory<>("rackCode"));
         colQuantityBooks.setCellValueFactory(new PropertyValueFactory<>("qtyBooks"));
+        colCategory.setCellValueFactory(new PropertyValueFactory<>("categoryOfBooks"));
         colNameOfBooks.setCellValueFactory(new PropertyValueFactory<>("nameOfBooks"));
     }
 
@@ -83,9 +90,10 @@ public class BookRackFormController {
             for(BookRackDto dto : rackList){
                 obList.add(
                         new BookRackTm(
-                            dto.getRackCode(),
-                            dto.getQtyBooks(),
-                            dto.getNameOfBooks()
+                                dto.getRackCode(),
+                                dto.getQtyBooks(),
+                                dto.getCategoryOfBooks(),
+                                dto.getNameOfBooks()
 
                 ));
             }
@@ -99,6 +107,7 @@ public class BookRackFormController {
     private void clearFields() {
         txtCode.setText("");
         txtQuantity.setText("");
+        txtCategoryOfBooks.setText("");
         txtNameOfBooks.setText("");
     }
 
@@ -124,9 +133,10 @@ public class BookRackFormController {
     void btnSaveOnAction(ActionEvent event) {
         String rackCode = txtCode.getText();
         int qtyBooks = Integer.parseInt(txtQuantity.getText());
+        String categoryOfBooks = txtCategoryOfBooks.getText();
         String nameOfBooks = txtNameOfBooks.getText();
 
-        var dto = new BookRackDto(rackCode,qtyBooks,nameOfBooks);
+        var dto = new BookRackDto(rackCode,qtyBooks,categoryOfBooks,nameOfBooks);
 
         try {
             boolean isSaved = bookRackModel.saveBookRack(dto);
@@ -147,9 +157,10 @@ public class BookRackFormController {
     void btnUpdateOnAction(ActionEvent event) {
         String rackCode = txtCode.getText();
         int qtyBooks = Integer.parseInt(txtQuantity.getText());
+        String categoryOfBooks = txtCategoryOfBooks.getText();
         String nameOfBooks = txtNameOfBooks.getText();
 
-        var dto = new BookRackDto(rackCode,qtyBooks,nameOfBooks);
+        var dto = new BookRackDto(rackCode,qtyBooks,categoryOfBooks,nameOfBooks);
 
         try {
             boolean isUpdated = bookRackModel.updateBookRack(dto);
@@ -175,6 +186,7 @@ public class BookRackFormController {
             if (dto != null){
                 txtCode.setText(dto.getRackCode());
                 txtQuantity.setText(String.valueOf(dto.getQtyBooks()));
+                txtCategoryOfBooks.setText(dto.getCategoryOfBooks());
                 txtNameOfBooks.setText(dto.getNameOfBooks());
             }else{
                 new Alert(Alert.AlertType.ERROR,"not found!!!").show();

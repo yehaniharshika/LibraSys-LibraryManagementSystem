@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="730.0" prefWidth="1150.0" style="-fx-background-color: #1B97B0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MembershipFeeFormController">
+<AnchorPane fx:id="root" prefHeight="750.0" prefWidth="1150.0" style="-fx-background-color: #1B97B0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MembershipFeeFormController">
    <children>
       <Label layoutX="293.0" layoutY="18.0" prefHeight="104.0" prefWidth="490.0" text="                     MEMBERSHIP FEE MANAGE">
          <font>

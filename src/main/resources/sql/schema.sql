@@ -38,16 +38,18 @@ create  table member(
 create  table bookRack(
     rackCode varchar(10) primary key ,
     qtyBooks int not null ,
+    categoryOfBooks varchar(50) not null,
     nameOfBooks text not null
 );
 
-insert  into bookRack values ("R001",20,"gamperaliya,kaliyugaya,yuganthaya,lamakaw Kalaba,Madoldoowa,GuruGeethaya,GiripuraAththo,Mahawesi,Adara Andaraya,Awwa,Holman Walawwa");
+insert  into bookRack values ("R001",20,"Novel","gamperaliya,kaliyugaya,yuganthaya,lamakaw Kalaba,Madoldoowa,GuruGeethaya,GiripuraAththo,Mahawesi,Adara Andaraya,Awwa,Holman Walawwa");
+
+
 create  table book(
     ISBN varchar(10) primary key ,
     bookName varchar(100) not null ,
     category varchar(20) not null,
     qtyOnHand int not null,
-    authorCount int not null ,
     rackCode varchar(10),
     constraint foreign key(rackCode) references bookRack(rackCode) on update cascade on delete cascade
 );

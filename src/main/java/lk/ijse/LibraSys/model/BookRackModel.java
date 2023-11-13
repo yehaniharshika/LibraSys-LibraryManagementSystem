@@ -13,10 +13,11 @@ import java.util.List;
 public class BookRackModel {
     public boolean saveBookRack(BookRackDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
-        PreparedStatement pstm = connection.prepareStatement("INSERT INTO  bookRack VALUES (?,?,?)");
+        PreparedStatement pstm = connection.prepareStatement("INSERT INTO  bookRack VALUES (?,?,?,?)");
         pstm.setString(1,dto.getRackCode());
         pstm.setString(2, String.valueOf(dto.getQtyBooks()));
-        pstm.setString(3, dto.getNameOfBooks());
+        pstm.setString(3, dto.getCategoryOfBooks());
+        pstm.setString(4, dto.getNameOfBooks());
 
         boolean isSaved = pstm.executeUpdate() > 0;
         return isSaved;
@@ -24,10 +25,11 @@ public class BookRackModel {
 
     public  boolean updateBookRack(BookRackDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
-        PreparedStatement pstm = connection.prepareStatement("UPDATE bookRack SET qtyBooks=?,nameOfBooks =? WHERE rackCode =?");
+        PreparedStatement pstm = connection.prepareStatement("UPDATE bookRack SET qtyBooks=?,nameOfBooks =? ,categoryOfBooks=? WHERE rackCode =?");
         pstm.setString(1, String.valueOf(dto.getQtyBooks()));
         pstm.setString(2, dto.getNameOfBooks());
-        pstm.setString(3, dto.getRackCode());
+        pstm.setString(3, dto.getCategoryOfBooks());
+        pstm.setString(4, dto.getRackCode());
 
         boolean isUpdated = pstm.executeUpdate() > 0;
         return isUpdated;
@@ -55,7 +57,8 @@ public class BookRackModel {
             dto = new BookRackDto(
                   resultSet.getString(1),
                   resultSet.getInt(2),
-                  resultSet.getString(3)
+                  resultSet.getString(3),
+                  resultSet.getString(4)
             );
         }
         return dto;
@@ -72,7 +75,8 @@ public class BookRackModel {
             rackList.add(new BookRackDto(
                 resultSet.getString(1),
                 resultSet.getInt(2),
-                resultSet.getString(3)
+                resultSet.getString(3),
+                resultSet.getString(4)
             ));
 
         }

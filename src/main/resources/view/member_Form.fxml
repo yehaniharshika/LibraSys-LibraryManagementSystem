@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="730.0" prefWidth="1150.0" style="-fx-background-color: #1B97B0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MemberFormController">
+<AnchorPane fx:id="pane" prefHeight="750.0" prefWidth="1150.0" style="-fx-background-color: #1B97B0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MemberFormController">
    <children>
       <JFXButton layoutX="977.0" layoutY="158.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #95a5a6;" text="        SAVE">
          <font>
@@ -67,7 +67,7 @@
             <Image url="@../icon/delete.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tblMember" layoutX="42.0" layoutY="402.0" prefHeight="304.0" prefWidth="1067.0">
+      <TableView fx:id="tblMember" layoutX="42.0" layoutY="402.0" prefHeight="325.0" prefWidth="1067.0">
         <columns>
           <TableColumn fx:id="colMid" prefWidth="129.0" text="Member ID" />
           <TableColumn fx:id="colMembername" prefWidth="152.0" text="Member Name" />

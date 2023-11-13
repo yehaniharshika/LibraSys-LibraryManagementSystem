@@ -10,5 +10,6 @@ import lombok.*;
 public class BookRackDto {
     private  String rackCode;
     private  int qtyBooks;
+    private String categoryOfBooks;
     private String nameOfBooks;
 }
