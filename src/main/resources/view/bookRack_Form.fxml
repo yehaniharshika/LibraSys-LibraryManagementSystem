@@ -2,34 +2,90 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="750.0" prefWidth="898.0" style="-fx-background-color: #a29bfe;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.BookRackFormController">
+<AnchorPane fx:id="Pane" prefHeight="730.0" prefWidth="1150.0" style="-fx-background-color: #1B97B0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.BookRackFormController">
    <children>
-      <Label layoutX="276.0" layoutY="32.0" prefHeight="75.0" prefWidth="441.0" text="              MANAGE BOOK RACKS">
+      <Label layoutX="410.0" layoutY="28.0" prefHeight="75.0" prefWidth="441.0" text="              MANAGE BOOK RACKS">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
       <ImageView fitHeight="109.0" fitWidth="124.0" layoutX="235.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="96.0" fitWidth="99.0" layoutX="270.0" layoutY="17.0">
+      <ImageView fitHeight="96.0" fitWidth="99.0" layoutX="401.0" layoutY="18.0">
          <image>
             <Image url="@../icon/bookrack.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="22.0" layoutY="17.0" prefHeight="41.0" prefWidth="109.0" style="-fx-background-color: #be2edd;" text="          BACK">
+      <ImageView fitHeight="31.0" fitWidth="34.0" layoutX="89.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="txtCode" layoutX="49.0" layoutY="165.0" onAction="#txtCodeOnAction" prefHeight="41.0" prefWidth="290.0" promptText="Rack Code" />
+      <TextField fx:id="txtQuantity" layoutX="49.0" layoutY="227.0" prefHeight="41.0" prefWidth="290.0" promptText="Quantity of books" />
+      <TextField fx:id="txtnameOfBooks" layoutX="49.0" layoutY="291.0" prefHeight="191.0" prefWidth="290.0" promptText="Name of books" />
+      <JFXButton layoutX="49.0" layoutY="505.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436;" text="  SAVE" textFill="#f5f3f3">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="28.0">
+               <image>
+                  <Image url="@../icon/Save.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="16.0" layoutY="18.0" onAction="#btnBackOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436;" text="     BACK" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="31.0" fitWidth="34.0" layoutX="89.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="31.0" fitWidth="34.0" layoutX="37.0" layoutY="22.0">
+      <JFXButton layoutX="49.0" layoutY="561.0" onAction="#btnUpdateOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436;" text="          UPDATE" textFill="#f5f3f3">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="49.0" layoutY="669.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436;" text="      CLEAR" textFill="#f5f3f3">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="49.0" layoutY="615.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436;" text=" DELETE" textFill="#f5f3f3">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="28.0">
+               <image>
+                  <Image url="@../icon/Delete.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <TableView fx:id="tblBookrack" layoutX="397.0" layoutY="164.0" prefHeight="546.0" prefWidth="729.0">
+        <columns>
+          <TableColumn fx:id="colCode" prefWidth="142.0" text="Rack Code" />
+          <TableColumn fx:id="colQuantityBooks" prefWidth="174.0" text="Quantity of books" />
+            <TableColumn fx:id="colNameOfBooks" prefWidth="411.5" text="Name of books" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="31.0" fitWidth="34.0" layoutX="61.0" layoutY="674.0">
          <image>
-            <Image url="@../icon/back.png" />
+            <Image url="@../icon/Clear.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="28.0" layoutX="35.0" layoutY="27.0">
+         <image>
+            <Image url="@../icon/Back.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="28.0" layoutX="64.0" layoutY="570.0">
+         <image>
+            <Image url="@../icon/Update.png" />
          </image>
       </ImageView>
    </children>

@@ -7,16 +7,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="749.0" prefWidth="883.0" style="-fx-background-color: #a29bfe;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.BookFormController">
+<AnchorPane prefHeight="730.0" prefWidth="1150.0" style="-fx-background-color: #1B97B0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.BookFormController">
    <children>
-      <Label layoutX="245.0" layoutY="25.0" prefHeight="104.0" prefWidth="436.0" text="                       BOOK MANAGE">
+      <Label layoutX="339.0" layoutY="25.0" prefHeight="104.0" prefWidth="436.0" text="                       BOOK MANAGE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
       <ImageView fitHeight="104.0" fitWidth="130.0" layoutX="235.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="111.0" fitWidth="137.0" layoutX="263.0" layoutY="22.0">
+      <ImageView fitHeight="96.0" fitWidth="130.0" layoutX="374.0" layoutY="29.0">
          <image>
             <Image url="@../../../../../../Downloads/Book.png" />
          </image>
@@ -32,5 +31,25 @@
             <Image url="@../icon/back.png" />
          </image>
       </ImageView>
+      <JFXButton layoutX="59.0" layoutY="389.0" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436;" text="      SAVE" textFill="#f5f3f3">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="59.0" layoutY="447.0" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436;" text="UPDATE" textFill="#f5f3f3">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="59.0" layoutY="579.0" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436;" text="CLEAR" textFill="#f5f3f3">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="59.0" layoutY="512.0" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436;" text="DELETE" textFill="#f5f3f3">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

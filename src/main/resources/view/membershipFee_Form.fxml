@@ -10,51 +10,46 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="748.0" prefWidth="892.0" style="-fx-background-color: #a29bfe;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MembershipFeeFormController">
+<AnchorPane fx:id="root" prefHeight="730.0" prefWidth="1150.0" style="-fx-background-color: #1B97B0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MembershipFeeFormController">
    <children>
-      <Label layoutX="187.0" layoutY="18.0" prefHeight="104.0" prefWidth="490.0" text="                     MEMBERSHIP FEE MANAGE">
+      <Label layoutX="293.0" layoutY="18.0" prefHeight="104.0" prefWidth="490.0" text="                     MEMBERSHIP FEE MANAGE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
       <ImageView fitHeight="98.0" fitWidth="130.0" layoutX="228.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="74.0" fitWidth="92.0" layoutX="247.0" layoutY="33.0">
+      <ImageView fitHeight="80.0" fitWidth="123.0" layoutX="317.0" layoutY="30.0">
          <image>
             <Image url="@../icon/memberFee.png" />
          </image>
       </ImageView>
       <Label layoutX="627.0" layoutY="134.0" prefHeight="34.0" prefWidth="139.0" />
-      <JFXButton layoutX="18.0" layoutY="13.0" onAction="#btnBackOnAction" prefHeight="42.0" prefWidth="109.0" style="-fx-background-color: #be2edd;" text="          BACK">
+      <JFXButton layoutX="31.0" layoutY="656.0" onAction="#btnBackOnAction" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #2d3436;" text="          BACK" textFill="#fcfafa">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
       <ImageView fitHeight="34.0" fitWidth="39.0" layoutX="25.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="31.0" layoutY="20.0">
-         <image>
-            <Image url="@../icon/back.png" />
-         </image>
-      </ImageView>
-      <TextField fx:id="txtId" layoutX="42.0" layoutY="207.0" onAction="#txtSearchOnAction" prefHeight="42.0" prefWidth="446.0" promptText="Fee ID" />
-      <TextField fx:id="txtName" layoutX="42.0" layoutY="263.0" prefHeight="42.0" prefWidth="446.0" promptText="Member Name" />
-      <TextField fx:id="txtStatus" layoutX="42.0" layoutY="370.0" prefHeight="42.0" prefWidth="446.0" promptText="Anually/Monthly" />
-      <TextField fx:id="txtAmount" layoutX="43.0" layoutY="317.0" prefHeight="42.0" prefWidth="446.0" promptText="Paid Amount" />
-      <JFXButton layoutX="663.0" layoutY="210.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #95a5a6;" text="        SAVE">
+      <TextField fx:id="txtId" layoutX="28.0" layoutY="200.0" onAction="#txtSearchOnAction" prefHeight="42.0" prefWidth="362.0" promptText="Fee ID" />
+      <TextField fx:id="txtName" layoutX="28.0" layoutY="256.0" prefHeight="42.0" prefWidth="362.0" promptText="Member Name" />
+      <TextField fx:id="txtStatus" layoutX="28.0" layoutY="365.0" prefHeight="42.0" prefWidth="362.0" promptText="Anually/Monthly" />
+      <TextField fx:id="txtAmount" layoutX="28.0" layoutY="310.0" prefHeight="42.0" prefWidth="362.0" promptText="Paid Amount" />
+      <JFXButton layoutX="31.0" layoutY="429.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436;" text="        SAVE" textFill="#fdfcfc">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="663.0" layoutY="317.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #2980b9;" text="      CLEAR">
+      <JFXButton layoutX="31.0" layoutY="598.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436;" text="      CLEAR" textFill="#fffbfb">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="663.0" layoutY="263.0" onAction="#btnUpdateOnAction" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #95a5a6;" text="        UPDATE">
+      <JFXButton layoutX="31.0" layoutY="484.0" onAction="#btnUpdateOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436;" text="        UPDATE" textFill="#fcf9f9">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="663.0" layoutY="370.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #95a5a6;" text="      DELETE">
+      <JFXButton layoutX="31.0" layoutY="541.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436;" text="      DELETE" textFill="#fdfafa">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
@@ -64,40 +59,23 @@
       <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="671.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="680.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="671.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="34.0" fitWidth="39.0" layoutX="667.0" layoutY="213.0">
-         <image>
-            <Image url="@../icon/save.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="667.0" layoutY="269.0">
-         <image>
-            <Image url="@../icon/update.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="666.0" layoutY="323.0">
-         <image>
-            <Image url="@../icon/clear.png" />
-         </image>
-      </ImageView>
-      <TableView fx:id="tblMembershipFee" layoutX="22.0" layoutY="447.0" prefHeight="290.0" prefWidth="850.0">
+      <TableView fx:id="tblMembershipFee" layoutX="419.0" layoutY="200.0" prefHeight="516.0" prefWidth="711.0" style="-fx-background-color: #81ecec;">
         <columns>
-          <TableColumn fx:id="colFeeid" prefWidth="121.0" text="Fee ID" />
-          <TableColumn fx:id="colName" prefWidth="227.0" text="Member Name" />
-            <TableColumn fx:id="colAmount" prefWidth="115.0" text="Paid Amount " />
-            <TableColumn fx:id="colDate" prefWidth="198.0" text="Paid Date" />
-            <TableColumn fx:id="colStatus" prefWidth="188.0" text="Anually/Monthly" />
+          <TableColumn fx:id="colFeeid" prefWidth="83.0" text="Fee ID" />
+          <TableColumn fx:id="colName" prefWidth="218.5" text="Member Name" />
+            <TableColumn fx:id="colAmount" prefWidth="117.5" text="Paid Amount " />
+            <TableColumn fx:id="colDate" prefWidth="132.0" text="Paid Date" />
+            <TableColumn fx:id="colStatus" prefWidth="160.0" text="Anually/Monthly" />
         </columns>
       </TableView>
-      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="671.0" layoutY="377.0">
-         <image>
-            <Image url="@../icon/delete.png" />
-         </image>
-      </ImageView>
       <Label layoutX="42.0" layoutY="131.0" prefHeight="42.0" prefWidth="100.0" text="Paid Date :">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lblPaidDate" layoutX="138.0" layoutY="130.0" prefHeight="41.0" prefWidth="109.0" />
+      <Label fx:id="lblPaidDate" layoutX="138.0" layoutY="130.0" prefHeight="41.0" prefWidth="109.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
    </children>
 </AnchorPane>

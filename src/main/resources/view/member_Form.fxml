@@ -11,77 +11,74 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="748.0" prefWidth="885.0" style="-fx-background-color: #a29bfe;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MemberFormController">
+<AnchorPane fx:id="pane" prefHeight="730.0" prefWidth="1150.0" style="-fx-background-color: #1B97B0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MemberFormController">
    <children>
-      <JFXButton layoutX="697.0" layoutY="388.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #95a5a6;" text="        SAVE">
+      <JFXButton layoutX="977.0" layoutY="158.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #95a5a6;" text="        SAVE">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
-      <TextField layoutX="476.0" layoutY="200.0" prefHeight="41.0" prefWidth="351.0" promptText="Member ID" />
-      <TextField layoutX="53.0" layoutY="254.0" prefHeight="41.0" prefWidth="351.0" promptText="Member Name" />
-      <TextField layoutX="53.0" layoutY="200.0" prefHeight="41.0" prefWidth="351.0" promptText="Sevice Number" />
-      <TextField layoutX="476.0" layoutY="254.0" prefHeight="41.0" prefWidth="351.0" promptText="Member Address" />
-      <TextField layoutX="53.0" layoutY="310.0" prefHeight="41.0" prefWidth="351.0" promptText="Gender" />
-      <TextField layoutX="476.0" layoutY="310.0" prefHeight="41.0" prefWidth="351.0" promptText="Contact Number" />
+      <TextField fx:id="txtMid" layoutX="476.0" layoutY="200.0" onAction="#txtSearchOnAction" prefHeight="41.0" prefWidth="351.0" promptText="Member ID" />
+      <TextField fx:id="txtName" layoutX="53.0" layoutY="254.0" prefHeight="41.0" prefWidth="351.0" promptText="Member Name" />
+      <TextField fx:id="txtAddress" layoutX="476.0" layoutY="254.0" prefHeight="41.0" prefWidth="351.0" promptText="Member Address" />
+      <TextField fx:id="txtGender" layoutX="53.0" layoutY="310.0" prefHeight="41.0" prefWidth="351.0" promptText="Gender" />
+      <TextField fx:id="txtTel" layoutX="476.0" layoutY="310.0" prefHeight="41.0" prefWidth="351.0" promptText="Contact Number" />
       <Label layoutX="195.0" layoutY="22.0" prefHeight="75.0" prefWidth="441.0" text="                     MEMBER MANAGE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
       <ImageView fitHeight="64.0" fitWidth="94.0" layoutX="207.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="710.0" layoutY="390.0">
+      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="984.0" layoutY="158.0">
          <image>
             <Image url="@../icon/save.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="566.0" layoutY="388.0" onAction="#btnUpdateOnAction" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #2980b9;" text="       UPDATE">
+      <JFXButton layoutX="977.0" layoutY="285.0" onAction="#btnUpdateOnAction" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #2980b9;" text="       UPDATE">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
       <ImageView fitHeight="33.0" fitWidth="31.0" layoutX="535.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="395.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="571.0" layoutY="393.0">
+      <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="984.0" layoutY="290.0">
          <image>
             <Image url="@../icon/update.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="301.0" layoutY="388.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #2980b9;" text="       CLEAR">
+      <JFXButton layoutX="977.0" layoutY="348.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #2980b9;" text="       CLEAR">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
       <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="277.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="308.0" layoutY="393.0">
+      <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="984.0" layoutY="354.0">
          <image>
             <Image url="@../icon/clear.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="434.0" layoutY="388.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #95a5a6;" text="       DELETE">
+      <JFXButton layoutX="977.0" layoutY="221.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #95a5a6;" text="       DELETE">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="137.0" layoutY="380.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="443.0" layoutY="397.0">
+      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="988.0" layoutY="227.0">
          <image>
             <Image url="@../icon/delete.png" />
          </image>
       </ImageView>
-      <TableView layoutX="11.0" layoutY="451.0" prefHeight="289.0" prefWidth="863.0">
+      <TableView fx:id="tblMember" layoutX="42.0" layoutY="402.0" prefHeight="304.0" prefWidth="1067.0">
         <columns>
-          <TableColumn prefWidth="129.0" text="Service Number " />
-          <TableColumn prefWidth="84.0" text="Member ID" />
-            <TableColumn prefWidth="122.5" text="Member Name" />
-            <TableColumn prefWidth="131.0" text="Member Address" />
-            <TableColumn prefWidth="65.0" text="Gender" />
-            <TableColumn prefWidth="143.5" text="Contact Number" />
-            <TableColumn prefWidth="81.0" text="Fee ID" />
-            <TableColumn prefWidth="104.0" text="Paid Date" />
+          <TableColumn fx:id="colMid" prefWidth="129.0" text="Member ID" />
+          <TableColumn fx:id="colMembername" prefWidth="152.0" text="Member Name" />
+            <TableColumn fx:id="colAddress" prefWidth="167.5" text="Member Address" />
+            <TableColumn fx:id="colGender" prefWidth="121.0" text="Gender" />
+            <TableColumn fx:id="coltelNumber" prefWidth="175.0" text="Contact Number" />
+            <TableColumn fx:id="colfeeId" prefWidth="137.0" text="Fee Id" />
+            <TableColumn fx:id="colservicenum" prefWidth="184.0" text="Service number" />
         </columns>
       </TableView>
-      <JFXButton layoutX="14.0" layoutY="12.0" prefHeight="41.0" prefWidth="109.0" style="-fx-background-color: #be2edd;" text="          BACK">
+      <JFXButton layoutX="14.0" layoutY="12.0" onAction="#btnBackOnAction" prefHeight="41.0" prefWidth="109.0" style="-fx-background-color: #be2edd;" text="          BACK">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
@@ -102,14 +99,17 @@
             <Font name="Gidugu" size="22.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="cmbFeeId" layoutX="116.0" layoutY="145.0" onAction="#cmbMembershipFeeOnAction" prefHeight="33.0" prefWidth="160.0" />
+      <JFXComboBox fx:id="cmbmembershipFeeId" layoutX="116.0" layoutY="145.0" onAction="#cmbMembershipFeeOnAction" prefHeight="33.0" prefWidth="160.0" />
       <Label layoutX="450.0" layoutY="147.0" prefHeight="25.0" prefWidth="109.0" text="Paid Date : ">
          <font>
             <Font name="Gidugu" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="lblPaidDate" layoutX="571.0" layoutY="147.0" prefHeight="37.0" prefWidth="160.0" />
-      <JFXButton layoutX="298.0" layoutY="145.0" onAction="#btnNewFeeOnAction" prefHeight="41.0" prefWidth="94.0" style="-fx-background-color: #d63031;" text="      NEW" textFill="#fcf8f8">
+      <Label fx:id="lblPaidDate" layoutX="532.0" layoutY="147.0" prefHeight="37.0" prefWidth="160.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <JFXButton layoutX="298.0" layoutY="145.0" onAction="#btnNewMembershipFeeOnAction" prefHeight="41.0" prefWidth="94.0" style="-fx-background-color: #d63031;" text="      NEW" textFill="#fcf8f8">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
@@ -120,5 +120,6 @@
             <Image url="@../icon/new.png" />
          </image>
       </ImageView>
+      <TextField fx:id="txtSnumber" layoutX="53.0" layoutY="200.0" prefHeight="41.0" prefWidth="351.0" promptText="service Number" />
    </children>
 </AnchorPane>

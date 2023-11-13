@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -8,73 +10,45 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="453.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.LoginFormController">
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.LoginFormController">
    <children>
-      <AnchorPane prefHeight="467.0" prefWidth="385.0">
+      <ImageView fitHeight="700.0" fitWidth="1150.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="700.0" fitWidth="1150.0">
+         <image>
+            <Image url="@../assets/login.jpg" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <AnchorPane layoutX="707.0" layoutY="93.0" prefHeight="512.0" prefWidth="395.0" style="-fx-background-color: #f5f6fa;">
          <children>
-            <ImageView fitHeight="462.0" fitWidth="410.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="471.0" fitWidth="396.0" layoutY="-4.0">
-               <image>
-                  <Image url="@../assets/login.jpeg" />
-               </image>
-            </ImageView>
-            <Label layoutX="192.0" layoutY="21.0" prefHeight="64.0" prefWidth="191.0" text="LybraSys">
+            <TextField fx:id="txtUserName" layoutX="57.0" layoutY="168.0" prefHeight="42.0" prefWidth="275.0" promptText="User Name" style="-fx-background-color: #1B97B0;">
                <font>
-                  <Font name="MathJax_Typewriter-Regular" size="26.0" />
+                  <Font name="System Bold" size="13.0" />
                </font>
-               <graphic>
-                  <ImageView>
-                     <image>
-                        <Image url="@../icon/book.gif" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Label>
-            <ImageView fitHeight="51.0" fitWidth="218.0" layoutX="179.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="395.0" prefHeight="471.0" prefWidth="293.0" style="-fx-background-color: #a29bfe;">
-         <children>
-            <TextField fx:id="txtServiceNumber" layoutX="20.0" layoutY="118.0" prefHeight="39.0" prefWidth="218.0" promptText="Service Number" />
-            <TextField fx:id="txtUserName" layoutX="20.0" layoutY="211.0" prefHeight="39.0" prefWidth="218.0" promptText="User Name" />
-            <TextField fx:id="txtPassword" layoutX="20.0" layoutY="308.0" prefHeight="39.0" prefWidth="218.0" promptText="Password" />
-            <Label layoutX="2.0" layoutY="82.0" prefHeight="39.0" prefWidth="182.0" text="              Service Number">
+            </TextField>
+            <TextField fx:id="txtServiceNumber" layoutX="57.0" layoutY="72.0" prefHeight="42.0" prefWidth="275.0" promptText="Service Number" style="-fx-background-color: #1B97B0;">
                <font>
-                  <Font name="Gidugu" size="20.0" />
+                  <Font name="System Bold" size="13.0" />
                </font>
-            </Label>
-            <Label layoutX="14.0" layoutY="267.0" prefHeight="51.0" prefWidth="198.0" text="           Password">
+            </TextField>
+            <TextField fx:id="txtPassword" layoutX="57.0" layoutY="263.0" prefHeight="42.0" prefWidth="275.0" promptText="Password" style="-fx-background-color: #1B97B0;">
                <font>
-                  <Font name="Gidugu" size="20.0" />
+                  <Font name="System Bold" size="13.0" />
                </font>
-            </Label>
-            <ImageView fitHeight="32.0" fitWidth="42.0" layoutX="23.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="20.0" layoutY="181.0" prefHeight="34.0" prefWidth="146.0" text="         User Name">
-               <font>
-                  <Font name="Gidugu" size="20.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="33.0" fitWidth="31.0" layoutX="23.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="26.0" fitWidth="31.0" layoutX="20.0" layoutY="185.0">
-               <image>
-                  <Image url="@../icon/userName.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="26.0" fitWidth="31.0" layoutX="20.0" layoutY="89.0">
-               <image>
-                  <Image url="@../icon/service.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="34.0" fitWidth="42.0" layoutX="14.0" layoutY="276.0">
-               <image>
-                  <Image url="@../icon/password.png" />
-               </image>
-            </ImageView>
-            <JFXButton layoutX="93.0" layoutY="375.0" onAction="#btnLoginOnAction" prefHeight="20.0" prefWidth="122.0" style="-fx-background-color: #2d3436;" text="LOGIN" textFill="#fffcfc">
+            </TextField>
+            <JFXButton layoutX="130.0" layoutY="384.0" onAction="#btnLoginOnAction" prefHeight="35.0" prefWidth="136.0" style="-fx-background-color: #2d3436;" text="LOGIN" textFill="#fcfafa">
                <font>
                   <Font name="Gidugu" size="20.0" />
                </font>
             </JFXButton>
+            <Label layoutX="53.0" layoutY="439.0" prefHeight="22.0" prefWidth="176.0" text="Don't have an account?" textFill="#636e72">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Hyperlink layoutX="229.0" layoutY="439.0" onAction="#hyperSignUpOnAction" prefHeight="22.0" prefWidth="106.0" text="Sign up here" />
          </children>
       </AnchorPane>
    </children>

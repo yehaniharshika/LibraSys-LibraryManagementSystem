@@ -23,7 +23,7 @@ public class MembershipFeeModel {
         pstm.setString(1, dto.getId());
         pstm.setString(2, dto.getName());
         pstm.setString(3, String.valueOf(dto.getAmount()));
-        pstm.setString(4,String.valueOf(dto.getDate()));
+        pstm.setString(4, String.valueOf(dto.getDate()));
         pstm.setString(5, dto.getStatus());
 
         boolean isSaved = pstm.executeUpdate() > 0;
@@ -42,11 +42,11 @@ public class MembershipFeeModel {
         pstm.setString(1, dto.getId());
         pstm.setString(2, dto.getName());
         pstm.setString(3, String.valueOf(dto.getAmount()));
-        pstm.setString(4,String.valueOf(dto.getDate()));
+        pstm.setString(4, String.valueOf(dto.getDate()));
         pstm.setString(5, dto.getStatus());
 
+        return pstm.executeUpdate() > 0 ;
 
-        return pstm.executeUpdate() > 0;
     }
 
     public MembershipFeeDto searchMembershipFee(String id) throws SQLException {
@@ -58,7 +58,8 @@ public class MembershipFeeModel {
 
         ResultSet resultSet = pstm.executeQuery();
 
-        MembershipFeeDto dto = null;
+        MembershipFeeDto dto = null ;
+
         if(resultSet.next()){
             String feeid = resultSet.getString(1);
             String mName = resultSet.getString(2);
@@ -69,8 +70,8 @@ public class MembershipFeeModel {
             dto = new MembershipFeeDto(feeid,mName,feeAmount,feedate,mStatus);
 
         }
-
         return dto;
+
     }
 
     public boolean deleteMembershipFee(String id) throws SQLException {
@@ -81,7 +82,7 @@ public class MembershipFeeModel {
 
         pstm.setString(1,id);
 
-        return pstm.executeUpdate() > 0;
+        return pstm.executeUpdate() > 0 ;
     }
 
     public List<MembershipFeeDto> getAllMemberShipFee() throws SQLException {
@@ -107,5 +108,6 @@ public class MembershipFeeModel {
         }
         return  feeList;
     }
+
 
 }

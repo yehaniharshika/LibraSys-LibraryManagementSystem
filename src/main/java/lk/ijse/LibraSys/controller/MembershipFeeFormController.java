@@ -113,6 +113,7 @@ public class MembershipFeeFormController {
         txtId.setText("");
         txtName.setText("");
         txtAmount.setText("");
+        lblPaidDate.setText("");
         txtStatus.setText("");
     }
 
@@ -125,6 +126,7 @@ public class MembershipFeeFormController {
 
            if(isDeleted){
               new Alert(Alert.AlertType.CONFIRMATION,"Deleted successfully!!").show();
+              loadAllMembershipFee();
            }
        } catch (SQLException e) {
            new Alert(Alert.AlertType.CONFIRMATION,"Deleted not successfully").show();
@@ -150,6 +152,10 @@ public class MembershipFeeFormController {
             if(isSaved){
                new Alert(Alert.AlertType.CONFIRMATION,"success!!").show();
                clearFields();
+               setDate();
+               loadAllMembershipFee();
+               setCellValueFactory();
+
             }
 
         } catch (SQLException e) {
