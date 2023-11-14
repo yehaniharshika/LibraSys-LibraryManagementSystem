@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -50,12 +51,13 @@ public class DashboardFormController {
     }
 
     public void btnSupplierOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/supplier_Form.fxml"));
-        Scene scene = new Scene(anchorPane);
-        Stage stage = (Stage) root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Manage Supplier Form");
-        stage.centerOnScreen();
+       AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/supplier_Form.fxml"));
+       Stage stage=(Stage) root.getScene().getWindow();
+       Scene scene = new Scene(anchorPane);
+       stage.setScene(scene);
+       stage.setTitle("supplier Form");
+       stage.centerOnScreen();
+       stage.show();
     }
 
     public void btnBookRackOnAction(ActionEvent actionEvent) throws IOException {

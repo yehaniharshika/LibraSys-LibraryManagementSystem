@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="750.0" prefWidth="1150.0" style="-fx-background-color: #1B97B0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MembershipFeeFormController">
+<AnchorPane fx:id="root" prefHeight="770.0" prefWidth="1200.0" style="-fx-background-color: #1B97B0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MembershipFeeFormController">
    <children>
-      <Label layoutX="293.0" layoutY="18.0" prefHeight="104.0" prefWidth="490.0" text="                     MEMBERSHIP FEE MANAGE">
+      <Label layoutX="293.0" layoutY="18.0" prefHeight="104.0" prefWidth="550.0" text="                         MEMBERSHIP  FEE   MANAGE">
          <font>
-            <Font name="System Bold" size="21.0" />
+            <Font name="MathJax_Main-Bold" size="23.0" />
          </font>
       </Label>
       <ImageView fitHeight="98.0" fitWidth="130.0" layoutX="228.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
@@ -23,7 +23,6 @@
             <Image url="@../icon/memberFee.png" />
          </image>
       </ImageView>
-      <Label layoutX="627.0" layoutY="134.0" prefHeight="34.0" prefWidth="139.0" />
       <JFXButton layoutX="31.0" layoutY="656.0" onAction="#btnBackOnAction" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #2d3436;" text="          BACK" textFill="#fcfafa">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
@@ -59,21 +58,21 @@
       <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="671.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="680.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="671.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true" />
-      <TableView fx:id="tblMembershipFee" layoutX="419.0" layoutY="200.0" prefHeight="516.0" prefWidth="711.0" style="-fx-background-color: #81ecec;">
+      <TableView fx:id="tblMembershipFee" layoutX="419.0" layoutY="200.0" prefHeight="549.0" prefWidth="761.0" style="-fx-background-color: #81ecec;">
         <columns>
-          <TableColumn fx:id="colFeeid" prefWidth="83.0" text="Fee ID" />
-          <TableColumn fx:id="colName" prefWidth="218.5" text="Member Name" />
+          <TableColumn fx:id="colFeeid" prefWidth="90.0" text="Fee ID" />
+          <TableColumn fx:id="colName" prefWidth="211.5" text="Member Name" />
             <TableColumn fx:id="colAmount" prefWidth="117.5" text="Paid Amount " />
-            <TableColumn fx:id="colDate" prefWidth="132.0" text="Paid Date" />
-            <TableColumn fx:id="colStatus" prefWidth="160.0" text="Anually/Monthly" />
+            <TableColumn fx:id="colDate" prefWidth="149.5" text="Paid Date" />
+            <TableColumn fx:id="colStatus" prefWidth="191.5" text="Anually/Monthly" />
         </columns>
       </TableView>
-      <Label layoutX="42.0" layoutY="131.0" prefHeight="42.0" prefWidth="100.0" text="Paid Date :">
+      <Label layoutX="28.0" layoutY="130.0" prefHeight="42.0" prefWidth="100.0" text="Paid Date :">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lblPaidDate" layoutX="138.0" layoutY="130.0" prefHeight="41.0" prefWidth="109.0">
+      <Label fx:id="lblPaidDate" layoutX="128.0" layoutY="131.0" prefHeight="41.0" prefWidth="139.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Label>

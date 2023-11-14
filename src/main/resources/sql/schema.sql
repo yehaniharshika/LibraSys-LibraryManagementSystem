@@ -58,10 +58,12 @@ create table reservation(
     reservationId varchar(10) primary key ,
     borrowedDate date not null ,
     dueDate date,
-   bookReturnDate date ,
-    memberId varchar(10),
+    bookReturnDate date ,
+    fineStatus text not null ,
+    fineAmount double not null ,
+    mid varchar(10),
     ISBN varchar(10),
-    constraint foreign key(memberId) references member(mId) on update cascade on delete cascade,
+    constraint foreign key(mid) references member(mid) on update cascade on delete cascade,
     constraint  foreign key(ISBN) references book(ISBN) on update cascade on delete cascade
 );
 

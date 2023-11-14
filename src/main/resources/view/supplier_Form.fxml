@@ -1,14 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.LibraSys.controller.SupplierFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="pane" prefHeight="770.0" prefWidth="1200.0" style="-fx-background-color: #1B97B0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.SupplierFormController">
+   <children>
+      <Label layoutX="330.0" layoutY="33.0" prefHeight="104.0" prefWidth="490.0" text="                        MANAGE   SUPPLIERS">
+         <font>
+            <Font name="MathJax_Main-Bold" size="23.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="114.0" fitWidth="110.0" layoutX="251.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView layoutX="371.0" layoutY="33.0">
+         <image>
+            <Image url="@../icon/supplier.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="990.0" layoutY="185.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436;" text="      SAVE" textFill="#fdfcfc">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="990.0" layoutY="242.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436;" text="    UPDATE" textFill="#fdfcfc">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="990.0" layoutY="355.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436;" text="   CLEAR" textFill="#fdfcfc">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="990.0" layoutY="301.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436;" text="   DELETE" textFill="#fdfcfc">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="990.0" layoutY="412.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436;" text="BACK" textFill="#fdfcfc">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <TextField layoutX="73.0" layoutY="269.0" prefHeight="42.0" prefWidth="356.0" promptText="Supplier Name" />
+      <TextField layoutX="73.0" layoutY="206.0" prefHeight="42.0" prefWidth="356.0" promptText="Supplier  ID" />
+      <TextField layoutX="73.0" layoutY="333.0" prefHeight="42.0" prefWidth="356.0" promptText="Contact Number" />
+      <Label layoutX="591.0" layoutY="185.0" prefHeight="42.0" prefWidth="100.0" text="Book ISBN :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <JFXComboBox layoutX="710.0" layoutY="189.0" prefHeight="32.0" prefWidth="187.0" />
+      <Label layoutX="591.0" layoutY="269.0" prefHeight="42.0" prefWidth="100.0" text="Book Name:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="720.0" layoutY="270.0" prefHeight="41.0" prefWidth="142.0" style="-fx-background-color: #f5f6fa;">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="591.0" layoutY="334.0" prefHeight="42.0" prefWidth="117.0" text="Qty On Hand :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="720.0" layoutY="335.0" prefHeight="41.0" prefWidth="142.0" style="-fx-background-color: #f5f6fa;">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="591.0" layoutY="404.0" prefHeight="42.0" prefWidth="129.0" text="Supply quantity:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSupplyQuantity" layoutX="720.0" layoutY="405.0" prefHeight="41.0" prefWidth="110.0" />
+      <TableView layoutX="67.0" layoutY="471.0" prefHeight="284.0" prefWidth="1068.0" style="-fx-background-color: #81ecec;">
+        <columns>
+          <TableColumn prefWidth="139.0" text="Supplier ID" />
+          <TableColumn prefWidth="275.0" text="Supplier Name" />
+            <TableColumn prefWidth="274.5" text="Contact Number" />
+            <TableColumn prefWidth="180.5" text="Book ISBN" />
+            <TableColumn prefWidth="198.0" text="Qty" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="1007.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="991.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="990.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="999.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="999.0" layoutY="359.0">
+         <image>
+            <Image url="@../icon/Clear.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="1004.0" layoutY="421.0">
+         <image>
+            <Image url="@../icon/Back.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1004.0" layoutY="251.0">
+         <image>
+            <Image url="@../icon/Update.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1011.0" layoutY="194.0">
+         <image>
+            <Image url="@../icon/Save.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="999.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1004.0" layoutY="310.0">
+         <image>
+            <Image url="@../icon/Delete.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>

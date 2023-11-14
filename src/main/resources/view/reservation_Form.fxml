@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -11,15 +12,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="799.0" prefWidth="928.0" style="-fx-background-color: #a29bfe;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.ReservationFormController">
+<AnchorPane fx:id="Root" prefHeight="770.0" prefWidth="1200.0" style="-fx-background-color: #1B97B0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.ReservationFormController">
    <children>
-      <Label layoutX="205.0" layoutY="17.0" prefHeight="90.0" prefWidth="441.0" text="                     MANAGE RESERVATION">
+      <Label layoutX="289.0" layoutY="26.0" prefHeight="90.0" prefWidth="472.0" text="                           MANAGE  RESERVATION">
          <font>
-            <Font name="System Bold" size="21.0" />
+            <Font name="MathJax_Main-Bold" size="21.0" />
          </font>
       </Label>
       <ImageView fitHeight="107.0" fitWidth="127.0" layoutX="225.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="120.0" fitWidth="121.0" layoutX="241.0" layoutY="14.0">
+      <ImageView fitHeight="113.0" fitWidth="121.0" layoutX="321.0" layoutY="14.0">
          <image>
             <Image url="@../icon/reservation.png" />
          </image>
@@ -34,84 +35,133 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="603.0" layoutY="157.0" prefHeight="33.0" prefWidth="200.0" />
-      <JFXComboBox layoutX="151.0" layoutY="152.0" prefHeight="33.0" prefWidth="151.0" />
-      <JFXButton layoutX="315.0" layoutY="152.0" prefHeight="41.0" prefWidth="94.0" style="-fx-background-color: #1dd1a1;" text="      NEW" textFill="#faf8f8">
+      <Label fx:id="lblMemberName" layoutX="603.0" layoutY="157.0" prefHeight="33.0" prefWidth="200.0" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <JFXComboBox fx:id="cmbMemberId" layoutX="151.0" layoutY="152.0" onAction="#cmbMemberOnAction" prefHeight="33.0" prefWidth="151.0" />
+      <JFXButton layoutX="315.0" layoutY="152.0" onAction="#btnNewMemberOnAction" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: #c23616;" text="      NEW" textFill="#faf8f8">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
-      <TextField layoutX="35.0" layoutY="305.0" prefHeight="41.0" prefWidth="366.0" promptText="Reservation ID" />
-      <TextField layoutX="473.0" layoutY="305.0" prefHeight="41.0" prefWidth="366.0" promptText="Borrowed Date" />
-      <TextField layoutX="35.0" layoutY="356.0" prefHeight="41.0" prefWidth="366.0" promptText="Due Date" />
-      <TextField layoutX="473.0" layoutY="356.0" prefHeight="41.0" prefWidth="366.0" promptText="BookReturn Date" />
       <Label layoutX="44.0" layoutY="214.0" prefHeight="33.0" prefWidth="94.0" text="ISBN  :">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <JFXComboBox layoutX="44.0" layoutY="247.0" prefHeight="33.0" prefWidth="166.0" />
-      <Label layoutX="332.0" layoutY="214.0" prefHeight="33.0" prefWidth="138.0" text="Book Name :">
+      <JFXComboBox fx:id="cmbISBN" layoutX="44.0" layoutY="247.0" onAction="#cmbBookOnAction" prefHeight="33.0" prefWidth="166.0" />
+      <Label layoutX="366.0" layoutY="214.0" prefHeight="33.0" prefWidth="138.0" text="Book Name :">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
       <Label layoutX="580.0" layoutY="214.0" prefHeight="33.0" prefWidth="200.0" />
       <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="225.0" layoutY="496.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="33.0" fitWidth="41.0" layoutX="315.0" layoutY="156.0">
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="321.0" layoutY="157.0">
          <image>
             <Image url="@../icon/new.png" />
          </image>
       </ImageView>
-      <TextField layoutX="35.0" layoutY="408.0" prefHeight="41.0" prefWidth="366.0" promptText="Fine Status" />
-      <TextField layoutX="473.0" layoutY="408.0" prefHeight="41.0" prefWidth="366.0" promptText="Fine Amount" />
       <Label layoutX="623.0" layoutY="214.0" prefHeight="33.0" prefWidth="138.0" text="Qty On Hand:">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <TableView layoutX="9.0" layoutY="539.0" prefHeight="253.0" prefWidth="910.0">
-        <columns>
-          <TableColumn prefWidth="100.0" text="Member ID" />
-          <TableColumn prefWidth="77.5" text="ISBN" />
-            <TableColumn prefWidth="113.5" text="Reservation ID" />
-            <TableColumn prefWidth="115.5" text="Borrowed Date" />
-            <TableColumn prefWidth="90.5" text="Due Date" />
-            <TableColumn prefWidth="131.5" text="BookReturn Date" />
-            <TableColumn prefWidth="88.0" text="Fine Status" />
-            <TableColumn prefWidth="100.5" text="Fine Amount" />
-            <TableColumn prefWidth="91.0" text="Action" />
-        </columns>
-      </TableView>
-      <Label layoutX="315.0" layoutY="255.0" prefHeight="33.0" prefWidth="138.0" />
-      <Label layoutX="611.0" layoutY="247.0" prefHeight="33.0" prefWidth="138.0" />
-      <JFXButton layoutX="780.0" layoutY="492.0" prefHeight="41.0" prefWidth="94.0" style="-fx-background-color: #2980b9;" text="       Add">
-         <font>
-            <Font name="KacstOne Bold" size="13.0" />
-         </font>
-      </JFXButton>
       <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="786.0" layoutY="466.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="786.0" layoutY="496.0">
-         <image>
-            <Image url="@../icon/add.png" />
-         </image>
-      </ImageView>
-      <JFXButton layoutX="18.0" layoutY="17.0" prefHeight="41.0" prefWidth="109.0" style="-fx-background-color: #be2edd;" text="          BACK">
-         <font>
-            <Font name="KacstOne Bold" size="13.0" />
-         </font>
-      </JFXButton>
       <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="27.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="27.0" layoutY="21.0">
-         <image>
-            <Image url="@../icon/back.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="35.0" layoutY="466.0" prefHeight="33.0" prefWidth="320.0" text="Are you sure you will borrow this book ?">
+      <DatePicker fx:id="txtDueDate" layoutX="44.0" layoutY="356.0" prefHeight="41.0" prefWidth="360.0" promptText="Due Date" />
+      <TextField fx:id="txtReservationId" layoutX="44.0" layoutY="302.0" prefHeight="41.0" prefWidth="360.0" promptText="Reservation Id">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtBorrowedDate" layoutX="470.0" layoutY="301.0" prefHeight="41.0" prefWidth="366.0" promptText="Borrowed date">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtFineStatus" layoutX="44.0" layoutY="408.0" prefHeight="41.0" prefWidth="360.0" promptText="Fine Status">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtReturnDate" layoutX="470.0" layoutY="356.0" prefHeight="41.0" prefWidth="366.0" promptText="Book Return Date">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtFineAmount" layoutX="470.0" layoutY="408.0" prefHeight="41.0" prefWidth="366.0" promptText="Fine Amount">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lblBookName" layoutX="359.0" layoutY="243.0" prefHeight="41.0" prefWidth="157.0" textFill="#fffdfd">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="340.0" layoutY="466.0" prefHeight="33.0" prefWidth="138.0" />
+      <Label fx:id="lblQtyOnHand" layoutX="619.0" layoutY="247.0" prefHeight="41.0" prefWidth="102.0" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="932.0" layoutY="301.0" onAction="#btnAddReservationOnAction" prefHeight="41.0" prefWidth="219.0" style="-fx-background-color: #2d3436;" text="      ADD  RESERVATION" textFill="#fdfcfc">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="932.0" layoutY="356.0" onAction="#btnUpdateReservationOnAction" prefHeight="41.0" prefWidth="219.0" style="-fx-background-color: #2d3436;" text="         UPDATE RESERVATION" textFill="#fdfcfc">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="932.0" layoutY="408.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="219.0" style="-fx-background-color: #2d3436;" text="CLEAR ALL" textFill="#fdfcfc">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="934.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="944.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="951.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="949.0" layoutY="310.0">
+         <image>
+            <Image url="@../../../../../../Downloads/addReservation.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="966.0" layoutY="416.0">
+         <image>
+            <Image url="@../../../../../../Downloads/clearReservation.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="944.0" layoutY="360.0">
+         <image>
+            <Image url="@../../../../../../Downloads/update2.png" />
+         </image>
+      </ImageView>
+      <TableView layoutX="17.0" layoutY="466.0" prefHeight="293.0" prefWidth="1166.0">
+         <columns>
+            <TableColumn prefWidth="122.0" text="Reservation Id" />
+            <TableColumn prefWidth="134.0" text="Borrowed date" />
+            <TableColumn prefWidth="129.5" text="Due Date" />
+            <TableColumn prefWidth="173.0" text="Book Return Date" />
+            <TableColumn prefWidth="136.5" text="Fine Status" />
+            <TableColumn prefWidth="117.0" text="Fine Amount" />
+            <TableColumn prefWidth="108.5" text="ISBN" />
+            <TableColumn prefWidth="121.0" text="Member ID" />
+            <TableColumn prefWidth="123.5" text="Action" />
+         </columns>
+      </TableView>
+      <JFXButton layoutX="219.0" layoutY="243.0" onAction="#btnNewBookOnAction" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: #c23616;" text="      NEW" textFill="#faf8f8">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="736.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="227.0" layoutY="247.0">
+         <image>
+            <Image url="@../icon/new.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

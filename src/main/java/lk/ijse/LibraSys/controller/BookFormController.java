@@ -7,13 +7,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.LibraSys.dto.BookDto;
 import lk.ijse.LibraSys.dto.BookRackDto;
+import lk.ijse.LibraSys.dto.tm.BookTm;
+import lk.ijse.LibraSys.model.BookModel;
 import lk.ijse.LibraSys.model.BookRackModel;
 
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class BookFormController {
     private JFXComboBox<String> cmbRackCode;
 
     @FXML
-    private TableColumn<?, ?> colBookdName;
+    private TableColumn<?, ?> colBookName;
 
     @FXML
     private TableColumn<?, ?> colCategory;
@@ -47,7 +48,7 @@ public class BookFormController {
     private Label lblNameOfBooks;
 
     @FXML
-    private TableView<?> tblBook;
+    private TableView<BookTm> tblBook;
 
     @FXML
     private TextField txtBookName;
@@ -64,9 +65,41 @@ public class BookFormController {
     @FXML
     private AnchorPane Root;
     private BookRackModel bookRackModel = new BookRackModel();
+    private BookModel bookModel = new BookModel();
 
     public void initialize(){
         loadRackCodes();
+        loadAllBooks();
+        setCellValueFactory();
+    }
+
+    private void setCellValueFactory() {
+        colISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
+        colBookName.setCellValueFactory(new PropertyValueFactory<>("bookName"));
+        colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
+        colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
+        colRackcode.setCellValueFactory(new PropertyValueFactory<>("rackCode"));
+    }
+
+    private void loadAllBooks() {
+        ObservableList<BookTm> obList = FXCollections.observableArrayList();
+
+        try {
+            List<BookDto> bookList = bookModel.getAllBooks();
+
+            for(BookDto dto : bookList){
+                obList.add(new BookTm(
+                        dto.getISBN(),
+                        dto.getBookName(),
+                        dto.getCategory(),
+                        dto.getQtyOnHand(),
+                        dto.getRackCode()
+                ));
+            }
+            tblBook.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void loadRackCodes() {
@@ -110,9 +143,43 @@ public class BookFormController {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
+        String ISBN = txtISBN.getText();
+
+        try {
+            boolean isDeleted = bookModel.deleteBook(ISBN);
+            
+            if(isDeleted){
+                new Alert(Alert.AlertType.INFORMATION,"Book deleted Successfully!!!").show();
+                loadAllBooks();
+            }else{
+                new Alert(Alert.AlertType.ERROR,"not book deleted!!!").show();
+            }
+        } catch (SQLException e) {
+           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
 
     }
 
+    @FXML
+    void txtISBNOnAction(ActionEvent event) {
+        String ISBN = txtISBN.getText();
+        
+        try {
+            BookDto dto = bookModel.searchBook(ISBN);
+            
+            if(dto != null){
+                txtISBN.setText(dto.getISBN());
+                txtBookName.setText(dto.getBookName());
+                txtCategory.setText(dto.getCategory());
+                txtQtyOnHand.setText(dto.getQtyOnHand());
+                cmbRackCode.setValue(dto.getRackCode());
+            }else{
+                new Alert(Alert.AlertType.ERROR,"Book not found!!!").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+    }
     @FXML
     void btnSaveOnAction(ActionEvent event) {
         String ISBN = txtISBN.getText();
@@ -120,6 +187,22 @@ public class BookFormController {
         String category = txtCategory.getText();
         String qtyOnHand = txtQtyOnHand.getText();
         String rackCode = cmbRackCode.getValue();
+
+        var dto = new BookDto(ISBN,bookName,category,qtyOnHand,rackCode);
+
+        try {
+            boolean isSaved = bookModel.saveBook(dto);
+            if(isSaved){
+                new Alert(Alert.AlertType.CONFIRMATION,"Book saved successfully!!!").show();
+                clearFields();
+                loadAllBooks();
+                setCellValueFactory();
+            }else{
+                new Alert(Alert.AlertType.ERROR,"ohh,Book not Saved!!!").show();
+            }
+        } catch (SQLException e) {
+           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
     }
 
     @FXML
@@ -129,6 +212,21 @@ public class BookFormController {
         String category = txtCategory.getText();
         String qtyOnHand = txtQtyOnHand.getText();
         String rackCode = cmbRackCode.getValue();
+
+        var dto = new BookDto(ISBN,bookName,category,qtyOnHand,rackCode);
+
+        try {
+            boolean isUpdated = bookModel.updateBook(dto);
+            if (isUpdated){
+                new Alert(Alert.AlertType.INFORMATION,"book updated successfully").show();
+                clearFields();
+                loadAllBooks();
+            }else{
+                new Alert(Alert.AlertType.ERROR,"book not updated!!!").show();
+            }
+        } catch (SQLException e) {
+           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
 
     }
 
@@ -146,9 +244,6 @@ public class BookFormController {
         }
     }
 
-    @FXML
-    void txtISBNOnAction(ActionEvent event) {
-
-    }
+    
 
 }
