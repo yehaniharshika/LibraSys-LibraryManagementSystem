@@ -14,13 +14,13 @@
 
 <AnchorPane fx:id="Root" prefHeight="770.0" prefWidth="1200.0" style="-fx-background-color: #1B97B0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.ReservationFormController">
    <children>
-      <Label layoutX="289.0" layoutY="26.0" prefHeight="90.0" prefWidth="472.0" text="                           MANAGE  RESERVATION">
+      <Label layoutX="363.0" layoutY="26.0" prefHeight="90.0" prefWidth="472.0" text="                           MANAGE  RESERVATION">
          <font>
             <Font name="MathJax_Main-Bold" size="21.0" />
          </font>
       </Label>
       <ImageView fitHeight="107.0" fitWidth="127.0" layoutX="225.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="113.0" fitWidth="121.0" layoutX="321.0" layoutY="14.0">
+      <ImageView fitHeight="113.0" fitWidth="121.0" layoutX="377.0" layoutY="15.0">
          <image>
             <Image url="@../icon/reservation.png" />
          </image>
@@ -106,17 +106,17 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <JFXButton layoutX="932.0" layoutY="301.0" onAction="#btnAddReservationOnAction" prefHeight="41.0" prefWidth="219.0" style="-fx-background-color: #2d3436;" text="      ADD  RESERVATION" textFill="#fdfcfc">
+      <JFXButton layoutX="932.0" layoutY="231.0" onAction="#btnAddReservationOnAction" prefHeight="41.0" prefWidth="219.0" style="-fx-background-color: #2d3436;" text="      ADD  RESERVATION" textFill="#fdfcfc">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="932.0" layoutY="356.0" onAction="#btnUpdateReservationOnAction" prefHeight="41.0" prefWidth="219.0" style="-fx-background-color: #2d3436;" text="         UPDATE RESERVATION" textFill="#fdfcfc">
+      <JFXButton layoutX="932.0" layoutY="286.0" onAction="#btnUpdateReservationOnAction" prefHeight="41.0" prefWidth="219.0" style="-fx-background-color: #2d3436;" text="         UPDATE RESERVATION" textFill="#fdfcfc">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="932.0" layoutY="408.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="219.0" style="-fx-background-color: #2d3436;" text="CLEAR ALL" textFill="#fdfcfc">
+      <JFXButton layoutX="932.0" layoutY="340.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="219.0" style="-fx-background-color: #2d3436;" text="CLEAR ALL" textFill="#fdfcfc">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
@@ -124,32 +124,31 @@
       <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="934.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="944.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="951.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="949.0" layoutY="310.0">
+      <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="949.0" layoutY="239.0">
          <image>
-            <Image url="@../../../../../../Downloads/addReservation.png" />
+            <Image url="@../icon/addReservation.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="966.0" layoutY="416.0">
+      <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="962.0" layoutY="348.0">
          <image>
-            <Image url="@../../../../../../Downloads/clearReservation.png" />
+            <Image url="@../icon/clearReservation.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="944.0" layoutY="360.0">
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="944.0" layoutY="290.0">
          <image>
-            <Image url="@../../../../../../Downloads/update2.png" />
+            <Image url="@../icon/Update.png" />
          </image>
       </ImageView>
-      <TableView layoutX="17.0" layoutY="466.0" prefHeight="293.0" prefWidth="1166.0">
+      <TableView layoutX="43.0" layoutY="466.0" prefHeight="293.0" prefWidth="1112.0">
          <columns>
             <TableColumn prefWidth="122.0" text="Reservation Id" />
             <TableColumn prefWidth="134.0" text="Borrowed date" />
             <TableColumn prefWidth="129.5" text="Due Date" />
             <TableColumn prefWidth="173.0" text="Book Return Date" />
-            <TableColumn prefWidth="136.5" text="Fine Status" />
-            <TableColumn prefWidth="117.0" text="Fine Amount" />
-            <TableColumn prefWidth="108.5" text="ISBN" />
+            <TableColumn prefWidth="165.0" text="Fine Status" />
+            <TableColumn prefWidth="131.0" text="Fine Amount" />
             <TableColumn prefWidth="121.0" text="Member ID" />
-            <TableColumn prefWidth="123.5" text="Action" />
+            <TableColumn prefWidth="134.5" text="ISBN" />
          </columns>
       </TableView>
       <JFXButton layoutX="219.0" layoutY="243.0" onAction="#btnNewBookOnAction" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: #c23616;" text="      NEW" textFill="#faf8f8">
@@ -161,6 +160,17 @@
       <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="227.0" layoutY="247.0">
          <image>
             <Image url="@../icon/new.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="932.0" layoutY="392.0" onAction="#btnBackOnAction" prefHeight="41.0" prefWidth="219.0" style="-fx-background-color: #2d3436;" text="BACK" textFill="#fdfcfc">
+         <font>
+            <Font name="KacstOne Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="803.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="986.0" layoutY="400.0">
+         <image>
+            <Image url="@../icon/Back.png" />
          </image>
       </ImageView>
    </children>

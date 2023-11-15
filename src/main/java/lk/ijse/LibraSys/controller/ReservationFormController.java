@@ -5,16 +5,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.LibraSys.dto.BookDto;
 import lk.ijse.LibraSys.dto.MemberDto;
+import lk.ijse.LibraSys.dto.ReservationDto;
 import lk.ijse.LibraSys.model.BookModel;
 import lk.ijse.LibraSys.model.MemberModel;
+import lk.ijse.LibraSys.model.ReservationModel;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -57,6 +61,7 @@ public class ReservationFormController {
     private TextField txtReturnDate;
     private BookModel bookModel = new BookModel();
     private MemberModel memberModel = new MemberModel();
+    private ReservationModel reservationModel = new ReservationModel();
 
     public void initialize(){
         generateNextReservationId();
@@ -110,27 +115,85 @@ public class ReservationFormController {
         double fineAmount = Double.parseDouble(txtFineAmount.getText());
         String mid = cmbMemberId.getValue();
         String ISBN = cmbISBN.getValue();
-        Button btn = new Button("Remove Reservation");
+        //Button btn = new Button("Remove Reservation");
 
+        var dto = new ReservationDto(reservationId,borrowedDate,dueDate,bookReturnDate,fineStatus,fineAmount,mid,ISBN);
+
+        try {
+            boolean isAdd = reservationModel.addReservation(dto);
+            if(isAdd){
+                new Alert(Alert.AlertType.CONFIRMATION,"Adding reservation successfully!!!").show();
+                clearFields();
+            }else{
+                new Alert(Alert.AlertType.ERROR,"Reservation failed!!!").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+
+    }
+
+    private void clearFields() {
+        txtReservationId.setText("");
+        txtBorrowedDate.setText("");
+        txtDueDate.setAccessibleText("");
+        txtReturnDate.setText("");
+        txtFineStatus.setText("");
+        txtFineAmount.setText("");
+        cmbMemberId.setValue("");
+        cmbISBN.setValue("");
     }
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
-
+        clearFields();
     }
 
     @FXML
-    void btnNewBookOnAction(ActionEvent event) {
-
+    void btnNewBookOnAction(ActionEvent event) throws IOException {
+        Parent anchorPane = FXMLLoader.load(getClass().getResource("/view/book_Form.fxml"));
+        Scene scene = new Scene(anchorPane);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Book Form");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     @FXML
-    void btnNewMemberOnAction(ActionEvent event) {
-
+    void btnNewMemberOnAction(ActionEvent event) throws IOException {
+        Parent anchorPane = FXMLLoader.load(getClass().getResource("/view/member_Form.fxml"));
+        Scene scene = new Scene(anchorPane);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Member Form");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     @FXML
     void btnUpdateReservationOnAction(ActionEvent event) {
+        String reservationId = txtReservationId.getText();
+        String borrowedDate = txtBorrowedDate.getText();
+        String dueDate = String.valueOf(txtDueDate.getValue());
+        String bookReturnDate = txtReturnDate.getText();
+        String fineStatus = txtFineStatus.getText();
+        double fineAmount = Double.parseDouble(txtFineAmount.getText());
+        String mid = cmbMemberId.getValue();
+        String ISBN = cmbISBN.getValue();
+
+        var dto = new ReservationDto(reservationId,borrowedDate,dueDate,bookReturnDate,fineStatus,fineAmount,mid,ISBN);
+
+        try {
+            boolean isUpdated = reservationModel.updateReservation(dto);
+            if(isUpdated){
+                new Alert(Alert.AlertType.INFORMATION,"Reservation updated successfully!!!").show();
+            }else {
+                new Alert(Alert.AlertType.ERROR,"updated not found!!!").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
 
     }
 
@@ -158,6 +221,17 @@ public class ReservationFormController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    void btnBackOnAction(ActionEvent event) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_Form.fxml"));
+        Scene scene = new Scene(anchorPane);
+        Stage stage = (Stage) Root.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Dashboard Form");
+        stage.centerOnScreen();
+        stage.show();
     }
 
 }
