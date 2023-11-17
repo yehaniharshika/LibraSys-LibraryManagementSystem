@@ -11,48 +11,38 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="770.0" prefWidth="1200.0" style="-fx-background-color: #1B97B0;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.AuthorFormController">
+<AnchorPane fx:id="Anchor" prefHeight="747.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.AuthorFormController">
    <children>
-      <ImageView fitHeight="154.0" fitWidth="442.0" layoutX="334.0" layoutY="28.0">
-         <image>
-            <Image url="@../icon/authors.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="193.0" layoutY="105.0" prefHeight="104.0" prefWidth="436.0" text="                         MANAGE AUTHORS">
+      <TextField layoutX="41.0" layoutY="226.0" prefHeight="42.0" prefWidth="356.0" promptText="Author ID" style="-fx-border-color: #2d3436;" />
+      <TextField layoutX="41.0" layoutY="280.0" prefHeight="42.0" prefWidth="356.0" promptText="Author Name" style="-fx-border-color: #2d3436;" />
+      <JFXButton layoutX="56.0" layoutY="558.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="132.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="   SAVE" textFill="#f5f3f3">
          <font>
-            <Font name="Liberation Serif Bold" size="24.0" />
+            <Font name="KacstOne Bold" size="12.0" />
          </font>
-      </Label>
-      <TextField layoutX="41.0" layoutY="226.0" prefHeight="42.0" prefWidth="356.0" promptText="Author ID" />
-      <TextField layoutX="41.0" layoutY="280.0" prefHeight="42.0" prefWidth="356.0" promptText="Author Name" />
-      <JFXButton layoutX="56.0" layoutY="558.0" prefHeight="41.0" prefWidth="132.0" style="-fx-background-color: #2d3436;" text="      SAVE" textFill="#f5f3f3">
+      </JFXButton>
+      <JFXButton layoutX="232.0" layoutY="558.0" prefHeight="41.0" prefWidth="132.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="CLEAR" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="232.0" layoutY="558.0" prefHeight="41.0" prefWidth="132.0" style="-fx-background-color: #2d3436;" text="CLEAR" textFill="#f5f3f3">
+      <JFXButton layoutX="232.0" layoutY="619.0" prefHeight="41.0" prefWidth="132.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="    UPDATE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="232.0" layoutY="619.0" prefHeight="41.0" prefWidth="132.0" style="-fx-background-color: #2d3436;" text="    UPDATE" textFill="#f5f3f3">
+      <JFXButton layoutX="142.0" layoutY="682.0" onAction="#btnBackOnAction" prefHeight="41.0" prefWidth="132.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="    BACK" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="153.0" layoutY="681.0" prefHeight="41.0" prefWidth="132.0" style="-fx-background-color: #2d3436;" text="  BACK" textFill="#f5f3f3">
+      <JFXButton layoutX="56.0" layoutY="619.0" prefHeight="41.0" prefWidth="132.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="     DELETE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="56.0" layoutY="619.0" prefHeight="41.0" prefWidth="132.0" style="-fx-background-color: #2d3436;" text="     DELETE" textFill="#f5f3f3">
-         <font>
-            <Font name="KacstOne Bold" size="13.0" />
-         </font>
-      </JFXButton>
-      <TextArea layoutX="41.0" layoutY="389.0" prefHeight="139.0" prefWidth="356.0" promptText="Written  Books" />
-      <TextField layoutX="41.0" layoutY="333.0" prefHeight="42.0" prefWidth="356.0" promptText="Number Of Written Books" />
-      <TableView layoutX="444.0" layoutY="226.0" prefHeight="521.0" prefWidth="730.0" style="-fx-background-color: #81ecec;">
+      <TextArea layoutX="41.0" layoutY="389.0" prefHeight="139.0" prefWidth="356.0" promptText="Written  Books" style="-fx-border-color: #2d3436;" />
+      <TextField layoutX="41.0" layoutY="333.0" prefHeight="42.0" prefWidth="356.0" promptText="Number Of Written Books" style="-fx-border-color: #2d3436;" />
+      <TableView layoutX="436.0" layoutY="182.0" prefHeight="521.0" prefWidth="730.0" style="-fx-background-color: #1B97B0;">
         <columns>
           <TableColumn prefWidth="82.0" text="Author ID" />
           <TableColumn prefWidth="179.0" text="Author Name" />
@@ -62,20 +52,20 @@
       </TableView>
       <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="238.0" layoutY="626.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="244.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="71.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="14.0" layoutY="585.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="64.0" layoutY="626.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="164.0" layoutY="688.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="78.0" layoutY="565.0">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="74.0" layoutY="567.0">
          <image>
             <Image url="@../icon/Save.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="30.0" fitWidth="29.0" layoutX="244.0" layoutY="565.0">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="247.0" layoutY="567.0">
          <image>
             <Image url="@../icon/Clear.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="78.0" layoutY="626.0">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="74.0" layoutY="628.0">
          <image>
             <Image url="@../icon/Delete.png" />
          </image>
@@ -85,10 +75,25 @@
             <Image url="@../icon/Update.png" />
          </image>
       </ImageView>
-      <ImageView layoutX="176.0" layoutY="690.0">
+      <ImageView layoutX="164.0" layoutY="691.0">
          <image>
             <Image url="@../icon/Back.png" />
          </image>
       </ImageView>
+      <Label layoutX="344.0" layoutY="24.0" prefHeight="89.0" prefWidth="530.0" style="-fx-border-color: #222f3e; -fx-background-color: #1B97B0;" text="                        AUTHORS  MANAGE" textFill="#171717">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="71.0" fitWidth="88.0" layoutX="414.0" layoutY="33.0">
+         <image>
+            <Image url="@../../../../../../Downloads/Author%20.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="33.0" prefWidth="245.0" text="Reading completes Human!!!!">
+         <font>
+            <Font name="MathJax_Main-Bold" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

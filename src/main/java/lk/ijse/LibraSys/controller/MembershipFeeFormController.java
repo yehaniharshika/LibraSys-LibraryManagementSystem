@@ -102,11 +102,13 @@ public class MembershipFeeFormController {
     }
 
     private void setDate() {
-       lblPaidDate.setText(String.valueOf(LocalDate.now()));
+
+        lblPaidDate.setText(String.valueOf(LocalDate.now()));
     }
     @FXML
     void btnClearOnAction(ActionEvent event) {
         clearFields();
+        setDate();
     }
 
     private void clearFields() {
@@ -180,6 +182,7 @@ public class MembershipFeeFormController {
             if(isUpdated){
                 new Alert(Alert.AlertType.CONFIRMATION,"successfully updated!").show();
                 clearFields();
+                setDate();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
