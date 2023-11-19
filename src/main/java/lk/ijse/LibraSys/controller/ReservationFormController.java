@@ -9,17 +9,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.LibraSys.dto.BookDto;
 import lk.ijse.LibraSys.dto.MemberDto;
 import lk.ijse.LibraSys.dto.ReservationDto;
+import lk.ijse.LibraSys.dto.tm.ReservationTm;
 import lk.ijse.LibraSys.model.BookModel;
 import lk.ijse.LibraSys.model.MemberModel;
 import lk.ijse.LibraSys.model.ReservationModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 public class ReservationFormController {
@@ -32,6 +35,33 @@ public class ReservationFormController {
 
     @FXML
     private JFXComboBox<String> cmbMemberId;
+
+    @FXML
+    private TableView<ReservationTm> tblReservation;
+
+    @FXML
+    private TableColumn<?, ?> colBookIsbn;
+
+    @FXML
+    private TableColumn<?, ?> colBookReturnDate;
+
+    @FXML
+    private TableColumn<?, ?> colBorrowedDate;
+
+    @FXML
+    private TableColumn<?, ?> colDueDate;
+
+    @FXML
+    private TableColumn<?, ?> colFineAmount;
+
+    @FXML
+    private TableColumn<?, ?> colFineStatus;
+
+    @FXML
+    private TableColumn<?, ?> colMemberId;
+
+    @FXML
+    private TableColumn<?, ?> colReservationId;
 
     @FXML
     private Label lblBookName;
@@ -67,10 +97,59 @@ public class ReservationFormController {
         generateNextReservationId();
         loadMemberIds();
         loadBookISBN();
+        setDate();
+        loadAllReservation();
+        setCellValueFactory();
+    }
+
+    private void setCellValueFactory() {
+        colReservationId.setCellValueFactory(new PropertyValueFactory<>("reservationId"));
+        colBorrowedDate.setCellValueFactory(new PropertyValueFactory<>("borrowedDate"));
+        colDueDate.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
+        colBookReturnDate.setCellValueFactory(new PropertyValueFactory<>("bookReturnDate"));
+        colFineStatus.setCellValueFactory(new PropertyValueFactory<>("fineStatus"));
+        colFineAmount.setCellValueFactory(new PropertyValueFactory<>("fineAmount"));
+        colMemberId.setCellValueFactory(new PropertyValueFactory<>("mid"));
+        colBookIsbn.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
+    }
+
+    private void loadAllReservation() {
+        ObservableList<ReservationTm> obList = FXCollections.observableArrayList();
+
+        try {
+            List<ReservationDto> reservationList = reservationModel.getAllReservation();
+
+            for(ReservationDto dto: reservationList){
+                obList.add(new ReservationTm(
+                        dto.getReservationId(),
+                        dto.getBorrowedDate(),
+                        dto.getDueDate(),
+                        dto.getBookReturnDate(),
+                        dto.getFineStatus(),
+                        dto.getFineAmount(),
+                        dto.getMid(),
+                        dto.getISBN()
+                ));
+
+            }
+            tblReservation.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    private void setDate() {
+        txtBorrowedDate.setText(String.valueOf(LocalDate.now()));
     }
 
     private void generateNextReservationId() {
-
+        try {
+            String reservationId = reservationModel.generateNextReservationId(txtReservationId.getId());
+            txtReservationId.setText(reservationId);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
 
     }
 
@@ -124,8 +203,57 @@ public class ReservationFormController {
             if(isAdd){
                 new Alert(Alert.AlertType.CONFIRMATION,"Adding reservation successfully!!!").show();
                 clearFields();
+                loadAllReservation();
+                setCellValueFactory();
+
+                setDate();
+                generateNextReservationId();
             }else{
                 new Alert(Alert.AlertType.ERROR,"Reservation failed!!!").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+
+    }
+
+
+
+    @FXML
+    void btnDeleteReservationOnAction(ActionEvent event) {
+        String  reservationId = txtReservationId.getText();
+
+        try {
+            boolean isDeleted = reservationModel.deleteReservation(reservationId);
+            if (isDeleted){
+                System.out.println("Are you sure to delete?");
+
+                new Alert(Alert.AlertType.INFORMATION,"reservation deleted successfully!!").show();
+            }else {
+                new Alert(Alert.AlertType.ERROR,"reservation not deleted!!!").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+    }
+    @FXML
+    void txtReservationIdOnAction(ActionEvent event) {
+        String  reservationId = txtReservationId.getText();
+
+        try {
+            ReservationDto dto =reservationModel.searchReservation(reservationId);
+
+            if (dto != null){
+                txtReservationId.setText(dto.getReservationId());
+                txtBorrowedDate.setText(dto.getBorrowedDate());
+                txtDueDate.setAccessibleText(dto.getDueDate());
+                txtReturnDate.setText(dto.getBookReturnDate());
+                txtFineStatus.setText(dto.getFineStatus());
+                txtFineAmount.setText(String.valueOf(dto.getFineAmount()));
+                cmbMemberId.setValue(dto.getMid());
+                cmbISBN.setValue(dto.getISBN());
+            }else{
+                new Alert(Alert.AlertType.ERROR,"Reservation not found!!!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -142,11 +270,15 @@ public class ReservationFormController {
         txtFineAmount.setText("");
         cmbMemberId.setValue("");
         cmbISBN.setValue("");
+        lblMemberName.setText("");
+        lblBookName.setText("");
+        lblQtyOnHand.setText("");
     }
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
         clearFields();
+
     }
 
     @FXML

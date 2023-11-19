@@ -84,8 +84,8 @@ create  table bookAuthor_detail(
 
 create table supplier(
     supplierId varchar(10) primary key ,
-    supplierName varchar(100) not null,
-    telNumber varchar(15) not null
+    supplierName varchar(1000) not null,
+    contactNumber varchar(15) not null
 );
 
 create table bookSupplier_detail(

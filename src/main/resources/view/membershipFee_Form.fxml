@@ -13,11 +13,6 @@
 
 <AnchorPane fx:id="root" prefHeight="747.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MembershipFeeFormController">
    <children>
-      <ImageView fitHeight="80.0" fitWidth="123.0" layoutX="317.0" layoutY="30.0">
-         <image>
-            <Image url="@../icon/memberFee.png" />
-         </image>
-      </ImageView>
       <JFXButton layoutX="31.0" layoutY="656.0" onAction="#btnBackOnAction" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa;" text="      BACK" textFill="#fcfafa">
          <font>
             <Font name="KacstOne Bold" size="12.0" />

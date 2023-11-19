@@ -18,7 +18,7 @@ public class ReservationTm {
 
     private String mid;
     private  String ISBN;
-    private Button btn;
+
 
 
 }
