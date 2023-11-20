@@ -88,9 +88,10 @@ create table supplier(
     contactNumber varchar(15) not null
 );
 
-create table bookSupplier_detail(
+create table booksSupplier_detail(
     supplierId varchar(10) not null ,
     ISBN varchar(10) not null,
+    bookName varchar(200) not null,
     qty int not null,
     constraint foreign key(supplierId) references supplier(supplierId) on update cascade on delete cascade,
     constraint foreign key(ISBN) references book(ISBN) on update cascade on delete cascade

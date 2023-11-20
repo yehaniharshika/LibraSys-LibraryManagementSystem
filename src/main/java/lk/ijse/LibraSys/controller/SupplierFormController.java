@@ -1,5 +1,6 @@
 package lk.ijse.LibraSys.controller;
 
+
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,11 +11,14 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.LibraSys.dto.BookDto;
+import lk.ijse.LibraSys.dto.PlaceBooksSupplierOrderDto;
 import lk.ijse.LibraSys.dto.tm.SupplierCartTm;
 import lk.ijse.LibraSys.model.BookModel;
+import lk.ijse.LibraSys.model.PlacebookSupplierModel;
 import lk.ijse.LibraSys.model.SupplierModel;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -71,16 +75,18 @@ public class SupplierFormController {
     private BookModel bookModel = new BookModel();
     private SupplierModel supplierModel = new SupplierModel();
     private ObservableList<SupplierCartTm> obList = FXCollections.observableArrayList();
+    private PlacebookSupplierModel placebookSupplierModel = new PlacebookSupplierModel();
+
 
 
     public  void initialize() {
         loadAllBookISBNs();
+
         setCellValueFactory();
     }
 
     private void setCellValueFactory() {
-        colSupplierId.setCellValueFactory(new PropertyValueFactory<>("supplierId"));
-        colSupplierName.setCellValueFactory(new PropertyValueFactory<>("supName"));
+
         colBookISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
         colBookName.setCellValueFactory(new PropertyValueFactory<>("bookName"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("Qty"));
@@ -105,18 +111,17 @@ public class SupplierFormController {
 
     @FXML
     void btnAddSupplierCartOnAction(ActionEvent event) {
-        String supplierId= txtSupplierId.getText();
-        String supName = txtSupplierName.getText();
-        String bookISBN = String.valueOf(cmbBookISBN.getValue());
+        String ISBN = cmbBookISBN.getValue();
         String bookName = lblBookName.getText();
-        String Qty = txtSupplyQuantity.getText();
+        int Qty = Integer.parseInt(txtSupplyQuantity.getText());
         Button btn = new Button("Remove");
 
         setRemoveBtnAction(btn);
         btn.setCursor(Cursor.HAND);
-        btn.setStyle("-fx-border-color: pink;");
+        //btn.setStyle("-fx-border-color: pink;");
 
-
+        var SupplierCartTm = new SupplierCartTm(ISBN,bookName,Qty,btn);
+        System.out.println("add to cart success!!");
     }
 
     private void setRemoveBtnAction(Button btn) {
@@ -147,6 +152,31 @@ public class SupplierFormController {
     }
 
     @FXML
+    void PlaceBooksOrderOnAction(ActionEvent event) {
+        String supplierId = txtSupplierId.getText();
+        String supName  = txtSupplierName.getText();
+        String contactNumber =  txtContactNumber.getText();
+
+        List<SupplierCartTm> supplierCartTmList = new ArrayList<>();
+        for (int i =0 ; i < tblSupplierDetail.getItems().size(); i++){
+            SupplierCartTm supplierCartTm = obList.get(i);
+            supplierCartTmList.add(supplierCartTm);
+
+        }
+        System.out.println("Place Books supplier order from controller: "+ supplierCartTmList);
+
+        var placeBooksSupplierOrderDto = new PlaceBooksSupplierOrderDto(supplierId,supName,contactNumber,supplierCartTmList);
+        try {
+            boolean isSuccess = placebookSupplierModel.placeBooksOrder(placeBooksSupplierOrderDto);
+            if (isSuccess){
+                new Alert(Alert.AlertType.CONFIRMATION,"Order success!!!").show();
+            }
+        } catch (SQLException e) {
+           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+    }
+
+    @FXML
     void btnNewBookOnAction(ActionEvent event) {
 
     }
@@ -165,6 +195,9 @@ public class SupplierFormController {
         }
     }
 
+    public void txtSuppliyQuantityOnAction(ActionEvent actionEvent) {
+        btnAddSupplierCartOnAction(actionEvent);
+    }
 }
 
 

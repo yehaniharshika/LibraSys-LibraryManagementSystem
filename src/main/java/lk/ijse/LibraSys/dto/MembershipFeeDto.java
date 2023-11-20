@@ -49,19 +49,24 @@ public class MembershipFeeDto {
 
 
 
+
     public String getId() {
+
         return id;
     }
 
     public String getName() {
+
         return name;
     }
 
     public double getAmount() {
+
         return amount;
     }
 
     public String getStatus() {
+
         return status;
     }
 

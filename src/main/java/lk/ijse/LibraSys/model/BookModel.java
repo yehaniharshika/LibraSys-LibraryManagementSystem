@@ -2,6 +2,7 @@ package lk.ijse.LibraSys.model;
 
 import lk.ijse.LibraSys.db.DbConnection;
 import lk.ijse.LibraSys.dto.BookDto;
+import lk.ijse.LibraSys.dto.tm.SupplierCartTm;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -85,5 +86,27 @@ public class BookModel {
             ));
         }
         return bookList;
+    }
+
+    //transaction ekata
+    public  boolean updateBooks(List<SupplierCartTm> supplierCartTmList) throws SQLException {
+        for (SupplierCartTm Tm : supplierCartTmList){
+            System.out.println("Book : "+ Tm);
+
+            if (!updateQty(Tm.getISBN(), Tm.getQty())){
+                return false;
+            }
+        }
+        return true;
+    }
+    public  boolean updateQty(String ISBN , int  qtyOnHand) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql ="UPDATE book SET qtyOnHand = qtyOnHand + ? WHERE ISBN = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setInt(1,qtyOnHand);
+        pstm.setString(2,ISBN);
+
+        return  pstm.executeUpdate() > 0;
     }
 }

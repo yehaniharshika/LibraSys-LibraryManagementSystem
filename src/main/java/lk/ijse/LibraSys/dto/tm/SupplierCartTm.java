@@ -10,8 +10,6 @@ import lombok.*;
 @Getter
 @ToString
 public class SupplierCartTm {
-    private String SupplierId;
-    private String supName;
     private String ISBN;
     private String bookName;
     private int Qty;

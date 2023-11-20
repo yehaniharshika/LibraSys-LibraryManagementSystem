@@ -11,7 +11,11 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class SupplierDto {
-    private String contactNumber;
+public class PlaceBooksSupplierOrderDto {
+    private String supplierId;
+    private String SupName;
+    private String ContactNumber;
+
     private List<SupplierCartTm> supplierCartTmList = new ArrayList<>();
+
 }
