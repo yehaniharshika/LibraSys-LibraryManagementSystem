@@ -57,8 +57,23 @@ public class BookRackFormController {
     public void initialize(){
         loadAllBookRacks();
         setCellValueFactory();
+        tableListener();
     }
 
+    private void tableListener() {
+        tblBookrack.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
+            setData(newValue);
+
+        });
+    }
+
+    private void setData(BookRackTm row) {
+        txtCode.setText(row.getRackCode());
+        txtQuantity.setText(String.valueOf(row.getQtyBooks()));
+        txtCategoryOfBooks.setText(row.getCategoryOfBooks());
+        txtNameOfBooks.setText(row.getNameOfBooks());
+
+    }
     @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_Form.fxml"));

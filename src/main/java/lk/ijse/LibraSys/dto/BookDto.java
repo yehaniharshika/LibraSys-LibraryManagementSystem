@@ -13,6 +13,8 @@ public class BookDto {
     private String category;
     private String qtyOnHand;
     private String rackCode;
+    private String authorId;
+
 
 
 }

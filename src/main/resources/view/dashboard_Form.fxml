@@ -68,9 +68,9 @@
                   <Image url="@../icon/bookRack.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="66.0" fitWidth="72.0" layoutX="45.0" layoutY="330.0">
+            <ImageView fitHeight="66.0" fitWidth="72.0" layoutX="46.0" layoutY="322.0">
                <image>
-                  <Image url="@../icon/books.png" />
+                  <Image url="@../icon/book.png" />
                </image>
             </ImageView>
             <JFXButton layoutX="31.0" layoutY="492.0" onAction="#btnReservationOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="         Reservation">

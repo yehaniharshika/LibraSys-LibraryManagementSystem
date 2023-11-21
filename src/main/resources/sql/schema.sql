@@ -42,17 +42,6 @@ create  table bookRack(
     nameOfBooks text not null
 );
 
-insert  into bookRack values ("R001",20,"Novel","gamperaliya,kaliyugaya,yuganthaya,lamakaw Kalaba,Madoldoowa,GuruGeethaya,GiripuraAththo,Mahawesi,Adara Andaraya,Awwa,Holman Walawwa");
-
-
-create  table book(
-    ISBN varchar(10) primary key ,
-    bookName varchar(100) not null ,
-    category varchar(20) not null,
-    qtyOnHand int not null,
-    rackCode varchar(10),
-    constraint foreign key(rackCode) references bookRack(rackCode) on update cascade on delete cascade
-);
 
 create table reservation(
     reservationId varchar(10) primary key ,
@@ -67,6 +56,7 @@ create table reservation(
     constraint  foreign key(ISBN) references book(ISBN) on update cascade on delete cascade
 );
 
+
 create table author(
     authorId varchar(10) primary key ,
     authorName varchar(500) not null ,
@@ -75,20 +65,25 @@ create table author(
     currentlyBooksWrittenQty int not null
 );
 
-create  table bookAuthor_detail(
-    author_id varchar(10),
-    ISBN varchar(10),
-    bookName varchar(100) not null ,
-    authorName varchar(100) not null,
-    constraint foreign key(author_id) references author(author_id) on update cascade on delete cascade ,
-    constraint foreign key(ISBN) references book(ISBN) on update cascade on delete cascade
+
+create  table book(
+     ISBN varchar(10) primary key ,
+     bookName varchar(100) not null ,
+     category varchar(20) not null,
+     qtyOnHand int not null,
+     rackCode varchar(10),
+     authorId varchar(10),
+     constraint foreign key(rackCode) references bookRack(rackCode) on update cascade on delete cascade,
+     constraint foreign key(authorId) references  author(authorId) on update cascade on delete cascade
 );
+
 
 create table supplier(
     supplierId varchar(10) primary key ,
     supplierName varchar(1000) not null,
     contactNumber varchar(15) not null
 );
+
 
 create table booksSupplier_detail(
     supplierId varchar(10) ,
@@ -100,6 +95,4 @@ create table booksSupplier_detail(
     constraint foreign key(ISBN) references book(ISBN) on update cascade on delete cascade
 );
 
-insert into membershipFee values("F004","Nayanathara",100,"anually",'2023-1-3');
 
-insert into member values ("M001","Nayanathara","Panadura","Mala",0764450928,"SN001","F004");

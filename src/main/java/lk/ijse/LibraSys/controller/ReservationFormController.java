@@ -130,7 +130,6 @@ public class ReservationFormController {
                         dto.getMid(),
                         dto.getISBN()
                 ));
-
             }
             tblReservation.setItems(obList);
         } catch (SQLException e) {
@@ -205,7 +204,6 @@ public class ReservationFormController {
                 clearFields();
                 loadAllReservation();
                 setCellValueFactory();
-
                 setDate();
                 generateNextReservationId();
             }else{
@@ -229,6 +227,7 @@ public class ReservationFormController {
                 System.out.println("Are you sure to delete?");
 
                 new Alert(Alert.AlertType.INFORMATION,"reservation deleted successfully!!").show();
+                loadAllReservation();
             }else {
                 new Alert(Alert.AlertType.ERROR,"reservation not deleted!!!").show();
             }
@@ -278,6 +277,7 @@ public class ReservationFormController {
     @FXML
     void btnClearOnAction(ActionEvent event) {
         clearFields();
+        generateNextReservationId();
 
     }
 
@@ -320,6 +320,7 @@ public class ReservationFormController {
             boolean isUpdated = reservationModel.updateReservation(dto);
             if(isUpdated){
                 new Alert(Alert.AlertType.INFORMATION,"Reservation updated successfully!!!").show();
+                loadAllReservation();
             }else {
                 new Alert(Alert.AlertType.ERROR,"updated not found!!!").show();
             }

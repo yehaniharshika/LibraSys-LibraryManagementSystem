@@ -23,6 +23,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MembershipFeeFormController {
 
@@ -164,6 +166,31 @@ public class MembershipFeeFormController {
            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
 
+    }
+
+    private boolean validateMembershipFee(){
+        String fee_id = txtId.getText();
+        Pattern compile = Pattern.compile("[F][0-9]{3,}");
+        Matcher matcher =  compile.matcher(fee_id);
+        boolean matches = matcher.matches();
+        if (!matches){
+            new Alert(Alert.AlertType.ERROR,"Invalid fee ID!!!").show();
+            return  false;
+        }
+
+        String name = txtName.getText();
+        boolean matches1 = Pattern.matches("[A-Za-z\\s]{1,}",name);
+        if (!matches1){
+            new Alert(Alert.AlertType.ERROR,"Invalid name!!!").show();
+            return  false;
+        }
+
+        String status = txtStatus.getText();
+        boolean matches2 = Pattern.matches("(Anually|Monthly|For six monthes)" , status);
+        if (!matches2){
+            new Alert(Alert.AlertType.ERROR,"Invalid status!!!").show();
+        }
+        return  true;
     }
 
     @FXML

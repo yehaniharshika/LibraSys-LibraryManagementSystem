@@ -29,19 +29,20 @@ public class BookModel {
             String[] split = currentBookISBN.split("[B]");
             int ISBN= Integer.parseInt(split[1]);
             ISBN++;
-            return "B0" + ISBN;
+            return "B00" + ISBN;
         }
         return "B001";
     }
 
     public  boolean saveBook(BookDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
-        PreparedStatement pstm = connection.prepareStatement("INSERT INTO book VALUES (?,?,?,?,?)");
+        PreparedStatement pstm = connection.prepareStatement("INSERT INTO book VALUES (?,?,?,?,?,?)");
         pstm.setString(1, dto.getISBN());
         pstm.setString(2, dto.getBookName());
         pstm.setString(3, dto.getCategory());
         pstm.setString(4, dto.getQtyOnHand());
         pstm.setString(5,dto.getRackCode());
+        pstm.setString(6, dto.getAuthorId());
 
         boolean isSaved = pstm.executeUpdate() > 0;
         return isSaved;
@@ -49,12 +50,13 @@ public class BookModel {
 
     public boolean updateBook(BookDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
-        PreparedStatement pstm = connection.prepareStatement("UPDATE book SET bookName=?, category =?,qtyOnHand=?, rackCode=? WHERE ISBN=?");
+        PreparedStatement pstm = connection.prepareStatement("UPDATE book SET bookName=?, category =?,qtyOnHand=?, rackCode=?,authorId=? WHERE ISBN=?");
         pstm.setString(1, dto.getBookName());
         pstm.setString(2, dto.getCategory());
         pstm.setString(3, dto.getQtyOnHand());
         pstm.setString(4, dto.getRackCode());
-        pstm.setString(4, dto.getISBN());
+        pstm.setString(5, dto.getAuthorId());
+        pstm.setString(6, dto.getISBN());
 
         boolean isUpdated = pstm.executeUpdate() > 0;
         return isUpdated;
@@ -83,7 +85,8 @@ public class BookModel {
                  resultSet.getString(2),
                  resultSet.getString(3),
                  resultSet.getString(4),
-                 resultSet.getString(5)
+                 resultSet.getString(5),
+                 resultSet.getString(6)
             );
         }
         return dto;
@@ -103,7 +106,8 @@ public class BookModel {
                 resultSet.getString(2),
                 resultSet.getString(3),
                 resultSet.getString(4),
-                resultSet.getString(5)
+                resultSet.getString(5),
+                resultSet.getString(6)
             ));
         }
         return bookList;

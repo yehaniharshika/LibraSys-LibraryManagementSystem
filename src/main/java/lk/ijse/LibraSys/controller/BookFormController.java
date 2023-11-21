@@ -11,9 +11,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.LibraSys.dto.AuthorDto;
 import lk.ijse.LibraSys.dto.BookDto;
 import lk.ijse.LibraSys.dto.BookRackDto;
 import lk.ijse.LibraSys.dto.tm.BookTm;
+import lk.ijse.LibraSys.model.AuthorModel;
 import lk.ijse.LibraSys.model.BookModel;
 import lk.ijse.LibraSys.model.BookRackModel;
 
@@ -29,6 +31,10 @@ public class BookFormController {
     private JFXComboBox<String> cmbRackCode;
 
     @FXML
+    private JFXComboBox<String> cmbAuthorId;
+
+
+    @FXML
     private TableColumn<?, ?> colBookName;
 
     @FXML
@@ -41,13 +47,13 @@ public class BookFormController {
     private TableColumn<?, ?> colQtyOnHand;
 
     @FXML
-    private TableColumn<?, ?> colRackcode;
+    private TableColumn<?, ?> colAuthorId;
 
     @FXML
     private Label lblCategoryType;
 
     @FXML
-    private Label lblNameOfBooks;
+    private Label lblAuthorName;
 
     @FXML
     private TableView<BookTm> tblBook;
@@ -69,13 +75,18 @@ public class BookFormController {
     private BookRackModel bookRackModel = new BookRackModel();
     private BookModel bookModel = new BookModel();
 
+    private AuthorModel authorModel = new AuthorModel();
+
+
     public void initialize(){
         generateNextBookISBN();
         loadRackCodes();
         loadAllBooks();
         setCellValueFactory();
+        loadAllAuthorIds();
 
     }
+
 
     private void generateNextBookISBN() {
         try {
@@ -92,8 +103,9 @@ public class BookFormController {
         colBookName.setCellValueFactory(new PropertyValueFactory<>("bookName"));
         colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         colQtyOnHand.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
-        colRackcode.setCellValueFactory(new PropertyValueFactory<>("rackCode"));
+        colAuthorId.setCellValueFactory(new PropertyValueFactory<>("authorId"));
     }
+
 
     private void loadAllBooks() {
         ObservableList<BookTm> obList = FXCollections.observableArrayList();
@@ -107,10 +119,27 @@ public class BookFormController {
                         dto.getBookName(),
                         dto.getCategory(),
                         dto.getQtyOnHand(),
-                        dto.getRackCode()
+                        dto.getAuthorId()
                 ));
             }
             tblBook.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void loadAllAuthorIds() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+
+        try {
+            List<AuthorDto> authorDtos = authorModel.getAllAuthors();
+
+            for (AuthorDto dto : authorDtos){
+                obList.add(dto.getAuthorId());
+
+            }
+
+            cmbAuthorId.setItems(obList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -145,6 +174,7 @@ public class BookFormController {
     @FXML
     void btnClearOnAction(ActionEvent event) {
         clearFields();
+        generateNextBookISBN();
     }
 
     private void clearFields() {
@@ -153,6 +183,9 @@ public class BookFormController {
         txtCategory.setText("");
         txtQtyOnHand.setText("");
         cmbRackCode.setValue("");
+        cmbAuthorId.setValue("");
+        lblAuthorName.setText("");
+        lblCategoryType.setText("");
     }
 
     @FXML
@@ -203,8 +236,9 @@ public class BookFormController {
             String category = txtCategory.getText();
             String qtyOnHand = txtQtyOnHand.getText();
             String rackCode = cmbRackCode.getValue();
+            String authorId = cmbAuthorId.getValue();
 
-            var dto = new BookDto(ISBN,bookName,category,qtyOnHand,rackCode);
+            var dto = new BookDto(ISBN,bookName,category,qtyOnHand,rackCode,authorId);
 
             try {
                 boolean isSaved = bookModel.saveBook(dto);
@@ -213,6 +247,7 @@ public class BookFormController {
                     clearFields();
                     loadAllBooks();
                     setCellValueFactory();
+                    generateNextBookISBN();
                     bookRackModel.updateQtyBooks(rackCode, Integer.parseInt(qtyOnHand));
                     //bookRackModel.updatenameOfBooks(rackCode, bookName);
                 }else{
@@ -234,19 +269,20 @@ public class BookFormController {
             return  false;
         }
 
-        /*String  bookName = txtBookName.getText();
-        boolean matches1 = Pattern.matches("[A-Za-z\\s]", bookName);
+        String  bookName = txtBookName.getText();
+        boolean matches1 = Pattern.matches("[A-Za-z\\s]{1,}", bookName);
         if (!matches1){
             new Alert(Alert.AlertType.ERROR,"Invalid book name!!!").show();
             return  false;
-        }*/
+        }
 
-        /*String  category = txtCategory.getText();
-        boolean matches2 = Pattern.matches("[A-Za-z\\s]" , category);
+        String  category = txtCategory.getText();
+        boolean matches2 = Pattern.matches("[A-Za-z\\s]{1,}" , category);
         if (!matches2){
             new Alert(Alert.AlertType.ERROR,"Invalid book category!!!").show();
             return false;
-        }*/
+        }
+
 
         return  true;
     }
@@ -257,8 +293,9 @@ public class BookFormController {
         String category = txtCategory.getText();
         String qtyOnHand = txtQtyOnHand.getText();
         String rackCode = cmbRackCode.getValue();
+        String authorId = cmbAuthorId.getValue();
 
-        var dto = new BookDto(ISBN,bookName,category,qtyOnHand,rackCode);
+        var dto = new BookDto(ISBN,bookName,category,qtyOnHand,rackCode,authorId);
 
         try {
             boolean isUpdated = bookModel.updateBook(dto);
@@ -277,18 +314,29 @@ public class BookFormController {
 
     @FXML
     void cmbRackCodeOnAction(ActionEvent event) {
-        String rackCode = String.valueOf(cmbRackCode.getValue());
+        String rackCode = cmbRackCode.getValue();
 
         try {
             BookRackDto bookRackDto = bookRackModel.serchBookRack(rackCode);
             lblCategoryType.setText(bookRackDto.getCategoryOfBooks());
-            lblNameOfBooks.setText(bookRackDto.getNameOfBooks());
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    
+    @FXML
+    void cmbAuthorIdOnAction(ActionEvent event) {
+        String authorId = cmbAuthorId.getValue();
+
+        try {
+            AuthorDto authorDto = authorModel.searchAuthor(authorId);
+            lblAuthorName.setText(authorDto.getAuthorName());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 }

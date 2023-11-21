@@ -43,10 +43,10 @@
          </font></TextField>
       <TableView fx:id="tblAuthor" layoutX="423.0" layoutY="182.0" prefHeight="508.0" prefWidth="743.0" style="-fx-background-color: #1B97B0;">
         <columns>
-          <TableColumn fx:id="colAuthorId" prefWidth="101.0" text="Author ID" />
-          <TableColumn fx:id="colAuthorName" prefWidth="162.5" text="Author Name" />
-            <TableColumn fx:id="colText" prefWidth="125.0" text="Mr/Mrs/Miss" />
-            <TableColumn fx:id="colNationality" prefWidth="136.5" text="Nationality" />
+          <TableColumn fx:id="colAuthorId" prefWidth="87.5" text="Author ID" />
+          <TableColumn fx:id="colAuthorName" prefWidth="201.5" text="Author Name" />
+            <TableColumn fx:id="colText" prefWidth="115.0" text="Mr/Mrs/Miss" />
+            <TableColumn fx:id="colNationality" prefWidth="121.0" text="Nationality" />
             <TableColumn fx:id="colCurrentlyBooksWrittenQty" prefWidth="217.0" text="Currently books written Qty" />
         </columns>
       </TableView>
