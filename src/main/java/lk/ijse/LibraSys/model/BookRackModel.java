@@ -2,6 +2,9 @@ package lk.ijse.LibraSys.model;
 
 import lk.ijse.LibraSys.db.DbConnection;
 import lk.ijse.LibraSys.dto.BookRackDto;
+import lk.ijse.LibraSys.dto.tm.BookRackTm;
+import lk.ijse.LibraSys.dto.tm.BookTm;
+import lk.ijse.LibraSys.dto.tm.SupplierCartTm;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -82,4 +85,35 @@ public class BookRackModel {
         }
         return rackList;
     }
+
+    /*public  boolean updateBooks(List<BookRackTm> bookTmList) throws SQLException {
+        for (BookRackTm Tm : bookTmList){
+            System.out.println("Book : "+ Tm);
+
+            if (!updateQtyBooks(Tm.getRackCode(), Tm.getQtyBooks())){
+                return false;
+            }
+        }
+        return true;
+    }*/
+     public boolean updateQtyBooks(String rackCode,int qtyBooks) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm= connection.prepareStatement("UPDATE bookRack SET qtyBooks = qtyBooks+? WHERE rackCode =?");
+
+        pstm.setInt(1,qtyBooks);
+        pstm.setString(2,rackCode);
+
+        boolean isqtyUpdated = pstm.executeUpdate() > 0;
+
+         return isqtyUpdated;
+     }
+     public boolean updatenameOfBooks(String rackCode,String nameOfBooks) throws SQLException {
+         Connection connection = DbConnection.getInstance().getConnection();
+         PreparedStatement pstm = connection.prepareStatement("UPDATE bookrack SET nameOfBooks= nameOfBooks +? WHERE rackCode=?");
+         pstm.setString(1,nameOfBooks);
+         pstm.setString(2,rackCode);
+
+         boolean isNameOfBooksUpdated = pstm.executeUpdate() > 0;
+         return isNameOfBooksUpdated;
+     }
 }

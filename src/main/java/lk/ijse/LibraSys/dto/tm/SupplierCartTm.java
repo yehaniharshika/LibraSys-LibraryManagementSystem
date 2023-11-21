@@ -10,9 +10,10 @@ import lombok.*;
 @Getter
 @ToString
 public class SupplierCartTm {
+
     private String ISBN;
     private String bookName;
-    private int Qty;
+    private int qty;
     private Button btn;
 
 }

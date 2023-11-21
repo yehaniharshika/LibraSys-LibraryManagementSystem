@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -15,7 +16,10 @@
    <children>
       <ImageView fitHeight="109.0" fitWidth="124.0" layoutX="235.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="31.0" fitWidth="34.0" layoutX="89.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField fx:id="txtCode" layoutX="43.0" layoutY="144.0" onAction="#txtCodeOnAction" prefHeight="41.0" prefWidth="313.0" promptText="Rack Code" style="-fx-border-color: #222f3e;" />
+      <TextField fx:id="txtCode" layoutX="43.0" layoutY="144.0" onAction="#txtCodeOnAction" prefHeight="41.0" prefWidth="313.0" promptText="Rack Code" style="-fx-border-color: #222f3e;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></TextField>
       <TextField fx:id="txtQuantity" layoutX="43.0" layoutY="197.0" prefHeight="41.0" prefWidth="313.0" promptText="Quantity of books" style="-fx-border-color: #222f3e;" />
       <JFXButton layoutX="44.0" layoutY="515.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="  SAVE" textFill="#f5f3f3">
          <font>
@@ -28,26 +32,41 @@
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <JFXButton layoutX="137.0" layoutY="627.0" onAction="#btnBackOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="     BACK" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <JFXButton layoutX="229.0" layoutY="515.0" onAction="#btnUpdateOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="           UPDATE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <JFXButton layoutX="44.0" layoutY="570.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="       CLEAR" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <JFXButton layoutX="229.0" layoutY="571.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="         DELETE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <TableView fx:id="tblBookrack" layoutX="401.0" layoutY="144.0" prefHeight="576.0" prefWidth="754.0" style="-fx-background-color: #1B97B0;">
         <columns>
@@ -56,6 +75,9 @@
             <TableColumn fx:id="colCategory" prefWidth="155.5" text="Category Type" />
             <TableColumn fx:id="colNameOfBooks" prefWidth="311.5" text="Name Of Books" />
         </columns>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </TableView>
       <ImageView fitHeight="24.0" fitWidth="28.0" layoutX="64.0" layoutY="579.0">
          <image>

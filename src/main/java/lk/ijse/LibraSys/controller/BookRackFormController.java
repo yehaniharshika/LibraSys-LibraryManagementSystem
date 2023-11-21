@@ -18,6 +18,8 @@ import lk.ijse.LibraSys.model.BookRackModel;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class BookRackFormController {
 
@@ -131,26 +133,57 @@ public class BookRackFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String rackCode = txtCode.getText();
-        int qtyBooks = Integer.parseInt(txtQuantity.getText());
-        String categoryOfBooks = txtCategoryOfBooks.getText();
-        String nameOfBooks = txtNameOfBooks.getText();
+        boolean isValidate = validateBookrack();
+        if (isValidate){
+            String rackCode = txtCode.getText();
+            int qtyBooks = Integer.parseInt(txtQuantity.getText());
+            String categoryOfBooks = txtCategoryOfBooks.getText();
+            String nameOfBooks = txtNameOfBooks.getText();
 
-        var dto = new BookRackDto(rackCode,qtyBooks,categoryOfBooks,nameOfBooks);
+            var dto = new BookRackDto(rackCode,qtyBooks,categoryOfBooks,nameOfBooks);
 
-        try {
-            boolean isSaved = bookRackModel.saveBookRack(dto);
-            if(isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION,"Book Rack Adding Successfully!!!").show();
-                clearFields();
-                loadAllBookRacks();
-                setCellValueFactory();
-            }else {
-                new Alert(Alert.AlertType.ERROR,"Book rack Adding failed!!!").show();
+            try {
+                boolean isSaved = bookRackModel.saveBookRack(dto);
+                if(isSaved){
+                    new Alert(Alert.AlertType.CONFIRMATION,"Book Rack Adding Successfully!!!").show();
+                    clearFields();
+                    loadAllBookRacks();
+                    setCellValueFactory();
+                }else {
+                    new Alert(Alert.AlertType.ERROR,"Book rack Adding failed!!!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
             }
-        } catch (SQLException e) {
-           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
+
+    }
+
+    private boolean validateBookrack(){
+        String rackCode = txtCode.getText();
+        Pattern compile = Pattern.compile("[R][0-9]{3,}");
+        Matcher matcher = compile.matcher(rackCode);
+        boolean matches = matcher.matches();
+        if (!matches){
+            new Alert(Alert.AlertType.ERROR,"Rack code invalid!!!").show();
+            return  false;
+        }
+
+        String qtyBooks = txtQuantity.getText();
+        boolean matches1 = Pattern.matches("[0-9]{1,}",qtyBooks);
+        if (!matches1){
+            new Alert(Alert.AlertType.ERROR,"books quantity invalid!!!").show();
+            return  false;
+        }
+
+        String categoryOfBooks = txtCategoryOfBooks.getText();
+        boolean matches2 = Pattern.matches("[A-Za-z\\s]{2,}",categoryOfBooks);
+        if (!matches2){
+            new Alert(Alert.AlertType.ERROR,"Books category invalid!!!").show();
+            return  false;
+        }
+
+      return  true;
     }
 
     @FXML

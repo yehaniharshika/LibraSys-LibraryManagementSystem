@@ -12,6 +12,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookModel {
+    public  String generateNextBookISBN(String ISBN) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        PreparedStatement pstm = connection.prepareStatement("SELECT ISBN FROM book ORDER BY ISBN DESC LIMIT 1");
+        ResultSet resultSet = pstm.executeQuery();
+        if (resultSet.next()){
+            return splitBookISBN(resultSet.getString(1));
+
+        }
+        return splitBookISBN(null);
+    }
+
+    private String splitBookISBN(String currentBookISBN) {
+        if (currentBookISBN != null){
+            String[] split = currentBookISBN.split("[B]");
+            int ISBN= Integer.parseInt(split[1]);
+            ISBN++;
+            return "B0" + ISBN;
+        }
+        return "B001";
+    }
 
     public  boolean saveBook(BookDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();

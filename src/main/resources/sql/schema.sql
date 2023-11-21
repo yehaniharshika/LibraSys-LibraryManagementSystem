@@ -68,9 +68,11 @@ create table reservation(
 );
 
 create table author(
-    author_id varchar(10) primary key ,
-    author_name varchar(100) not null ,
-    authorsBook varchar(10000) not null
+    authorId varchar(10) primary key ,
+    authorName varchar(500) not null ,
+    text varchar(100) not null ,
+    nationality varchar(200) not null ,
+    currentlyBooksWrittenQty int not null
 );
 
 create  table bookAuthor_detail(
@@ -89,10 +91,11 @@ create table supplier(
 );
 
 create table booksSupplier_detail(
-    supplierId varchar(10) not null ,
+    supplierId varchar(10) ,
     ISBN varchar(10) not null,
     bookName varchar(200) not null,
     qty int not null,
+    supplierDate date,
     constraint foreign key(supplierId) references supplier(supplierId) on update cascade on delete cascade,
     constraint foreign key(ISBN) references book(ISBN) on update cascade on delete cascade
 );

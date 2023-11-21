@@ -35,16 +35,20 @@
             <Font name="KacstOne Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="txtCategory" layoutX="768.0" layoutY="336.0" prefHeight="41.0" prefWidth="356.0" promptText="category" style="-fx-border-color: #2d3436;" />
-      <TextField fx:id="txtISBN" layoutX="768.0" layoutY="168.0" onAction="#txtISBNOnAction" prefHeight="41.0" prefWidth="356.0" promptText="ISBN" style="-fx-border-color: #2d3436;" />
-      <TextField fx:id="txtBookName" layoutX="768.0" layoutY="222.0" prefHeight="41.0" prefWidth="356.0" promptText="Book Name" style="-fx-border-color: #2d3436;" />
+      <TextField fx:id="txtCategory" layoutX="768.0" layoutY="336.0" prefHeight="41.0" prefWidth="356.0" promptText="category" style="-fx-border-color: #2d3436;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></TextField>
+      <TextField fx:id="txtISBN" layoutX="768.0" layoutY="168.0" onAction="#txtISBNOnAction" prefHeight="41.0" prefWidth="356.0" promptText="ISBN" style="-fx-border-color: #2d3436;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></TextField>
       <JFXComboBox fx:id="cmbRackCode" layoutX="186.0" layoutY="159.0" onAction="#cmbRackCodeOnAction" prefHeight="29.0" prefWidth="165.0" />
       <Label layoutX="65.0" layoutY="153.0" prefHeight="41.0" prefWidth="109.0" text="Rack Code :">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="txtQtyOnHand" layoutX="768.0" layoutY="279.0" prefHeight="41.0" prefWidth="356.0" promptText="QtyOnHand" style="-fx-border-color: #2d3436;" />
       <Label layoutX="58.0" layoutY="222.0" prefHeight="41.0" prefWidth="124.0" text="CategoryType : ">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -55,12 +59,12 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lblNameOfBooks" layoutX="178.0" layoutY="300.0" prefHeight="124.0" prefWidth="570.0" textFill="#1518b9">
+      <Label fx:id="lblNameOfBooks" layoutX="55.0" layoutY="315.0" prefHeight="104.0" prefWidth="556.0" textFill="#1518b9">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lblCategoryType" layoutX="174.0" layoutY="222.0" prefHeight="41.0" prefWidth="152.0" textFill="#2814bf">
+      <Label fx:id="lblCategoryType" layoutX="174.0" layoutY="222.0" prefHeight="41.0" prefWidth="186.0" textFill="#2814bf">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -126,5 +130,15 @@
             <Image url="@../icon/books.png" />
          </image>
       </ImageView>
+      <TextField fx:id="txtBookName" layoutX="768.0" layoutY="222.0" prefHeight="41.0" prefWidth="356.0" promptText="Book Name" style="-fx-border-color: #2d3436;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtQtyOnHand" layoutX="768.0" layoutY="274.0" prefHeight="41.0" prefWidth="356.0" promptText="Qty On Hand" style="-fx-border-color: #2d3436;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

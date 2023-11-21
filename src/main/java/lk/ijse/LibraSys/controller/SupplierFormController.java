@@ -6,18 +6,25 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.LibraSys.dto.BookDto;
 import lk.ijse.LibraSys.dto.PlaceBooksSupplierOrderDto;
+import lk.ijse.LibraSys.dto.SupplierDto;
 import lk.ijse.LibraSys.dto.tm.SupplierCartTm;
 import lk.ijse.LibraSys.model.BookModel;
 import lk.ijse.LibraSys.model.PlacebookSupplierModel;
 import lk.ijse.LibraSys.model.SupplierModel;
 
+import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -42,11 +49,10 @@ public class SupplierFormController {
     @FXML
     private TableColumn<?, ?> colQty;
 
-    @FXML
-    private TableColumn<?, ?> colSupplierId;
 
     @FXML
-    private TableColumn<?, ?> colSupplierName;
+    private Label lblSupplierDate;
+
 
     @FXML
     private Label lblBookName;
@@ -58,7 +64,7 @@ public class SupplierFormController {
     private Label lblTotalBooksCount;
 
     @FXML
-    private TableView<?> tblSupplierDetail;
+    private TableView<SupplierCartTm> tblSupplierDetail;
 
     @FXML
     private TextField txtContactNumber;
@@ -81,15 +87,19 @@ public class SupplierFormController {
 
     public  void initialize() {
         loadAllBookISBNs();
-
+        setDate();
         setCellValueFactory();
+    }
+
+    private void setDate() {
+        lblSupplierDate.setText(String.valueOf(LocalDate.now()));
     }
 
     private void setCellValueFactory() {
 
         colBookISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
         colBookName.setCellValueFactory(new PropertyValueFactory<>("bookName"));
-        colQty.setCellValueFactory(new PropertyValueFactory<>("Qty"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
 
     }
@@ -111,17 +121,39 @@ public class SupplierFormController {
 
     @FXML
     void btnAddSupplierCartOnAction(ActionEvent event) {
+       // String supplierId = txtSupplierId.getText();
         String ISBN = cmbBookISBN.getValue();
         String bookName = lblBookName.getText();
-        int Qty = Integer.parseInt(txtSupplyQuantity.getText());
+        int qty = Integer.parseInt(txtSupplyQuantity.getText());
         Button btn = new Button("Remove");
 
         setRemoveBtnAction(btn);
         btn.setCursor(Cursor.HAND);
-        //btn.setStyle("-fx-border-color: pink;");
+        btn.setStyle("-fx-background-color: pink");
+        btn.setStyle("-fx-border-color: blue;");
+        btn.setStyle("-fx-background-radius: 15");
+        btn.setStyle("-fx-border-radius: 15");
+        if (!obList.isEmpty()){
+            for (int i=0 ; i<tblSupplierDetail.getItems().size() ; i++){
+                if (colBookISBN.getCellData(i).equals(ISBN)){
+                    int colsupplierQuantity = (int) colQty.getCellData(i);
+                    qty += colsupplierQuantity;
 
-        var SupplierCartTm = new SupplierCartTm(ISBN,bookName,Qty,btn);
-        System.out.println("add to cart success!!");
+                    obList.get(i).setQty(qty);
+
+                    calculateTotal();
+                    tblSupplierDetail.refresh();
+                    return;
+                }
+            }
+
+        }
+        var SupplierCartTm = new SupplierCartTm(ISBN,bookName,qty,btn);
+        obList.add(SupplierCartTm);
+        tblSupplierDetail.setItems(obList);
+        calculateTotal();
+        txtSupplyQuantity.clear();
+
     }
 
     private void setRemoveBtnAction(Button btn) {
@@ -156,6 +188,7 @@ public class SupplierFormController {
         String supplierId = txtSupplierId.getText();
         String supName  = txtSupplierName.getText();
         String contactNumber =  txtContactNumber.getText();
+        LocalDate supplierDate = LocalDate.parse(lblSupplierDate.getText());
 
         List<SupplierCartTm> supplierCartTmList = new ArrayList<>();
         for (int i =0 ; i < tblSupplierDetail.getItems().size(); i++){
@@ -165,7 +198,7 @@ public class SupplierFormController {
         }
         System.out.println("Place Books supplier order from controller: "+ supplierCartTmList);
 
-        var placeBooksSupplierOrderDto = new PlaceBooksSupplierOrderDto(supplierId,supName,contactNumber,supplierCartTmList);
+        var placeBooksSupplierOrderDto = new PlaceBooksSupplierOrderDto(supplierId,supName,contactNumber,supplierDate,supplierCartTmList);
         try {
             boolean isSuccess = placebookSupplierModel.placeBooksOrder(placeBooksSupplierOrderDto);
             if (isSuccess){
@@ -177,8 +210,14 @@ public class SupplierFormController {
     }
 
     @FXML
-    void btnNewBookOnAction(ActionEvent event) {
-
+    void btnNewBookOnAction(ActionEvent event) throws IOException {
+        Parent anchorPane = FXMLLoader.load(getClass().getResource("/view/book_Form.fxml"));
+        Scene scene = new Scene(anchorPane);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Book Form");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     @FXML
@@ -197,6 +236,24 @@ public class SupplierFormController {
 
     public void txtSuppliyQuantityOnAction(ActionEvent actionEvent) {
         btnAddSupplierCartOnAction(actionEvent);
+    }
+
+    public void txtSupplierIdOnAction(ActionEvent actionEvent) {
+        String supplierId = txtSupplierId.getText();
+
+        try {
+            SupplierDto dto =supplierModel.searchSupplier(supplierId);
+            if (dto != null){
+                txtSupplierId.setText(dto.getSupplierId());
+                txtSupplierName.setText(dto.getSupName());
+                txtContactNumber.setText(dto.getContactNumber());
+            }else{
+                new Alert(Alert.AlertType.ERROR,"Supplier not found!!!").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+
     }
 }
 

@@ -145,7 +145,7 @@ public class ReservationFormController {
 
     private void generateNextReservationId() {
         try {
-            String reservationId = reservationModel.generateNextReservationId(txtReservationId.getId());
+            String reservationId = reservationModel.generateNextReservationId(txtReservationId.getText());
             txtReservationId.setText(reservationId);
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();

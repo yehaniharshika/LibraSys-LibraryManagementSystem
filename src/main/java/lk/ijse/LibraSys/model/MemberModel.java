@@ -14,6 +14,28 @@ public class MemberModel {
     private MembershipFeeModel membershipFeeModel =new MembershipFeeModel();
 
 
+    public  String generateNextMemberId(String mid) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("SELECT mid FROM member ORDER BY  mid DESC LIMIT 1");
+
+        ResultSet resultSet = pstm.executeQuery();
+        if (resultSet.next()){
+            return splitMemberId(resultSet.getString(1));
+        }
+        return splitMemberId(null);
+    }
+
+    private String splitMemberId(String currentMemberId) {
+        if (currentMemberId != null){
+            String[]  split = currentMemberId.split("[M]");
+            int mid = Integer.parseInt(split[1]);
+            mid++;
+            return "M0" + mid;
+        }else {
+            return "M001";
+        }
+    }
+
     public boolean saveMember(MemberDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql = "INSERT INTO member VALUES(?, ?, ?, ?, ?, ? ,?)";

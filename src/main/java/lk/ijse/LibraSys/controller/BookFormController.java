@@ -20,6 +20,8 @@ import lk.ijse.LibraSys.model.BookRackModel;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class BookFormController {
 
@@ -68,10 +70,22 @@ public class BookFormController {
     private BookModel bookModel = new BookModel();
 
     public void initialize(){
+        generateNextBookISBN();
         loadRackCodes();
         loadAllBooks();
         setCellValueFactory();
+
     }
+
+    private void generateNextBookISBN() {
+        try {
+            String ISBN = bookModel.generateNextBookISBN(txtISBN.getText());
+            txtISBN.setText(ISBN);
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+    }
+
 
     private void setCellValueFactory() {
         colISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
@@ -182,29 +196,60 @@ public class BookFormController {
     }
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String ISBN = txtISBN.getText();
-        String bookName = txtBookName.getText();
-        String category = txtCategory.getText();
-        String qtyOnHand = txtQtyOnHand.getText();
-        String rackCode = cmbRackCode.getValue();
+        boolean isValidate = validateBooks();
+        if (isValidate){
+            String ISBN = txtISBN.getText();
+            String bookName = txtBookName.getText();
+            String category = txtCategory.getText();
+            String qtyOnHand = txtQtyOnHand.getText();
+            String rackCode = cmbRackCode.getValue();
 
-        var dto = new BookDto(ISBN,bookName,category,qtyOnHand,rackCode);
+            var dto = new BookDto(ISBN,bookName,category,qtyOnHand,rackCode);
 
-        try {
-            boolean isSaved = bookModel.saveBook(dto);
-            if(isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION,"Book saved successfully!!!").show();
-                clearFields();
-                loadAllBooks();
-                setCellValueFactory();
-            }else{
-                new Alert(Alert.AlertType.ERROR,"ohh,Book not Saved!!!").show();
+            try {
+                boolean isSaved = bookModel.saveBook(dto);
+                if(isSaved){
+                    new Alert(Alert.AlertType.CONFIRMATION,"Book saved successfully!!!").show();
+                    clearFields();
+                    loadAllBooks();
+                    setCellValueFactory();
+                    bookRackModel.updateQtyBooks(rackCode, Integer.parseInt(qtyOnHand));
+                    //bookRackModel.updatenameOfBooks(rackCode, bookName);
+                }else{
+                    new Alert(Alert.AlertType.ERROR,"ohh,Book not Saved!!!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
             }
-        } catch (SQLException e) {
-           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
     }
 
+    private  boolean validateBooks(){
+        String ISBN = txtISBN.getText();
+        Pattern compile = Pattern.compile("[B][0-9]{3,}");
+        Matcher matcher = compile.matcher(ISBN);
+        boolean matches = matcher.matches();
+        if (!matches){
+            new Alert(Alert.AlertType.ERROR,"Invalid book ID!!!").show();
+            return  false;
+        }
+
+        /*String  bookName = txtBookName.getText();
+        boolean matches1 = Pattern.matches("[A-Za-z\\s]", bookName);
+        if (!matches1){
+            new Alert(Alert.AlertType.ERROR,"Invalid book name!!!").show();
+            return  false;
+        }*/
+
+        /*String  category = txtCategory.getText();
+        boolean matches2 = Pattern.matches("[A-Za-z\\s]" , category);
+        if (!matches2){
+            new Alert(Alert.AlertType.ERROR,"Invalid book category!!!").show();
+            return false;
+        }*/
+
+        return  true;
+    }
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
         String ISBN = txtISBN.getText();

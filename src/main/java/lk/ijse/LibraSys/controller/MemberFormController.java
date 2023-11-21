@@ -22,6 +22,8 @@ import lk.ijse.LibraSys.model.SignupModel;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MemberFormController {
 
@@ -82,10 +84,37 @@ public class MemberFormController {
     private SignupModel signupModel =new SignupModel();
 
     public  void initialize(){
-
+        generateNextMemberId();
         loadFeeIds();
         loadAllMember();
         setCellValueFactory();
+        tableListener();
+    }
+
+    private void tableListener() {
+        tblMember.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
+            setData(newValue);
+
+        });
+    }
+
+    private void setData(MemberTm row) {
+        txtMid.setText(row.getMid());
+        txtName.setText(row.getName());
+        txtAddress.setText(row.getAddress());
+        txtGender.setText(row.getGender());
+        txtTel.setText(row.getTel());
+        cmbmembershipFeeId.setValue(row.getFeeId());
+        txtSnumber.setText(row.getSNumber());
+    }
+
+    private void generateNextMemberId() {
+        try {
+            String mid = memberModel.generateNextMemberId(txtMid.getText());
+            txtMid.setText(mid);
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 
     private void setCellValueFactory() {
@@ -143,6 +172,7 @@ public class MemberFormController {
     void btnClearOnAction(ActionEvent event) {
 
         clearFields();
+        generateNextMemberId();
     }
 
     private void clearFields() {
@@ -205,32 +235,77 @@ public class MemberFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
+        boolean isValidate = validateMember();
+        if (isValidate){
+            String mid  = txtMid.getText();
+            String name = txtName.getText();
+            String address = txtAddress.getText();
+            String gender = txtGender.getText();
+            String tel = txtTel.getText();
+            String feeId = cmbmembershipFeeId.getValue();
+            String sNumber = txtSnumber.getText();
 
-        String mid  = txtMid.getText();
-        String name = txtName.getText();
-        String address = txtAddress.getText();
-        String gender = txtGender.getText();
-        String tel = txtTel.getText();
-        String feeId = cmbmembershipFeeId.getValue();
-        String sNumber = txtSnumber.getText();
 
+            var dto = new MemberDto(mid,name,address,gender,tel,feeId,sNumber);
 
-        var dto = new MemberDto(mid,name,address,gender,tel,feeId,sNumber);
+            try {
+                boolean isSaved = memberModel.saveMember(dto);
 
-        try {
-            boolean isSaved = memberModel.saveMember(dto);
-
-            if(isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION,"member registered successfully!!!!!!").show();
-                clearFields();
-                loadAllMember();
-                setCellValueFactory();
-            }else{
-                new Alert(Alert.AlertType.ERROR,"member registration failed!!!").show();
+                if(isSaved){
+                    new Alert(Alert.AlertType.CONFIRMATION,"member registered successfully!!!!!!").show();
+                    clearFields();
+                    loadAllMember();
+                    setCellValueFactory();
+                    generateNextMemberId();
+                }else{
+                    new Alert(Alert.AlertType.ERROR,"member registration failed!!!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
             }
-        } catch (SQLException e) {
-           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
+
+    }
+
+    private  boolean validateMember(){
+        String mid = txtMid.getText();
+        Pattern compile = Pattern.compile("[M][0-9]{3,}");
+        Matcher matcher = compile.matcher(mid);
+        boolean matches = matcher.matches();
+        if (!matches){
+            new Alert(Alert.AlertType.ERROR,"Invalid member id").show();
+            return  false;
+        }
+
+        String name =txtName.getText();
+        boolean matches1 = Pattern.matches("[A-Za-z]{3,}", name);
+        if (!matches1){
+            new Alert(Alert.AlertType.ERROR,"Invalid member name!!!").show();
+            return  false;
+        }
+
+        String address = txtAddress.getText();
+        boolean matches2 = Pattern.matches("[0-9]{1,}\\/[A-Z]\\s[a-zA-Z]+$",address);
+        if(!matches2){
+            new Alert(Alert.AlertType.ERROR,"Invalid address!!!").show();
+            return  false;
+        }
+
+        String gender = txtGender.getText();
+        boolean matches3 = Pattern.matches("Female|Male",gender);
+        if(!matches3){
+            new Alert(Alert.AlertType.ERROR,"Gender type invalid!!!").show();
+            return  false;
+        }
+
+        String tel = txtTel.getText();
+        boolean matches4 = Pattern.matches("(070|071|072|074|075|076|077|078|027|066)\\d{7}",tel);
+        if(!matches4){
+            new Alert(Alert.AlertType.ERROR,"Mobile number Invalid!!!").show();
+            return  false;
+        }
+
+       return  true;
     }
 
     @FXML
