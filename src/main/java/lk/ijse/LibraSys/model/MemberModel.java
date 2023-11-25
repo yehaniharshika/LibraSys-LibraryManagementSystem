@@ -25,12 +25,25 @@ public class MemberModel {
         return splitMemberId(null);
     }
 
+
+   //for dashboard update
+    public static  String getMemberCount() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("SELECT COUNT(mid) FROM  member");
+        ResultSet resultSet = pstm.executeQuery();
+
+        String count = null;
+        if (resultSet.next()){
+            count = resultSet.getString(1);
+        }
+        return count;
+    }
     private String splitMemberId(String currentMemberId) {
         if (currentMemberId != null){
             String[]  split = currentMemberId.split("[M]");
             int mid = Integer.parseInt(split[1]);
             mid++;
-            return "M0" + mid;
+            return "M00" + mid;
         }else {
             return "M001";
         }
@@ -38,7 +51,7 @@ public class MemberModel {
 
     public boolean saveMember(MemberDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
-        String sql = "INSERT INTO member VALUES(?, ?, ?, ?, ?, ? ,?)";
+        String sql = "INSERT INTO member VALUES(?, ?, ?, ?, ?, ? ,?,?,?)";
 
         PreparedStatement pstm = connection.prepareStatement(sql);
 
@@ -47,8 +60,10 @@ public class MemberModel {
         pstm.setString(3, dto.getAddress());
         pstm.setString(4, dto.getGender());
         pstm.setString(5, dto.getTel());
-        pstm.setString(6, dto.getFeeId());
-        pstm.setString(7, dto.getsNumber());
+        pstm.setString(6,dto.getEmailAddress());
+        pstm.setString(7,dto.getIDNumber());
+        pstm.setString(8, dto.getFeeId());
+        pstm.setString(9, dto.getSNumber());
 
 
         boolean isSaved = pstm.executeUpdate() >0;
@@ -57,7 +72,7 @@ public class MemberModel {
 
     public  boolean updateMember(MemberDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
-        PreparedStatement pstm = connection.prepareStatement("UPDATE member SET name=?, address=?, gender=? ,tel =? ,feeId=?,sNumber=? WHERE  mid=?");
+        PreparedStatement pstm = connection.prepareStatement("UPDATE member SET name=?, address=?, gender=? ,tel =? ,EmailAddress =?,IDNumber=? feeId=?,sNumber=? WHERE  mid=?");
 
 
         pstm.setString(1,dto.getMid());
@@ -65,8 +80,10 @@ public class MemberModel {
         pstm.setString(3, dto.getAddress());
         pstm.setString(4,dto.getGender());
         pstm.setString(5,dto.getTel());
-        pstm.setString(6, dto.getFeeId());
-        pstm.setString(7, dto.getsNumber());
+        pstm.setString(6,dto.getEmailAddress());
+        pstm.setString(7,dto.getIDNumber());
+        pstm.setString(8, dto.getFeeId());
+        pstm.setString(9, dto.getSNumber());
 
 
         boolean isUpdated = pstm.executeUpdate() > 0;
@@ -100,7 +117,9 @@ public class MemberModel {
                 resultSet.getString(4),
                 resultSet.getString(5),
                 resultSet.getString(6),
-                resultSet.getString(7)
+                resultSet.getString(7),
+                resultSet.getString(8),
+                resultSet.getString(9)
             );
         }
         return dto;
@@ -121,7 +140,9 @@ public class MemberModel {
                   resultSet.getString(4),
                   resultSet.getString(5),
                   resultSet.getString(6),
-                  resultSet.getString(7)
+                  resultSet.getString(7),
+                  resultSet.getString(8),
+                  resultSet.getString(9)
            ));
 
         }

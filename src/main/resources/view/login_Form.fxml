@@ -21,34 +21,51 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <AnchorPane layoutX="902.0" layoutY="97.0" prefHeight="556.0" prefWidth="408.0" style="-fx-background-color: #f5f6fa;">
+      <AnchorPane layoutX="870.0" layoutY="97.0" prefHeight="556.0" prefWidth="440.0" style="-fx-background-color: #f5f6fa; -fx-background-radius: 2;">
          <children>
-            <TextField fx:id="txtUserName" layoutX="57.0" layoutY="168.0" prefHeight="42.0" prefWidth="275.0" promptText="User Name" style="-fx-background-color: #1B97B0;">
+            <TextField fx:id="txtUserName" layoutX="64.0" layoutY="186.0" prefHeight="42.0" prefWidth="313.0" promptText="User Name" style="-fx-background-color: #1B97B0;">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </TextField>
-            <TextField fx:id="txtServiceNumber" layoutX="57.0" layoutY="72.0" prefHeight="42.0" prefWidth="275.0" promptText="Service Number" style="-fx-background-color: #1B97B0;">
+            <TextField fx:id="txtServiceNumber" layoutX="64.0" layoutY="98.0" prefHeight="42.0" prefWidth="313.0" promptText="Service Number" style="-fx-background-color: #1B97B0;">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </TextField>
-            <TextField fx:id="txtPassword" layoutX="57.0" layoutY="263.0" prefHeight="42.0" prefWidth="275.0" promptText="Password" style="-fx-background-color: #1B97B0;">
+            <TextField fx:id="txtPassword" layoutX="64.0" layoutY="278.0" prefHeight="42.0" prefWidth="313.0" promptText="Password" style="-fx-background-color: #1B97B0;">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </TextField>
-            <JFXButton layoutX="130.0" layoutY="384.0" onAction="#btnLoginOnAction" prefHeight="35.0" prefWidth="136.0" style="-fx-background-color: #2d3436;" text="LOGIN" textFill="#fcfafa">
+            <JFXButton layoutX="102.0" layoutY="381.0" onAction="#btnLoginOnAction" prefHeight="49.0" prefWidth="218.0" style="-fx-background-color: #2d3436; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #f5f6fa;" text="LOGIN" textFill="#fcfafa">
                <font>
                   <Font name="Gidugu" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </JFXButton>
-            <Label layoutX="53.0" layoutY="439.0" prefHeight="22.0" prefWidth="176.0" text="Don't have an account?" textFill="#636e72">
+            <Label layoutX="65.0" layoutY="439.0" prefHeight="22.0" prefWidth="176.0" text="Don't have an account?" textFill="#636e72">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Hyperlink layoutX="229.0" layoutY="439.0" onAction="#hyperSignUpOnAction" prefHeight="22.0" prefWidth="106.0" text="Sign up here" />
+            <Hyperlink layoutX="241.0" layoutY="439.0" onAction="#hyperSignUpOnAction" prefHeight="22.0" prefWidth="106.0" text="Sign up here" />
+            <Label layoutX="34.0" layoutY="461.0" prefHeight="33.0" prefWidth="392.0" text="If you read books,,You will become a personable human!!" textFill="#c23616">
+               <font>
+                  <Font name="Dyuthi Regular" size="16.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

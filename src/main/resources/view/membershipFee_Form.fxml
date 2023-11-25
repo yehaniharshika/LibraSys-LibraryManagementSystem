@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="747.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MembershipFeeFormController">
+<AnchorPane fx:id="root" prefHeight="765.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MembershipFeeFormController">
    <children>
-      <JFXButton layoutX="31.0" layoutY="656.0" onAction="#btnBackOnAction" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa;" text="      BACK" textFill="#fcfafa">
+      <JFXButton layoutX="271.0" layoutY="544.0" onAction="#btnBackOnAction" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa;" text="      BACK" textFill="#fcfafa">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -21,11 +23,19 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <TextField fx:id="txtId" layoutX="28.0" layoutY="200.0" onAction="#txtSearchOnAction" prefHeight="42.0" prefWidth="362.0" promptText="Fee ID" style="-fx-border-color: #2f3640;" />
-      <TextField fx:id="txtName" layoutX="28.0" layoutY="256.0" prefHeight="42.0" prefWidth="362.0" promptText="Member Name" style="-fx-border-color: #2f3640;" />
-      <TextField fx:id="txtStatus" layoutX="28.0" layoutY="365.0" prefHeight="42.0" prefWidth="362.0" promptText="Anually/Monthly" style="-fx-border-color: #2f3640;" />
-      <TextField fx:id="txtAmount" layoutX="28.0" layoutY="310.0" prefHeight="42.0" prefWidth="362.0" promptText="Paid Amount" style="-fx-border-color: #2f3640;" />
-      <JFXButton layoutX="31.0" layoutY="429.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa;" text="      SAVE" textFill="#fdfcfc">
+      <TextField fx:id="txtId" layoutX="28.0" layoutY="191.0" onAction="#txtSearchOnAction" prefHeight="42.0" prefWidth="362.0" promptText="Fee ID" style="-fx-border-color: #2f3640;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></TextField>
+      <TextField fx:id="txtName" layoutX="28.0" layoutY="248.0" prefHeight="42.0" prefWidth="362.0" promptText="Member Name" style="-fx-border-color: #2f3640;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></TextField>
+      <TextField fx:id="txtAmount" layoutX="28.0" layoutY="305.0" prefHeight="42.0" prefWidth="362.0" promptText="Paid Amount" style="-fx-border-color: #2f3640;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></TextField>
+      <JFXButton layoutX="31.0" layoutY="545.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa;" text="      SAVE" textFill="#fdfcfc">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -33,7 +43,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="31.0" layoutY="598.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa;" text="       CLEAR" textFill="#fffbfb">
+      <JFXButton layoutX="31.0" layoutY="710.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa;" text="       CLEAR" textFill="#fffbfb">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -41,7 +51,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="31.0" layoutY="484.0" onAction="#btnUpdateOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa;" text="         UPDATE" textFill="#fcf9f9">
+      <JFXButton layoutX="31.0" layoutY="600.0" onAction="#btnUpdateOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa;" text="         UPDATE" textFill="#fcf9f9">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -49,7 +59,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="31.0" layoutY="541.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa;" text="       DELETE" textFill="#fdfafa">
+      <JFXButton layoutX="32.0" layoutY="657.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="123.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa;" text="       DELETE" textFill="#fdfafa">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -57,7 +67,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <TableView fx:id="tblMembershipFee" layoutX="419.0" layoutY="200.0" prefHeight="522.0" prefWidth="747.0" style="-fx-background-color: #1B97B0;">
+      <TableView fx:id="tblMembershipFee" layoutX="418.0" layoutY="168.0" prefHeight="532.0" prefWidth="747.0" style="-fx-background-color: #1B97B0;">
         <columns>
           <TableColumn fx:id="colFeeid" prefWidth="90.0" text="Fee ID" />
           <TableColumn fx:id="colName" prefWidth="211.5" text="Member Name" />
@@ -79,28 +89,28 @@
             <Font name="System Bold" size="15.0" />
          </font></Label>
       <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="45.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="51.0" layoutY="549.0">
+      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="50.0" layoutY="665.0">
          <image>
             <Image url="@../icon/Delete.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="51.0" layoutY="493.0">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="50.0" layoutY="608.0">
          <image>
             <Image url="@../icon/Update.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="51.0" layoutY="438.0">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="50.0" layoutY="553.0">
          <image>
             <Image url="@../icon/Save.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="40.0" layoutY="663.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="48.0" layoutY="604.0">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="42.0" layoutY="716.0">
          <image>
             <Image url="@../icon/Clear.png" />
          </image>
       </ImageView>
-      <ImageView layoutX="50.0" layoutY="665.0">
+      <ImageView layoutX="292.0" layoutY="554.0">
          <image>
             <Image url="@../icon/Back.png" />
          </image>
@@ -121,5 +131,60 @@
             <Font name="MathJax_Main-Bold" size="17.0" />
          </font>
       </Label>
+      <JFXButton buttonType="RAISED" layoutX="935.0" layoutY="710.0" onAction="#printMembershipFeeListOnAction" prefHeight="41.0" prefWidth="230.0" style="-fx-background-color: #6D214F; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="          GENERATE REPORTS" textFill="#f8f8f8">
+         <font>
+            <Font name="KacstOne Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="238.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="959.0" layoutY="714.0">
+         <image>
+            <Image url="@../icon/generateReports.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtStatus" layoutX="28.0" layoutY="413.0" prefHeight="42.0" prefWidth="362.0" promptText="Status" style="-fx-border-color: #2f3640;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextField>
+      <JFXRadioButton fx:id="rButtonAnually" layoutX="28.0" layoutY="488.0" onAction="#getStatus" prefHeight="33.0" prefWidth="130.0" text="Anually">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="Status" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="rButtonSixMonths" layoutX="173.0" layoutY="455.0" onAction="#getStatus" prefHeight="33.0" prefWidth="163.0" text="For Six months" toggleGroup="$Status">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="rButtonMonthly" layoutX="28.0" layoutY="455.0" onAction="#getStatus" prefHeight="33.0" prefWidth="130.0" text="Monthly" toggleGroup="$Status">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="rButtonAmountmonthly" layoutX="28.0" layoutY="366.0" onAction="#getAmount" prefHeight="33.0" prefWidth="130.0" text="100.00">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="paidAmount" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="rButtonAmountSixMonths" layoutX="152.0" layoutY="366.0" onAction="#getAmount" prefHeight="33.0" prefWidth="114.0" text="600.00" toggleGroup="$paidAmount">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="rButtonAmountAnually" layoutX="279.0" layoutY="366.0" onAction="#getAmount" prefHeight="33.0" prefWidth="114.0" text="1200.00" toggleGroup="$paidAmount">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXRadioButton>
    </children>
 </AnchorPane>

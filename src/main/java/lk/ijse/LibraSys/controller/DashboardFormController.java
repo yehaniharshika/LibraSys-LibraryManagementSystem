@@ -12,9 +12,11 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import lk.ijse.LibraSys.model.*;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -38,12 +40,84 @@ public class DashboardFormController {
     @FXML
     private AnchorPane Root;
 
+    @FXML
+    private AnchorPane anchor;
+
+    @FXML
+    private Label lblMemberCount;
+
+    @FXML
+    private Label lblBorrowCount;
+    @FXML
+    private Label lblBookCount;
+
+    @FXML
+    private Label lblAuthorCount;
+
+    @FXML
+    private Label lblSupplierCount;
+
+    private MemberModel memberModel = new MemberModel();
+    private MemberFormController memberFormController = new MemberFormController();
+
+    private ReservationModel reservationModel = new ReservationModel();
+    private BookModel bookModel = new BookModel();
+    private AuthorModel authorModel = new AuthorModel();
+    
+    private SupplierModel supplierModel = new SupplierModel();
+
     public void initialize(){
         updateTime();
         setDateandTime();
+        setMemberCount();
+        setBookBorrowCount();
+        setNewBookCount();
+        setAuthorCount();
+        setSupplierCount();
 
     }
 
+    private void setSupplierCount() {
+        try {
+            lblSupplierCount.setText(supplierModel.getSupplierCount());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void setAuthorCount() {
+        try {
+            lblAuthorCount.setText(authorModel.getAuthorCount());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void setNewBookCount() {
+        try {
+            lblBookCount.setText(bookModel.getBookCount());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void setBookBorrowCount() {
+        try {
+            lblBorrowCount.setText(reservationModel.getBookBorrowCount());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    //member count update
+    private void setMemberCount() {
+
+        try {
+            lblMemberCount.setText(memberModel.getMemberCount());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
     private void updateTime() {
@@ -140,6 +214,14 @@ public class DashboardFormController {
         this.Root.getChildren().clear();
         this.Root.getChildren().add(node);
 
+    }
+
+    @FXML
+    void btnSendingEmailOnAction(ActionEvent event) throws IOException {
+        Parent node = FXMLLoader.load(this.getClass().getResource("/view/sendingMail_form.fxml"));
+
+        this.anchor.getChildren().clear();
+        this.anchor.getChildren().add(node);
     }
 
 }

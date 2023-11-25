@@ -13,6 +13,28 @@ import java.util.List;
 
 public class MembershipFeeModel {
 
+    public String generateNaxtMembershipFeeId(String id) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("SELECT fee_id FROM membershipFee ORDER BY fee_id DESC LIMIT 1");
+
+        ResultSet resultSet = pstm.executeQuery();
+        if (resultSet.next()){
+            return splitFeeId(resultSet.getString(1));
+        }
+        return splitFeeId(null);
+    }
+
+    private String splitFeeId(String currentMembershipFeeId) {
+        if (currentMembershipFeeId != null){
+            String[] split = currentMembershipFeeId.split("[F]");
+            int id = Integer.parseInt(split[1]);
+            id++;
+            return "F0" + id;
+        }else {
+            return "F001";
+        }
+    }
+
     public boolean saveMembersipFee(MembershipFeeDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 

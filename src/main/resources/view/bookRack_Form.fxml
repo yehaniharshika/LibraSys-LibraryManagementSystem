@@ -12,15 +12,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Pane" prefHeight="747.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.BookRackFormController">
+<AnchorPane fx:id="Pane" prefHeight="765.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.BookRackFormController">
    <children>
-      <ImageView fitHeight="109.0" fitWidth="124.0" layoutX="235.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="31.0" fitWidth="34.0" layoutX="89.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" />
       <TextField fx:id="txtCode" layoutX="43.0" layoutY="144.0" onAction="#txtCodeOnAction" prefHeight="41.0" prefWidth="313.0" promptText="Rack Code" style="-fx-border-color: #222f3e;">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></TextField>
-      <TextField fx:id="txtQuantity" layoutX="43.0" layoutY="197.0" prefHeight="41.0" prefWidth="313.0" promptText="Quantity of books" style="-fx-border-color: #222f3e;" />
+      <TextField fx:id="txtQuantity" layoutX="43.0" layoutY="197.0" prefHeight="41.0" prefWidth="313.0" promptText="Quantity of books" style="-fx-border-color: #222f3e;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></TextField>
       <JFXButton layoutX="44.0" layoutY="515.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="  SAVE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
@@ -68,7 +70,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <TableView fx:id="tblBookrack" layoutX="401.0" layoutY="144.0" prefHeight="576.0" prefWidth="754.0" style="-fx-background-color: #1B97B0;">
+      <TableView fx:id="tblBookrack" layoutX="401.0" layoutY="144.0" prefHeight="558.0" prefWidth="754.0" style="-fx-background-color: #1B97B0;">
         <columns>
           <TableColumn fx:id="colCode" prefWidth="126.0" text="Rack Code" />
           <TableColumn fx:id="colQuantityBooks" prefWidth="160.0" text="Quantity of books" />
@@ -94,8 +96,14 @@
             <Image url="@../icon/Update.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="txtNameOfBooks" layoutX="43.0" layoutY="306.0" prefHeight="184.0" prefWidth="313.0" promptText="Name Of Books" style="-fx-border-color: #222f3e;" />
-      <TextField fx:id="txtCategoryOfBooks" layoutX="43.0" layoutY="252.0" prefHeight="41.0" prefWidth="313.0" promptText="Category of books" style="-fx-border-color: #222f3e;" />
+      <TextArea fx:id="txtNameOfBooks" layoutX="43.0" layoutY="306.0" prefHeight="184.0" prefWidth="313.0" promptText="Name Of Books" style="-fx-border-color: #222f3e;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></TextArea>
+      <TextField fx:id="txtCategoryOfBooks" layoutX="43.0" layoutY="252.0" prefHeight="41.0" prefWidth="313.0" promptText="Category of books" style="-fx-border-color: #222f3e;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></TextField>
       <Label layoutX="348.0" layoutY="26.0" prefHeight="89.0" prefWidth="530.0" style="-fx-border-color: #222f3e; -fx-background-color: #1B97B0;" text="                       BOOK RACK MANAGE" textFill="#171717">
          <font>
             <Font name="System Bold" size="21.0" />
@@ -116,5 +124,19 @@
             <Font name="MathJax_Main-Bold" size="17.0" />
          </font>
       </Label>
+      <JFXButton buttonType="RAISED" layoutX="925.0" layoutY="710.0" onAction="#printBookRackListOnAction" prefHeight="41.0" prefWidth="230.0" style="-fx-background-color: #6D214F; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="          GENERATE REPORTS" textFill="#f8f8f8">
+         <font>
+            <Font name="KacstOne Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ImageView fitHeight="31.0" fitWidth="34.0" layoutX="314.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="950.0" layoutY="714.0">
+         <image>
+            <Image url="@../icon/generateReports.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

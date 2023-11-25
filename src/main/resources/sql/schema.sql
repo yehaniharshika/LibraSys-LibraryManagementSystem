@@ -28,10 +28,12 @@ create  table member(
     address varchar(150) not null,
     gender  varchar(25)  not null,
     tel   varchar(15) not null ,
+    EmailAddress varchar(450) not null ,
+    IDNumber varchar(400) not null ,
     feeId  varchar(20) not null,
-    sNumber  varchar(10) not null ,
+    sNumber  varchar(15) not null ,
     constraint foreign key(feeId) references membershipFee(fee_id) on update cascade on delete cascade,
-    constraint foreign key (sNumber) references librarian (sNumber) on delete cascade on update cascade
+    constraint foreign key (sNumber) references librarian (sNumber) on update cascade on delete cascade
 );
 
 

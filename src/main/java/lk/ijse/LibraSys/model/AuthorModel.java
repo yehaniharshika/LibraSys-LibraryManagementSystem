@@ -12,6 +12,18 @@ import java.util.List;
 
 public class AuthorModel {
 
+    public String getAuthorCount() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("SELECT COUNT(authorId) FROM author");
+
+        String Count = null;
+        ResultSet resultSet = pstm.executeQuery();
+        if (resultSet.next()){
+            Count = resultSet.getString(1);
+        }
+        return  Count;
+    }
+
     public String generateNextAuthorId(String authorId) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 

@@ -12,14 +12,21 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.LibraSys.db.DbConnection;
 import lk.ijse.LibraSys.dto.MemberDto;
 import lk.ijse.LibraSys.dto.MembershipFeeDto;
+import lk.ijse.LibraSys.dto.SignupDto;
 import lk.ijse.LibraSys.dto.tm.MemberTm;
 import lk.ijse.LibraSys.model.MemberModel;
 import lk.ijse.LibraSys.model.MembershipFeeModel;
 import lk.ijse.LibraSys.model.SignupModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -43,13 +50,19 @@ public class MemberFormController {
     private TableColumn<?, ?> colMid;
 
     @FXML
-    private TableColumn<?, ?> colfeeId;
-
-    @FXML
-    private TableColumn<?, ?> colservicenum;
-
-    @FXML
     private TableColumn<?, ?> coltelNumber;
+
+    @FXML
+    private TableColumn<?, ?> colEmailAddress;
+
+    @FXML
+    private TableColumn<?, ?> colIDNumber;
+
+    @FXML
+    private TableColumn<?, ?> colFeeId;
+
+    @FXML
+    private TableColumn<?, ?> colSNumber;
 
 
     @FXML
@@ -77,11 +90,18 @@ public class MemberFormController {
     private TextField txtSnumber;
 
     @FXML
+    private TextField txtIDNumber;
+
+    @FXML
+    private TextField txtEmailAddress;
+
+    @FXML
     private TextField txtTel;
     private MembershipFeeModel membershipFeeModel = new MembershipFeeModel();
     //private ObservableList<MemberTm> obList = FXCollections.observableArrayList();
     private MemberModel memberModel = new MemberModel();
     private SignupModel signupModel =new SignupModel();
+
 
     public  void initialize(){
         generateNextMemberId();
@@ -89,6 +109,7 @@ public class MemberFormController {
         loadAllMember();
         setCellValueFactory();
         tableListener();
+
     }
 
     private void tableListener() {
@@ -104,8 +125,10 @@ public class MemberFormController {
         txtAddress.setText(row.getAddress());
         txtGender.setText(row.getGender());
         txtTel.setText(row.getTel());
+        txtEmailAddress.setText(row.getEmailAddress());
+        txtIDNumber.setText(row.getIDNumber());
         cmbmembershipFeeId.setValue(row.getFeeId());
-        txtSnumber.setText(row.getSNumber());
+
     }
 
     private void generateNextMemberId() {
@@ -123,8 +146,10 @@ public class MemberFormController {
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
         coltelNumber.setCellValueFactory(new PropertyValueFactory<>("tel"));
-        colfeeId.setCellValueFactory(new PropertyValueFactory<>("feeId"));
-        colservicenum.setCellValueFactory(new PropertyValueFactory<>("sNumber"));
+        colEmailAddress.setCellValueFactory(new PropertyValueFactory<>("EmailAddress"));
+        colIDNumber.setCellValueFactory(new PropertyValueFactory<>("IDNumber"));
+        colFeeId.setCellValueFactory(new PropertyValueFactory<>("feeId"));
+        colSNumber.setCellValueFactory(new PropertyValueFactory<>("sNumber"));
     }
 
     private void loadAllMember() {
@@ -141,8 +166,11 @@ public class MemberFormController {
                         dto.getAddress(),
                         dto.getGender(),
                         dto.getTel(),
+                        dto.getEmailAddress(),
+                        dto.getIDNumber(),
                         dto.getFeeId(),
-                        dto.getsNumber()
+                        dto.getSNumber()
+
                 ));
 
             }
@@ -183,6 +211,8 @@ public class MemberFormController {
         txtAddress.setText("");
         txtGender.setText("");
         txtTel.setText("");
+        txtEmailAddress.setText("");
+        txtIDNumber.setText("");
 
     }
     @FXML
@@ -197,8 +227,10 @@ public class MemberFormController {
                 txtAddress.setText(dto.getAddress());
                 txtGender.setText(dto.getGender());
                 txtTel.setText(dto.getTel());
+                txtEmailAddress.setText(dto.getEmailAddress());
+                txtIDNumber.setText(dto.getIDNumber());
                 cmbmembershipFeeId.setValue(dto.getFeeId());
-                txtSnumber.setText(dto.getsNumber());
+                txtSnumber.setText(dto.getSNumber());
             }else {
                 new Alert(Alert.AlertType.ERROR,"Member not found!!!").show();
             }
@@ -242,11 +274,14 @@ public class MemberFormController {
             String address = txtAddress.getText();
             String gender = txtGender.getText();
             String tel = txtTel.getText();
+            String EmailAddress = txtEmailAddress.getText();
+            String IDNumber = txtIDNumber.getText();
             String feeId = cmbmembershipFeeId.getValue();
             String sNumber = txtSnumber.getText();
 
 
-            var dto = new MemberDto(mid,name,address,gender,tel,feeId,sNumber);
+
+            var dto = new MemberDto(mid,name,address,gender,tel,feeId,sNumber,EmailAddress,IDNumber);
 
             try {
                 boolean isSaved = memberModel.saveMember(dto);
@@ -278,7 +313,7 @@ public class MemberFormController {
         }
 
         String name =txtName.getText();
-        boolean matches1 = Pattern.matches("[A-Za-z\\s]{1,}", name);
+        boolean matches1 = Pattern.matches("[A-Za-z\\s]{3,}", name);
         if (!matches1){
             new Alert(Alert.AlertType.ERROR,"Invalid member name!!!").show();
             return  false;
@@ -316,11 +351,13 @@ public class MemberFormController {
         String address = txtAddress.getText();
         String gender = txtGender.getText();
         String tel = txtTel.getText();
+        String EmailAddress = txtEmailAddress.getText();
+        String IDNumber = txtIDNumber.getText();
         String feeId = cmbmembershipFeeId.getValue();
         String sNumber = txtSnumber.getText();
 
 
-        var dto = new MemberDto(mid,name,address,gender,tel,feeId,sNumber);
+        var dto = new MemberDto(mid,name,address,gender,tel,EmailAddress,IDNumber,feeId,sNumber);
 
         try {
             boolean isUpdated = memberModel.updateMember(dto);
@@ -360,6 +397,22 @@ public class MemberFormController {
         stage.setTitle("Dashboard Form");
         stage.centerOnScreen();
         stage.show();
+    }
+
+    @FXML
+    void printMemberListOnAction(ActionEvent event) throws JRException, SQLException {
+        InputStream resourceAsStream = getClass().getResourceAsStream("/report/memberDetail.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
+        JasperReport jasperReport = JasperCompileManager.compileReport(load);
+
+        JasperPrint jasperPrint =
+                JasperFillManager.fillReport(
+                jasperReport,
+                null,
+                DbConnection.getInstance().getConnection()
+
+                );
+        JasperViewer.viewReport(jasperPrint,false);
     }
 
 }

@@ -9,6 +9,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SupplierModel {
+
+    public String getSupplierCount() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("SELECT COUNT(supplierId) FROM supplier");
+
+        String count = null;
+        ResultSet resultSet = pstm.executeQuery();
+        if (resultSet.next()){
+            count = resultSet.getString(1);
+        }
+        return count;
+
+    }
     public boolean saveSupplier(String supplierId,String supName,String contactNumber) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement("INSERT INTO supplier VALUES (?,?,?)");

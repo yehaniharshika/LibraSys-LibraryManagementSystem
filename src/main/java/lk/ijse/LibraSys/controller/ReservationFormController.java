@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.LibraSys.db.DbConnection;
 import lk.ijse.LibraSys.dto.BookDto;
 import lk.ijse.LibraSys.dto.MemberDto;
 import lk.ijse.LibraSys.dto.ReservationDto;
@@ -19,11 +20,18 @@ import lk.ijse.LibraSys.dto.tm.ReservationTm;
 import lk.ijse.LibraSys.model.BookModel;
 import lk.ijse.LibraSys.model.MemberModel;
 import lk.ijse.LibraSys.model.ReservationModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ReservationFormController {
 
@@ -100,7 +108,28 @@ public class ReservationFormController {
         setDate();
         loadAllReservation();
         setCellValueFactory();
+        tableListener();
+
     }
+
+    private void tableListener() {
+        tblReservation.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
+            setData(newValue);
+
+        });
+    }
+
+    private void setData(ReservationTm row) {
+        txtReservationId.setText(row.getReservationId());
+        txtBorrowedDate.setText(row.getBorrowedDate());
+        txtDueDate.setValue(LocalDate.parse(row.getDueDate()));
+        txtReturnDate.setText(row.getBookReturnDate());
+        txtFineStatus.setText(row.getFineStatus());
+        txtFineAmount.setText(String.valueOf(row.getFineAmount()));
+        cmbMemberId.setValue(row.getMid());
+        cmbISBN.setValue(row.getISBN());
+    }
+
 
     private void setCellValueFactory() {
         colReservationId.setCellValueFactory(new PropertyValueFactory<>("reservationId"));
@@ -185,37 +214,57 @@ public class ReservationFormController {
 
     @FXML
     void btnAddReservationOnAction(ActionEvent event) {
-        String reservationId = txtReservationId.getText();
-        String borrowedDate = txtBorrowedDate.getText();
-        String dueDate = String.valueOf(txtDueDate.getValue());
-        String bookReturnDate = txtReturnDate.getText();
-        String fineStatus = txtFineStatus.getText();
-        double fineAmount = Double.parseDouble(txtFineAmount.getText());
-        String mid = cmbMemberId.getValue();
-        String ISBN = cmbISBN.getValue();
-        //Button btn = new Button("Remove Reservation");
+        boolean isValidated = validateReservation();
+        if (isValidated){
+            String reservationId = txtReservationId.getText();
+            String borrowedDate = txtBorrowedDate.getText();
+            String dueDate = String.valueOf(txtDueDate.getValue());
+            String bookReturnDate = txtReturnDate.getText();
+            String fineStatus = txtFineStatus.getText();
+            double fineAmount = Double.parseDouble(txtFineAmount.getText());
+            String mid = cmbMemberId.getValue();
+            String ISBN = cmbISBN.getValue();
 
-        var dto = new ReservationDto(reservationId,borrowedDate,dueDate,bookReturnDate,fineStatus,fineAmount,mid,ISBN);
 
-        try {
-            boolean isAdd = reservationModel.addReservation(dto);
-            if(isAdd){
-                new Alert(Alert.AlertType.CONFIRMATION,"Adding reservation successfully!!!").show();
-                clearFields();
-                loadAllReservation();
-                setCellValueFactory();
-                setDate();
-                generateNextReservationId();
-            }else{
-                new Alert(Alert.AlertType.ERROR,"Reservation failed!!!").show();
+            var dto = new ReservationDto(reservationId,borrowedDate,dueDate,bookReturnDate,fineStatus,fineAmount,mid,ISBN);
+
+            try {
+                boolean isAdd = reservationModel.addReservation(dto);
+                if(isAdd){
+                    new Alert(Alert.AlertType.CONFIRMATION,"Adding reservation successfully!!!").show();
+                    clearFields();
+                    loadAllReservation();
+                    setCellValueFactory();
+                    setDate();
+                    generateNextReservationId();
+                }else{
+                    new Alert(Alert.AlertType.ERROR,"Reservation failed!!!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+
         }
 
     }
 
+    private boolean validateReservation(){
+        String reservationId = txtReservationId.getText();
+        Pattern compile = Pattern.compile("[R][0-9]{3,}");
+        Matcher matcher = compile.matcher(reservationId);
+        boolean matches = matcher.matches();
+        if (!matches){
+            new Alert(Alert.AlertType.ERROR,"Invalid reservation Id!!!").show();
+            return false;
+        }
 
+        String fineStatus = txtFineStatus.getText();
+        boolean matches1 =  Pattern.matches("Yes|No" ,fineStatus);
+        if (!matches1){
+            new Alert(Alert.AlertType.ERROR,"Invalid fine status!!!").show();
+        }
+        return true;
+    }
 
     @FXML
     void btnDeleteReservationOnAction(ActionEvent event) {
@@ -224,9 +273,8 @@ public class ReservationFormController {
         try {
             boolean isDeleted = reservationModel.deleteReservation(reservationId);
             if (isDeleted){
-                System.out.println("Are you sure to delete?");
 
-                new Alert(Alert.AlertType.INFORMATION,"reservation deleted successfully!!").show();
+                new Alert(Alert.AlertType.INFORMATION,"reservation deleted successfully!!").showAndWait();
                 loadAllReservation();
             }else {
                 new Alert(Alert.AlertType.ERROR,"reservation not deleted!!!").show();
@@ -245,7 +293,7 @@ public class ReservationFormController {
             if (dto != null){
                 txtReservationId.setText(dto.getReservationId());
                 txtBorrowedDate.setText(dto.getBorrowedDate());
-                txtDueDate.setAccessibleText(dto.getDueDate());
+                txtDueDate.setValue(LocalDate.parse(dto.getDueDate()));
                 txtReturnDate.setText(dto.getBookReturnDate());
                 txtFineStatus.setText(dto.getFineStatus());
                 txtFineAmount.setText(String.valueOf(dto.getFineAmount()));
@@ -278,6 +326,7 @@ public class ReservationFormController {
     void btnClearOnAction(ActionEvent event) {
         clearFields();
         generateNextReservationId();
+        setDate();
 
     }
 
@@ -332,25 +381,29 @@ public class ReservationFormController {
 
     @FXML
     void cmbBookOnAction(ActionEvent event) {
-        String ISBN = String.valueOf(cmbISBN.getValue());
-
-        try {
-            BookDto dto = bookModel.searchBook(ISBN);
-            lblBookName.setText(dto.getBookName());
-            lblQtyOnHand.setText(dto.getQtyOnHand());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        System.out.println("-------------------------------------");
+        String ISBN = cmbISBN.getValue();
+        if(ISBN!=null){
+            try {
+                BookDto dto = bookModel.searchBook(ISBN);
+                if(dto!=null){
+                    System.out.println("dto : "+dto);
+                    lblBookName.setText(dto.getBookName());
+                    lblQtyOnHand.setText(dto.getQtyOnHand());
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
-
     }
 
     @FXML
     void cmbMemberOnAction(ActionEvent event) {
         String mid = String.valueOf(cmbMemberId.getValue());
-        
         try {
             MemberDto dto = memberModel.searchMember(mid);
-            lblMemberName.setText(dto.getName());
+            if(dto!=null)           lblMemberName.setText(dto.getName());
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -365,6 +418,30 @@ public class ReservationFormController {
         stage.setTitle("Dashboard Form");
         stage.centerOnScreen();
         stage.show();
+    }
+
+    @FXML
+    void printBookBorrowReturnOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void printBookBorrowSummeryOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void printReservationListOnAction(ActionEvent event) throws JRException, SQLException {
+        InputStream resourceAsStream = getClass().getResourceAsStream("/report/allReservationList.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
+        JasperReport jasperReport= JasperCompileManager.compileReport(load);
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(
+                jasperReport,
+                null,
+                DbConnection.getInstance().getConnection()
+        );
+        JasperViewer.viewReport(jasperPrint);
     }
 
 }

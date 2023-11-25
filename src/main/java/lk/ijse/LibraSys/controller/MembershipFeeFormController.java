@@ -1,6 +1,7 @@
 package lk.ijse.LibraSys.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXRadioButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,10 +14,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.LibraSys.db.DbConnection;
 import lk.ijse.LibraSys.dto.MembershipFeeDto;
+import lk.ijse.LibraSys.dto.tm.MemberTm;
 import lk.ijse.LibraSys.dto.tm.MembershipFeeTm;
 import lk.ijse.LibraSys.model.MembershipFeeModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,6 +37,30 @@ public class MembershipFeeFormController {
 
     public TextField txtDate;
     public Label lblPaidDate;
+
+    @FXML
+    private ToggleGroup Status;
+
+    @FXML
+    private ToggleGroup paidAmount;
+
+    @FXML
+    private JFXRadioButton rButtonAmountAnually;
+
+    @FXML
+    private JFXRadioButton rButtonAmountSixMonths;
+
+    @FXML
+    private JFXRadioButton rButtonAmountmonthly;
+
+    @FXML
+    private JFXRadioButton rButtonAnually;
+
+    @FXML
+    private JFXRadioButton rButtonMonthly;
+
+    @FXML
+    private JFXRadioButton rButtonSixMonths;
     public TableView tblMembershipFee;
 
     @FXML
@@ -67,6 +98,56 @@ public class MembershipFeeFormController {
         setDate();
         loadAllMembershipFee();
         setCellValueFactory();
+        generateNextMembershipFeeId();
+        tableListener();
+
+    }
+    private void tableListener() {
+        tblMembershipFee.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
+            setData((MembershipFeeTm) newValue);
+
+        });
+    }
+
+    private void setData(MembershipFeeTm row) {
+        txtId.setText(row.getId());
+        txtName.setText(row.getName());
+        txtAmount.setText(String.valueOf(row.getAmount()));
+        lblPaidDate.setText(String.valueOf(row.getDate()));
+        txtStatus.setText(row.getStatus());
+
+    }
+
+    @FXML
+    void getAmount(ActionEvent event) {
+        if (rButtonAmountmonthly.isSelected()){
+            txtAmount.setText(rButtonAmountmonthly.getText());
+        } else if (rButtonAmountSixMonths.isSelected()) {
+            txtAmount.setText(rButtonSixMonths.getText());
+        } else if (rButtonAmountAnually.isSelected()) {
+            txtAmount.setText(rButtonAmountAnually.getText());
+        }
+    }
+
+    @FXML
+    void getStatus(ActionEvent event) {
+        if (rButtonMonthly.isSelected()){
+            txtStatus.setText(rButtonMonthly.getText());
+        }else if (rButtonSixMonths.isSelected()){
+            txtStatus.setText(rButtonSixMonths.getText());
+        } else if (rButtonAnually.isSelected()) {
+            txtStatus.setText(rButtonAnually.getText());
+        }
+    }
+
+
+    private void generateNextMembershipFeeId() {
+        try {
+            String id = membershipFeeModel.generateNaxtMembershipFeeId(txtId.getText());
+            txtId.setText(id);
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
 
     }
 
@@ -111,6 +192,7 @@ public class MembershipFeeFormController {
     void btnClearOnAction(ActionEvent event) {
         clearFields();
         setDate();
+        generateNextMembershipFeeId();
     }
 
     private void clearFields() {
@@ -122,7 +204,7 @@ public class MembershipFeeFormController {
     }
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) {
+    void btnDeleteOnAction(ActionEvent event) throws  NullPointerException {
         String id =txtId.getText();
 
        try {
@@ -141,30 +223,35 @@ public class MembershipFeeFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event){
+        boolean isValidate = validateMembershipFee();
+        if (isValidate){
+            String id =txtId.getText();
+            String name = txtName.getText();
+            double amount = Double.parseDouble(txtAmount.getText());
+            LocalDate date = LocalDate.parse(lblPaidDate.getText());
+            String status = txtStatus.getText();
 
-        String id =txtId.getText();
-        String name = txtName.getText();
-        double amount = Double.parseDouble(txtAmount.getText());
-        LocalDate date = LocalDate.parse(lblPaidDate.getText());
-        String status = txtStatus.getText();
+            var dto = new MembershipFeeDto(id,name,amount,date,status);
 
-        var dto = new MembershipFeeDto(id,name,amount,date,status);
+            try {
+                boolean isSaved = membershipFeeModel.saveMembersipFee(dto);
 
-        try {
-            boolean isSaved = membershipFeeModel.saveMembersipFee(dto);
+                if(isSaved){
+                    new Alert(Alert.AlertType.CONFIRMATION,"success!!").show();
+                    clearFields();
+                    setDate();
+                    loadAllMembershipFee();
+                    setCellValueFactory();
+                    generateNextMembershipFeeId();
+                }else {
+                    new Alert(Alert.AlertType.ERROR,"paid not success!!!").show();
+                }
 
-            if(isSaved){
-               new Alert(Alert.AlertType.CONFIRMATION,"success!!").show();
-               clearFields();
-               setDate();
-               loadAllMembershipFee();
-               setCellValueFactory();
-
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
             }
-
-        } catch (SQLException e) {
-           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
+
 
     }
 
@@ -189,6 +276,7 @@ public class MembershipFeeFormController {
         boolean matches2 = Pattern.matches("(Anually|Monthly|For six monthes)" , status);
         if (!matches2){
             new Alert(Alert.AlertType.ERROR,"Invalid status!!!").show();
+            return false;
         }
         return  true;
     }
@@ -232,7 +320,6 @@ public class MembershipFeeFormController {
                 txtStatus.setText(membershipFeeDto.getStatus());
             }else {
                 new  Alert(Alert.AlertType.INFORMATION,"member not found!!").show();
-
             }
         } catch (SQLException e) {
            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -248,5 +335,20 @@ public class MembershipFeeFormController {
         stage.setTitle("Dashboard Form");
         stage.centerOnScreen();
         stage.show();
+    }
+
+    @FXML
+    void printMembershipFeeListOnAction(ActionEvent event) throws JRException, SQLException {
+        InputStream resourceAsStream = getClass().getResourceAsStream("/report/membershipFee.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
+
+        JasperReport jasperReport = JasperCompileManager.compileReport(load);
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(
+                jasperReport,
+                null,
+                DbConnection.getInstance().getConnection()
+        );
+        JasperViewer.viewReport(jasperPrint,false);
     }
 }

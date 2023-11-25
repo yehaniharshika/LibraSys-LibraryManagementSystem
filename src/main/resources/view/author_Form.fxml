@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Anchor" prefHeight="747.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.AuthorFormController">
+<AnchorPane fx:id="Anchor" prefHeight="765.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.AuthorFormController">
    <children>
       <JFXButton layoutX="43.0" layoutY="477.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="132.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="   SAVE" textFill="#f5f3f3">
          <font>
@@ -41,7 +42,7 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></TextField>
-      <TableView fx:id="tblAuthor" layoutX="423.0" layoutY="182.0" prefHeight="508.0" prefWidth="743.0" style="-fx-background-color: #1B97B0;">
+      <TableView fx:id="tblAuthor" layoutX="423.0" layoutY="182.0" prefHeight="520.0" prefWidth="743.0" style="-fx-background-color: #1B97B0;">
         <columns>
           <TableColumn fx:id="colAuthorId" prefWidth="87.5" text="Author ID" />
           <TableColumn fx:id="colAuthorName" prefWidth="201.5" text="Author Name" />
@@ -80,7 +81,7 @@
             <Image url="@../icon/Back.png" />
          </image>
       </ImageView>
-      <Label layoutX="344.0" layoutY="24.0" prefHeight="89.0" prefWidth="530.0" style="-fx-border-color: #222f3e; -fx-background-color: #1B97B0;" text="                        AUTHORS  MANAGE" textFill="#171717">
+      <Label layoutX="344.0" layoutY="24.0" prefHeight="89.0" prefWidth="530.0" style="-fx-border-color: #222f3e; -fx-background-color: #1B97B0;" text="                        AUTHORS  MANAGEMENT" textFill="#171717">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
@@ -115,5 +116,19 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </TextField>
+      <JFXButton buttonType="RAISED" layoutX="936.0" layoutY="713.0" onAction="#printAuthorListOnAction" prefHeight="41.0" prefWidth="230.0" style="-fx-background-color: #6D214F; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="          GENERATE REPORTS" textFill="#f8f8f8">
+         <font>
+            <Font name="KacstOne Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="267.0" layoutY="486.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="959.0" layoutY="717.0">
+         <image>
+            <Image url="@../icon/generateReports.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

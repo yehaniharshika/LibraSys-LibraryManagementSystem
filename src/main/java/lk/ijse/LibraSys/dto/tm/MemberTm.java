@@ -13,6 +13,8 @@ public class MemberTm {
     private String address;
     private String gender;
     private  String tel;
+    private  String EmailAddress;
+    private  String  IDNumber;
     private String feeId;
     private String sNumber;
 }

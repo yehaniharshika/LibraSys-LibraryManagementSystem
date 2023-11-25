@@ -12,10 +12,16 @@ import java.util.List;
 
 public class ReservationModel {
 
-    public String generateNextReservationId() throws SQLException {
+    public static String getBookBorrowCount() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
-        PreparedStatement pstm = connection.prepareStatement("SELECT reservationId FROM reservation ORDER BY  reservationId LIMIT 1");
-        return null;
+        PreparedStatement pstm = connection.prepareStatement("SELECT COUNT(reservationId) FROM  reservation");
+
+        String count =  null;
+        ResultSet resultSet = pstm.executeQuery();
+        if (resultSet.next()){
+            count = resultSet.getString(1);
+        }
+        return count;
     }
 
     public  boolean addReservation(ReservationDto dto) throws SQLException {

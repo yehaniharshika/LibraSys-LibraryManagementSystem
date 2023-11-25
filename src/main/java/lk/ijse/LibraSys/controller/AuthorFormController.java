@@ -13,13 +13,21 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.LibraSys.db.DbConnection;
 import lk.ijse.LibraSys.dto.AuthorDto;
 import lk.ijse.LibraSys.dto.tm.AuthorTm;
 import lk.ijse.LibraSys.model.AuthorModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AuthorFormController {
 
@@ -167,30 +175,67 @@ public class AuthorFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String authorId = txtAuthorId.getText();
-        String authorName = txtAuthorName.getText();
-        String text = txtText.getText();
-        String nationality = txtNationality.getText();
-        int currentlyBooksWrittenQty = Integer.parseInt(txtCurrentlyBooksWrittenQty.getText());
+        boolean isValidated = validateAuthor();
+        if (isValidated){
+            String authorId = txtAuthorId.getText();
+            String authorName = txtAuthorName.getText();
+            String text = txtText.getText();
+            String nationality = txtNationality.getText();
+            int currentlyBooksWrittenQty = Integer.parseInt(txtCurrentlyBooksWrittenQty.getText());
 
-        var dto = new AuthorDto(authorId,authorName,text,nationality,currentlyBooksWrittenQty);
+            var dto = new AuthorDto(authorId,authorName,text,nationality,currentlyBooksWrittenQty);
 
-        try {
-            boolean isSaved = authorModel.saveAuthor(dto);
-            if (isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION,"Author adding successfully!!!").show();
-                loadAllAuthors();
-                setCellValueFactory();
-                clearFields();
-                generateNextAuthorId();
-            }else {
-                new Alert(Alert.AlertType.ERROR,"oooh,,,Author adding not successfully!!!").show();
+            try {
+                boolean isSaved = authorModel.saveAuthor(dto);
+                if (isSaved){
+                    new Alert(Alert.AlertType.CONFIRMATION,"Author adding successfully!!!").show();
+                    loadAllAuthors();
+                    setCellValueFactory();
+                    clearFields();
+                    generateNextAuthorId();
+                }else {
+                    new Alert(Alert.AlertType.ERROR,"oooh,,,Author adding not successfully!!!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
+
     }
 
+    private  boolean validateAuthor(){
+        String authorId = txtAuthorId.getText();
+        Pattern compile = Pattern.compile("[A][0-9]{3,}");
+        Matcher matcher = compile.matcher(authorId);
+        boolean isAuthorIdValidated = matcher.matches();
+
+        if (!isAuthorIdValidated){
+            new Alert(Alert.AlertType.ERROR,"Invalid author ID!!!").show();
+            return  false;
+        }
+
+        String authorName = txtAuthorName.getText();
+        boolean isAuthorNameValidated = Pattern.matches("[A-Za-z\\s]{1,}" , authorName);
+        if (!isAuthorNameValidated){
+            new Alert(Alert.AlertType.ERROR,"Invalid author name!!!").show();
+            return  false;
+        }
+
+        String text = txtText.getText();
+        boolean isTextValidated = Pattern.matches("Mr|Mrs|Miss" , text);
+        if (!isTextValidated){
+            new Alert(Alert.AlertType.ERROR,"Not valid type!!!").show();
+            return  false;
+        }
+
+        String nationality = txtNationality.getText();
+        boolean isNationalityValidated = Pattern.matches("[A-Z][a-z]{1,}" ,nationality);
+        if (!isNationalityValidated){
+            new Alert(Alert.AlertType.ERROR,"Invalid Nationality!!!").show();
+            return  false;
+        }
+        return true;
+    }
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
         String authorId = txtAuthorId.getText();
@@ -233,6 +278,20 @@ public class AuthorFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
+    }
+
+    @FXML
+    void printAuthorListOnAction(ActionEvent event) throws JRException, SQLException {
+        InputStream resourceAsStream = getClass().getResourceAsStream("/report/AuthorList.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
+        JasperReport jasperReport = JasperCompileManager.compileReport(load);
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(
+                jasperReport,
+                null,
+                DbConnection.getInstance().getConnection()
+        );
+        JasperViewer.viewReport(jasperPrint,false);
     }
 
 }

@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="760.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.DashboardFormController">
+<AnchorPane fx:id="root" prefHeight="780.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.DashboardFormController">
    <children>
-      <AnchorPane layoutX="7.0" layoutY="7.0" prefHeight="747.0" prefWidth="285.0" style="-fx-background-color: #95a5a6; -fx-background-radius: 8;">
+      <AnchorPane layoutX="7.0" layoutY="7.0" prefHeight="765.0" prefWidth="285.0" style="-fx-background-color: #bdc3c7; -fx-background-radius: 8;">
          <children>
-            <JFXButton layoutX="31.0" layoutY="168.0" onAction="#btnMemberOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 2;" text="          Member">
+            <JFXButton layoutX="31.0" layoutY="140.0" onAction="#btnMemberOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 2;" text="          Member">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -21,12 +21,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <ImageView fitHeight="60.0" fitWidth="72.0" layoutX="49.0" layoutY="171.0">
+            <ImageView fitHeight="60.0" fitWidth="72.0" layoutX="53.0" layoutY="143.0">
                <image>
                   <Image url="@../icon/Member.png" />
                </image>
             </ImageView>
-            <JFXButton layoutX="31.0" layoutY="412.0" onAction="#btnAuthorsOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="            Book Authors">
+            <JFXButton layoutX="31.0" layoutY="375.0" onAction="#btnAuthorsOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="            Book Authors">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -34,7 +34,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="31.0" layoutY="85.0" onAction="#btnMembershipFeeOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0; -fx-border-style: #2d3436;" text="            Membership Fee">
+            <JFXButton layoutX="31.0" layoutY="61.0" onAction="#btnMembershipFeeOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0; -fx-border-style: #2d3436;" text="            Membership Fee">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -42,12 +42,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <ImageView fitHeight="49.0" fitWidth="65.0" layoutX="45.0" layoutY="94.0">
+            <ImageView fitHeight="49.0" fitWidth="65.0" layoutX="46.0" layoutY="70.0">
                <image>
                   <Image url="@../icon/membershipFee.png" />
                </image>
             </ImageView>
-            <JFXButton layoutX="31.0" layoutY="249.0" onAction="#btnBookrackOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="      Book Rack">
+            <JFXButton layoutX="31.0" layoutY="219.0" onAction="#btnBookrackOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="      Book Rack">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -55,7 +55,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="31.0" layoutY="330.0" onAction="#btnBookOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="               Manage Books">
+            <JFXButton layoutX="31.0" layoutY="297.0" onAction="#btnBookOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="               Manage Books">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -63,17 +63,17 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <ImageView fitHeight="49.0" fitWidth="65.0" layoutX="49.0" layoutY="258.0">
+            <ImageView fitHeight="49.0" fitWidth="65.0" layoutX="52.0" layoutY="228.0">
                <image>
                   <Image url="@../icon/bookRack.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="66.0" fitWidth="72.0" layoutX="46.0" layoutY="322.0">
+            <ImageView fitHeight="60.0" fitWidth="72.0" layoutX="48.0" layoutY="291.0">
                <image>
                   <Image url="@../icon/book.png" />
                </image>
             </ImageView>
-            <JFXButton layoutX="31.0" layoutY="492.0" onAction="#btnReservationOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="         Reservation">
+            <JFXButton layoutX="31.0" layoutY="455.0" onAction="#btnReservationOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="         Reservation">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -81,7 +81,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="31.0" layoutY="573.0" onAction="#btnSupplierOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="             Supplier">
+            <JFXButton layoutX="31.0" layoutY="534.0" onAction="#btnSupplierOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="               Book Supplier">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -89,7 +89,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="31.0" layoutY="657.0" onAction="#btnLogoutOnAction" prefHeight="49.0" prefWidth="223.0" style="-fx-background-color: #2d3436;" text="          LOGOUT" textFill="#fffcfc">
+            <JFXButton layoutX="31.0" layoutY="689.0" onAction="#btnLogoutOnAction" prefHeight="49.0" prefWidth="223.0" style="-fx-background-color: #2d3436;" text="          LOGOUT" textFill="#fffcfc">
                <font>
                   <Font name="Gidugu" size="21.0" />
                </font>
@@ -97,29 +97,42 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <ImageView fitHeight="43.0" fitWidth="44.0" layoutX="77.0" layoutY="660.0">
+            <ImageView fitHeight="43.0" fitWidth="44.0" layoutX="63.0" layoutY="692.0">
                <image>
                   <Image url="@../icon/logout2.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="72.0" layoutX="48.0" layoutY="573.0">
+            <ImageView fitHeight="60.0" fitWidth="72.0" layoutX="49.0" layoutY="537.0">
                <image>
                   <Image url="@../icon/supplier.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="72.0" layoutX="45.0" layoutY="495.0">
+            <ImageView fitHeight="60.0" fitWidth="72.0" layoutX="48.0" layoutY="461.0">
                <image>
                   <Image url="@../icon/reservation.png" />
                </image>
             </ImageView>
-            <Label fx:id="lblDate" layoutX="31.0" layoutY="16.0" prefHeight="49.0" prefWidth="194.0">
+            <ImageView fitHeight="49.0" fitWidth="65.0" layoutX="53.0" layoutY="383.0">
+               <image>
+                  <Image url="@../icon/Author .png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblDate" layoutX="31.0" layoutY="14.0" prefHeight="33.0" prefWidth="223.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <ImageView fitHeight="60.0" fitWidth="58.0" layoutX="53.0" layoutY="415.0">
+            <JFXButton layoutX="31.0" layoutY="611.0" onAction="#btnSendingEmailOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="           Sending  Email">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <ImageView fitHeight="60.0" fitWidth="72.0" layoutX="42.0" layoutY="614.0">
                <image>
-                  <Image url="@../icon/Author .png" />
+                  <Image url="@../icon/sendingMail.png" />
                </image>
             </ImageView>
          </children>
@@ -127,7 +140,7 @@
       <ImageView fitHeight="60.0" fitWidth="65.0" layoutX="516.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="60.0" fitWidth="65.0" layoutX="750.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="74.0" fitWidth="88.0" layoutX="956.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true" />
-      <AnchorPane fx:id="Root" layoutX="298.0" layoutY="7.0" prefHeight="747.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;">
+      <AnchorPane fx:id="Root" layoutX="298.0" layoutY="7.0" prefHeight="765.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;">
          <children>
             <Label layoutX="14.0" layoutY="2.0" prefHeight="25.0" prefWidth="223.0" text="WELCOME TO DASHBOARD!!!">
                <font>
@@ -136,7 +149,7 @@
             </Label>
             <AnchorPane layoutX="16.0" layoutY="53.0" prefHeight="175.0" prefWidth="1165.0" style="-fx-background-color: #95a5a6; -fx-border-color: #222f3e;">
                <children>
-                  <AnchorPane layoutX="36.0" layoutY="14.0" prefHeight="149.0" prefWidth="204.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 10;">
+                  <AnchorPane layoutX="22.0" layoutY="14.0" prefHeight="149.0" prefWidth="204.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 10;">
                      <children>
                         <AnchorPane layoutY="-3.0" prefHeight="49.0" prefWidth="204.0" style="-fx-background-color: #81ecec; -fx-border-style: #222f3e;">
                            <children>
@@ -152,16 +165,16 @@
                               <Image url="@../icon/countMember.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="108.0" layoutY="84.0" prefHeight="33.0" prefWidth="72.0" text="  45" textFill="#fcfafa">
+                        <Label fx:id="lblMemberCount" layoutX="117.0" layoutY="74.0" prefHeight="43.0" prefWidth="72.0" textFill="#fcfafa">
                            <font>
-                              <Font name="System Bold Italic" size="22.0" />
+                              <Font name="System Bold Italic" size="23.0" />
                            </font>
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="265.0" layoutY="14.0" prefHeight="149.0" prefWidth="204.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 10;">
+                  <AnchorPane layoutX="253.0" layoutY="14.0" prefHeight="150.0" prefWidth="204.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 10;">
                      <children>
-                        <AnchorPane layoutY="-3.0" prefHeight="49.0" prefWidth="204.0" style="-fx-background-color: #81ecec;">
+                        <AnchorPane prefHeight="49.0" prefWidth="204.0" style="-fx-background-color: #81ecec;">
                            <children>
                               <Label layoutX="28.0" layoutY="12.0" prefHeight="25.0" prefWidth="148.0" text="Book Borrow Count">
                                  <font>
@@ -175,18 +188,18 @@
                               <Image url="@../icon/bookBorrow.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="102.0" layoutY="82.0" prefHeight="33.0" prefWidth="72.0" text="  20" textFill="#fcfafa">
+                        <Label fx:id="lblBorrowCount" layoutX="118.0" layoutY="75.0" prefHeight="43.0" prefWidth="72.0" textFill="#fcfafa">
                            <font>
-                              <Font name="System Bold Italic" size="22.0" />
+                              <Font name="System Bold Italic" size="23.0" />
                            </font>
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="494.0" layoutY="14.0" prefHeight="149.0" prefWidth="204.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 10;">
+                  <AnchorPane layoutX="481.0" layoutY="14.0" prefHeight="149.0" prefWidth="204.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 10;">
                      <children>
                         <AnchorPane layoutY="-3.0" prefHeight="49.0" prefWidth="204.0" style="-fx-background-color: #81ecec;">
                            <children>
-                              <Label layoutX="28.0" layoutY="12.0" prefHeight="25.0" prefWidth="148.0" text="Book Return Count">
+                              <Label layoutX="43.0" layoutY="12.0" prefHeight="25.0" prefWidth="131.0" text=" Author Count">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>
@@ -198,14 +211,14 @@
                               <Image url="@../icon/bookReturn.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="104.0" layoutY="78.0" prefHeight="33.0" prefWidth="72.0" text="  15" textFill="#fcfafa">
+                        <Label fx:id="lblAuthorCount" layoutX="127.0" layoutY="75.0" prefHeight="43.0" prefWidth="56.0" textFill="#fcfafa">
                            <font>
-                              <Font name="System Bold Italic" size="22.0" />
+                              <Font name="System Bold Italic" size="23.0" />
                            </font>
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="723.0" layoutY="13.0" prefHeight="149.0" prefWidth="204.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 10;">
+                  <AnchorPane layoutX="709.0" layoutY="14.0" prefHeight="149.0" prefWidth="204.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 10;">
                      <children>
                         <AnchorPane layoutY="-3.0" prefHeight="49.0" prefWidth="204.0" style="-fx-background-color: #81ecec;">
                            <children>
@@ -221,11 +234,34 @@
                               <Image url="@../icon/newBook.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="103.0" layoutY="79.0" prefHeight="33.0" prefWidth="72.0" text="  25" textFill="#fcfafa">
+                        <Label fx:id="lblBookCount" layoutX="112.0" layoutY="77.0" prefHeight="43.0" prefWidth="65.0" textFill="#fcfafa">
                            <font>
-                              <Font name="System Bold Italic" size="22.0" />
+                              <Font name="System Bold Italic" size="23.0" />
                            </font>
                         </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="937.0" layoutY="14.0" prefHeight="149.0" prefWidth="204.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 10;">
+                     <children>
+                        <AnchorPane layoutY="-3.0" prefHeight="49.0" prefWidth="204.0" style="-fx-background-color: #81ecec;">
+                           <children>
+                              <Label layoutX="22.0" layoutY="12.0" prefHeight="25.0" prefWidth="161.0" text="Book Supplier Count">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <Label fx:id="lblSupplierCount" layoutX="112.0" layoutY="77.0" prefHeight="43.0" prefWidth="65.0" textFill="#fcfafa">
+                           <font>
+                              <Font name="System Bold Italic" size="23.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="80.0" fitWidth="81.0" layoutX="21.0" layoutY="55.0">
+                           <image>
+                              <Image url="@../icon/countSupplier.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                </children>
@@ -233,13 +269,18 @@
             <ImageView fitHeight="66.0" fitWidth="81.0" layoutX="112.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="66.0" fitWidth="81.0" layoutX="122.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="66.0" fitWidth="81.0" layoutX="364.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true" />
-            <AnchorPane layoutX="16.0" layoutY="243.0" prefHeight="496.0" prefWidth="1165.0" style="-fx-background-color: #95a5a6;" />
+            <AnchorPane fx:id="anchor" layoutX="16.0" layoutY="243.0" prefHeight="512.0" prefWidth="1165.0" style="-fx-background-color: #95a5a6;">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="28.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="355.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="66.0" fitWidth="81.0" layoutX="120.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" />
+               </children></AnchorPane>
             <Label fx:id="lblTime" layoutX="1033.0" layoutY="6.0" prefHeight="43.0" prefWidth="148.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="24.0" prefHeight="25.0" prefWidth="247.0" text="Reading completes  Human!!!!">
+            <Label layoutX="16.0" layoutY="27.0" prefHeight="25.0" prefWidth="247.0" text="Reading completes  Human!!!!">
                <font>
                   <Font name="MathJax_Main-Bold" size="16.0" />
                </font>

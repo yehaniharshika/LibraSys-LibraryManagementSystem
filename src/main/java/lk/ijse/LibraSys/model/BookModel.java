@@ -12,6 +12,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookModel {
+
+    public static String getBookCount() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("SELECT COUNT(ISBN) FROM  book");
+
+        String count = null;
+        ResultSet resultSet = pstm.executeQuery();
+        if (resultSet.next()){
+            count = resultSet.getString(1);
+        }
+        return count;
+    }
     public  String generateNextBookISBN(String ISBN) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
@@ -75,6 +87,7 @@ public class BookModel {
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement("SELECT * FROM book WHERE ISBN=?");
         pstm.setString(1,ISBN);
+       // System.out.println("search book id +"+ISBN);
 
         ResultSet resultSet = pstm.executeQuery();
 

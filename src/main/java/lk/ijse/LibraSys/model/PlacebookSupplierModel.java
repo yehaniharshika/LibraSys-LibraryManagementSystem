@@ -27,15 +27,12 @@ public class PlacebookSupplierModel {
             boolean isSupplierSaved = supplierModel.saveSupplier(supplierId,supName,contactNumber);
 
             if(isSupplierSaved){
-                System.out.println("1"+isSupplierSaved);
                 boolean isUpdated = bookModel.updateBooks(palceBooksSupplierOrderDto.getSupplierCartTmList());
 
                 if (isUpdated){
-                    System.out.println("2 :"+isUpdated);
 
                     boolean isBooksSupplierDetailSaved = booksSupplierDetailModel.saveBooksSupplierDetail(palceBooksSupplierOrderDto.getSupplierId(),palceBooksSupplierOrderDto.getSupplierDate(),palceBooksSupplierOrderDto.getSupplierCartTmList());
                     if (isBooksSupplierDetailSaved){
-                        System.out.println("3:"+isBooksSupplierDetailSaved);
                         connection.commit();
                     }else {
                         connection.rollback();

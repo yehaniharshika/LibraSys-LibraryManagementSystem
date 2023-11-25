@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.LibraSys.db.DbConnection;
 import lk.ijse.LibraSys.dto.BookDto;
 import lk.ijse.LibraSys.dto.PlaceBooksSupplierOrderDto;
 import lk.ijse.LibraSys.dto.SupplierDto;
@@ -21,13 +22,20 @@ import lk.ijse.LibraSys.dto.tm.SupplierCartTm;
 import lk.ijse.LibraSys.model.BookModel;
 import lk.ijse.LibraSys.model.PlacebookSupplierModel;
 import lk.ijse.LibraSys.model.SupplierModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SupplierFormController {
 
@@ -185,30 +193,59 @@ public class SupplierFormController {
 
     @FXML
     void PlaceBooksOrderOnAction(ActionEvent event) {
-        String supplierId = txtSupplierId.getText();
-        String supName  = txtSupplierName.getText();
-        String contactNumber =  txtContactNumber.getText();
-        LocalDate supplierDate = LocalDate.parse(lblSupplierDate.getText());
+        boolean isValidated = validateSupplier();
+        if (isValidated){
+            String supplierId = txtSupplierId.getText();
+            String supName  = txtSupplierName.getText();
+            String contactNumber =  txtContactNumber.getText();
+            LocalDate supplierDate = LocalDate.parse(lblSupplierDate.getText());
 
-        List<SupplierCartTm> supplierCartTmList = new ArrayList<>();
-        for (int i =0 ; i < tblSupplierDetail.getItems().size(); i++){
-            SupplierCartTm supplierCartTm = obList.get(i);
-            supplierCartTmList.add(supplierCartTm);
+            List<SupplierCartTm> supplierCartTmList = new ArrayList<>();
+            for (int i =0 ; i < tblSupplierDetail.getItems().size(); i++){
+                SupplierCartTm supplierCartTm = obList.get(i);
+                supplierCartTmList.add(supplierCartTm);
 
-        }
-        System.out.println("Place Books supplier order from controller: "+ supplierCartTmList);
-
-        var placeBooksSupplierOrderDto = new PlaceBooksSupplierOrderDto(supplierId,supName,contactNumber,supplierDate,supplierCartTmList);
-        try {
-            boolean isSuccess = placebookSupplierModel.placeBooksOrder(placeBooksSupplierOrderDto);
-            if (isSuccess){
-                new Alert(Alert.AlertType.CONFIRMATION,"Order success!!!").show();
             }
-        } catch (SQLException e) {
-           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            System.out.println("Place Books supplier order from controller: "+ supplierCartTmList);
+
+            var placeBooksSupplierOrderDto = new PlaceBooksSupplierOrderDto(supplierId,supName,contactNumber,supplierDate,supplierCartTmList);
+            try {
+                boolean isSuccess = placebookSupplierModel.placeBooksOrder(placeBooksSupplierOrderDto);
+                if (isSuccess){
+                    new Alert(Alert.AlertType.CONFIRMATION,"Order success!!!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            }
         }
+
     }
 
+    private boolean validateSupplier(){
+        String supplierId = txtSupplierId.getText();
+        Pattern compile = Pattern.compile("SP[0-9]{3,}");
+        Matcher matcher = compile.matcher(supplierId);
+        boolean isSupplierIdValidated = matcher.matches();
+        if (!isSupplierIdValidated){
+            new Alert(Alert.AlertType.ERROR,"Invalid supplierID!!!").show();
+            return false;
+        }
+
+        String supName = txtSupplierName.getText();
+        boolean isSupplierNameValidated = Pattern.matches("[A-Za-z\\s]{2,}" , supName);
+        if (!isSupplierNameValidated){
+            new Alert(Alert.AlertType.ERROR,"Invalid supplier name!!!").show();
+            return false;
+        }
+
+        /*String contactNumber = txtContactNumber.getText();
+        boolean isContactNumberValidated = Pattern.matches("(070|071|072|074|075|076|077|078|034|081|054|027|066|038|091|035|065|011|025|031|047|063|055|057|032|033|051|021|024|067|037|023|041|045|026)\\d{7}",contactNumber);
+        if (isContactNumberValidated){
+            new Alert(Alert.AlertType.ERROR,"Invalid contact number!!!").show();
+            return false;
+        }*/
+        return  true;
+    }
     @FXML
     void btnNewBookOnAction(ActionEvent event) throws IOException {
         Parent anchorPane = FXMLLoader.load(getClass().getResource("/view/book_Form.fxml"));
@@ -234,7 +271,19 @@ public class SupplierFormController {
         }
     }
 
+    @FXML
+    void btnBackOnAction(ActionEvent event) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_Form.fxml"));
+        Scene scene = new Scene(anchorPane);
+        Stage stage = (Stage) Root.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Dashboard Form");
+        stage.centerOnScreen();
+        stage.show();
+    }
+
     public void txtSuppliyQuantityOnAction(ActionEvent actionEvent) {
+
         btnAddSupplierCartOnAction(actionEvent);
     }
 
@@ -255,6 +304,38 @@ public class SupplierFormController {
         }
 
     }
+
+    @FXML
+    void printBookSupplierDetailsListOnAction(ActionEvent event) throws JRException, SQLException {
+        InputStream resourceAsStream = getClass().getResourceAsStream("/report/bookSupplierDetailList.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
+        JasperReport jasperReport = JasperCompileManager.compileReport(load);
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(
+                jasperReport,
+                null,
+                DbConnection.getInstance().getConnection()
+        );
+        JasperViewer.viewReport(jasperPrint);
+
+
+    }
+
+    @FXML
+    void printSupplierListOnAction(ActionEvent event) throws JRException, SQLException {
+        InputStream resourceAsStream = getClass().getResourceAsStream("/report/supplierList.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
+        JasperReport jasperReport= JasperCompileManager.compileReport(load);
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(
+                jasperReport,
+                null,
+                DbConnection.getInstance().getConnection()
+        );
+        JasperViewer.viewReport(jasperPrint);
+
+    }
+
 }
 
 
