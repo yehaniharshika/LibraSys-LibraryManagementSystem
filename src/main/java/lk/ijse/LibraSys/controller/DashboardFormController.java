@@ -155,13 +155,35 @@ public class DashboardFormController {
     }
 
     @FXML
-    void printBookReportOnAction(ActionEvent event) {
+    void printBookReportOnAction(ActionEvent event) throws JRException, SQLException {
+        InputStream resourceAsStream = getClass().getResourceAsStream("/report/bookList.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
+        JasperReport jasperReport = JasperCompileManager.compileReport(load);
 
+        JasperPrint jasperPrint =
+                JasperFillManager.fillReport(
+                        jasperReport,
+                        null,
+                        DbConnection.getInstance().getConnection()
+
+                );
+        JasperViewer.viewReport(jasperPrint,false);
     }
 
     @FXML
-    void printBookSupplierDetailsListOnAction(ActionEvent event) {
+    void printBookSupplierDetailsListOnAction(ActionEvent event) throws JRException, SQLException {
+        InputStream resourceAsStream = getClass().getResourceAsStream("/report/bookSupplierDetail.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
+        JasperReport jasperReport = JasperCompileManager.compileReport(load);
 
+        JasperPrint jasperPrint =
+                JasperFillManager.fillReport(
+                        jasperReport,
+                        null,
+                        DbConnection.getInstance().getConnection()
+
+                );
+        JasperViewer.viewReport(jasperPrint,false);
     }
 
     @FXML
@@ -197,8 +219,18 @@ public class DashboardFormController {
 
 
     @FXML
-    void printSupplierListOnAction(ActionEvent event) {
+    void printSupplierListOnAction(ActionEvent event) throws JRException, SQLException {
+        InputStream resourceAsStream = getClass().getResourceAsStream("/report/SupplierList.jrxml");
+        JasperDesign load = JRXmlLoader.load(resourceAsStream);
 
+        JasperReport jasperReport = JasperCompileManager.compileReport(load);
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(
+                jasperReport,
+                null,
+                DbConnection.getInstance().getConnection()
+        );
+        JasperViewer.viewReport(jasperPrint,false);
     }
 
     private void setBookBorrowCount() {

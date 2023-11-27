@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="root" prefHeight="780.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.DashboardFormController">
    <children>
-      <AnchorPane layoutX="7.0" layoutY="7.0" prefHeight="765.0" prefWidth="285.0" style="-fx-background-color: #bdc3c7; -fx-background-radius: 8;">
+      <AnchorPane layoutX="7.0" layoutY="7.0" prefHeight="765.0" prefWidth="285.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;">
          <children>
             <JFXButton layoutX="31.0" layoutY="140.0" onAction="#btnMemberOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 2;" text="          Member">
                <font>
@@ -272,7 +272,7 @@
             <AnchorPane fx:id="anchor" layoutX="16.0" layoutY="243.0" prefHeight="512.0" prefWidth="1165.0" style="-fx-background-color: #95a5a6;">
                <children>
                   <ImageView fitHeight="66.0" fitWidth="81.0" layoutX="120.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" />
-                  <AnchorPane layoutX="831.0" layoutY="21.0" prefHeight="483.0" prefWidth="310.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 10;">
+                  <AnchorPane layoutX="835.0" layoutY="13.0" prefHeight="485.0" prefWidth="310.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 10;">
                      <children>
                         <AnchorPane layoutY="-3.0" prefHeight="49.0" prefWidth="310.0" style="-fx-background-color: #81ecec;">
                            <children>
@@ -400,6 +400,16 @@
                      </children>
                   </AnchorPane>
                   <ImageView fitHeight="33.0" fitWidth="44.0" layoutX="396.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true" />
+                  <AnchorPane layoutX="13.0" layoutY="13.0" prefHeight="485.0" prefWidth="805.0" style="-fx-background-color: #c8d6e5; -fx-border-color: #222f3e;">
+                     <children>
+                        <ImageView fitHeight="485.0" fitWidth="805.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="485.0" fitWidth="805.0" layoutX="1.0" layoutY="1.0">
+                           <image>
+                              <Image url="@../icon/MemberRegistrationBarChart.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
                </children></AnchorPane>
             <Label fx:id="lblTime" layoutX="1033.0" layoutY="6.0" prefHeight="43.0" prefWidth="148.0">
                <font>

@@ -47,7 +47,7 @@
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextArea>
-      <JFXButton layoutX="671.0" layoutY="456.0" onAction="#btnMailSendOnAction" prefHeight="44.0" prefWidth="176.0" style="-fx-background-color: #6D214F; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="SEND" textFill="#f8f8f8">
+      <JFXButton layoutX="773.0" layoutY="456.0" onAction="#btnMailSendOnAction" prefHeight="44.0" prefWidth="176.0" style="-fx-background-color: #6D214F; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="SEND" textFill="#f8f8f8">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -55,7 +55,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Label fx:id="lblStatus" layoutX="365.0" layoutY="456.0" prefHeight="44.0" prefWidth="250.0" textFill="#c23616">
+      <Label fx:id="lblStatus" layoutX="433.0" layoutY="456.0" prefHeight="44.0" prefWidth="250.0" textFill="#c23616">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
@@ -64,26 +64,21 @@
             <Image url="@../icon/sendingMail.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="702.0" layoutY="465.0">
+      <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="794.0" layoutY="465.0">
          <image>
             <Image url="@../icon/sendEmail.png" />
          </image>
       </ImageView>
-      <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="14.0" layoutY="14.0" onAction="#bnBackOnAction" prefHeight="41.0" prefWidth="42.0" ripplerFill="BLACK" style="-fx-background-color: white; -fx-background-radius: 100px;" text=" " textAlignment="CENTER">
+      <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="14.0" layoutY="14.0" onAction="#bnBackOnAction" prefHeight="26.0" prefWidth="30.0" ripplerFill="BLACK" style="-fx-background-color: white; -fx-background-radius: 100px;" text=" " textAlignment="CENTER">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <ImageView fitHeight="41.0" fitWidth="42.0" layoutX="14.0" layoutY="14.0">
+      <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="14.0" layoutY="14.0">
          <image>
             <Image url="@../icon/newBack.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="330.0" fitWidth="281.0" layoutX="861.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="238.0" fitWidth="256.0" layoutX="864.0" layoutY="166.0">
-         <image>
-            <Image url="@../icon/studying.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

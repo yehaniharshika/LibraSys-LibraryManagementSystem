@@ -119,7 +119,7 @@
 	<columnHeader>
 		<band height="25" splitType="Stretch">
 			<staticText>
-				<reportElement x="-14" y="0" width="100" height="20" uuid="e331feb7-cbe6-4393-bfc6-34f3dc5c26ce">
+				<reportElement x="-14" y="0" width="80" height="20" uuid="e331feb7-cbe6-4393-bfc6-34f3dc5c26ce">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4450e907-ae49-4043-8043-b3847f7f326f"/>
 				</reportElement>
 				<textElement>
@@ -128,7 +128,7 @@
 				<text><![CDATA[rackCode]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="86" y="0" width="100" height="20" uuid="359f913f-d457-4a11-a791-e63a5c8431c8">
+				<reportElement x="66" y="0" width="74" height="20" uuid="359f913f-d457-4a11-a791-e63a5c8431c8">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b03e2974-487e-4e2d-b01e-587a5a80843f"/>
 				</reportElement>
 				<textElement>
@@ -137,7 +137,7 @@
 				<text><![CDATA[qty Books]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="186" y="0" width="124" height="20" uuid="ea335c50-0aea-4e2d-9f39-383a92c0fd8e">
+				<reportElement x="140" y="0" width="124" height="20" uuid="ea335c50-0aea-4e2d-9f39-383a92c0fd8e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e66bc38d-7662-40f7-88fa-1956b6870928"/>
 				</reportElement>
 				<textElement>
@@ -146,7 +146,7 @@
 				<text><![CDATA[categoryOfBooks]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="310" y="0" width="265" height="20" uuid="ca59ca94-9881-4fda-977b-93c8840bfcc1">
+				<reportElement x="264" y="0" width="311" height="20" uuid="ca59ca94-9881-4fda-977b-93c8840bfcc1">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9cba5a8e-6279-410c-b637-e5d8d9ef26f7"/>
 				</reportElement>
 				<textElement>
@@ -160,9 +160,9 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="25" splitType="Stretch">
+		<band height="37" splitType="Stretch">
 			<textField>
-				<reportElement x="-14" y="0" width="100" height="17" uuid="2d3ece17-cf69-4b83-a939-b861efa6c6fe">
+				<reportElement x="-14" y="0" width="80" height="30" uuid="2d3ece17-cf69-4b83-a939-b861efa6c6fe">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4450e907-ae49-4043-8043-b3847f7f326f"/>
 				</reportElement>
 				<textElement>
@@ -171,7 +171,7 @@
 				<textFieldExpression><![CDATA[$F{rackCode}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="100" y="0" width="84" height="17" uuid="dfd44762-da43-43aa-953f-2cbf9e7a9a9a">
+				<reportElement x="70" y="1" width="61" height="29" uuid="dfd44762-da43-43aa-953f-2cbf9e7a9a9a">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b03e2974-487e-4e2d-b01e-587a5a80843f"/>
 				</reportElement>
 				<textElement>
@@ -180,7 +180,7 @@
 				<textFieldExpression><![CDATA[$F{qtyBooks}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="186" y="0" width="114" height="19" uuid="c6032298-89fe-46e5-b259-6609ce878bb3">
+				<reportElement x="140" y="-1" width="124" height="31" uuid="c6032298-89fe-46e5-b259-6609ce878bb3">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e66bc38d-7662-40f7-88fa-1956b6870928"/>
 				</reportElement>
 				<textElement>
@@ -189,7 +189,7 @@
 				<textFieldExpression><![CDATA[$F{categoryOfBooks}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="310" y="0" width="265" height="19" uuid="1a35a246-c623-463f-b58f-dd7f7a781ab4">
+				<reportElement x="264" y="0" width="311" height="30" uuid="1a35a246-c623-463f-b58f-dd7f7a781ab4">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9cba5a8e-6279-410c-b637-e5d8d9ef26f7"/>
 				</reportElement>
 				<textElement>
