@@ -22,13 +22,14 @@ public class SupplierModel {
         return count;
 
     }
-    public boolean saveSupplier(String supplierId,String supName,String contactNumber) throws SQLException {
+    public boolean saveSupplier(String supplierId,String supName,String contactNumber,String email) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
-        PreparedStatement pstm = connection.prepareStatement("INSERT INTO supplier VALUES (?,?,?)");
+        PreparedStatement pstm = connection.prepareStatement("INSERT INTO supplier VALUES (?,?,?,?)");
 
         pstm.setString(1,supplierId);
         pstm.setString(2,supName);
         pstm.setString(3,contactNumber);
+        pstm.setString(4,email);
 
         return pstm.executeUpdate() > 0;
     }

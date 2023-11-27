@@ -1,0 +1,165 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fadde21d3fc, pid=5273, tid=9297
+#
+# JRE version: Java(TM) SE Runtime Environment 18.9 (11.0.17+10) (build 11.0.17+10-LTS-269)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM 18.9 (11.0.17+10-LTS-269, mixed mode, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libc.so.6+0x453fc]
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/lib/systemd/systemd-coredump %P %u %g %s %t 9223372036854775808 %h" (or dumping to /home/yehani/Desktop/LibraSys-LibraryManagementSystem/core.5273)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -javaagent:/snap/intellij-idea-ultimate/465/lib/idea_rt.jar=32893:/snap/intellij-idea-ultimate/465/bin -Dfile.encoding=UTF-8 lk.ijse.LibraSys.LauncherWrapper
+
+Host: Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz, 8 cores, 7G, Linux Mint 21.1 Vera
+Time: Mon Nov 27 07:08:39 2023 +0530 elapsed time: 4206.811377 seconds (0d 1h 10m 6s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fad74011000):  JavaThread "XToolkt-Shutdown-Thread" [_thread_in_native, id=9297, stack(0x00007faccdf00000,0x00007facce000000)]
+
+Stack: [0x00007faccdf00000,0x00007facce000000],  sp=0x00007faccdffdc30,  free space=1015k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libc.so.6+0x453fc]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  sun.awt.X11.XlibWrapper.InternAtom(JLjava/lang/String;I)J+0 java.desktop@11.0.17
+j  sun.awt.X11.XAtom.<init>(JLjava/lang/String;Z)V+31 java.desktop@11.0.17
+j  sun.awt.X11.XAtom.<init>(JLjava/lang/String;)V+4 java.desktop@11.0.17
+j  sun.awt.X11.XAtom.get(Ljava/lang/String;)Lsun/awt/X11/XAtom;+17 java.desktop@11.0.17
+j  sun.awt.X11.XSystemTrayPeer.<clinit>()V+10 java.desktop@11.0.17
+v  ~StubRoutines::call_stub
+j  sun.awt.X11.XToolkit.lambda$init$0()V+0 java.desktop@11.0.17
+j  sun.awt.X11.XToolkit$$Lambda$565.run()V+4 java.desktop@11.0.17
+j  java.lang.Thread.run()V+11 java.base@11.0.17
+v  ~StubRoutines::call_stub
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 128 (SI_KERNEL), si_addr: 0x0000000000000000
+
+Register to memory mapping:
+
+RAX=0x00007fad6c00008f points into unknown readable memory: 00
+RBX=0x0 is NULL
+RCX=0x00007fadde2ee25b: unlink+0x000000000000000b in /lib/x86_64-linux-gnu/libc.so.6 at 0x00007fadde1d8000
+RDX=0x000ff5ad800011e0 is an unknown value
+RSP=0x00007faccdffdc30 is pointing into the stack for thread: 0x00007fad74011000
+RBP=0x0000000000000001 is an unknown value
+RSI=0x0000000000000002 is an unknown value
+RDI=0x00007fadde090ac0: <offset 0x0000000001490ac0> in /usr/lib/jvm/jdk-11/lib/server/libjvm.so at 0x00007faddcc00000
+R8 =0x0 is NULL
+R9 =0x00000000000000ca is an unknown value
+R10=0x0000000000000001 is an unknown value
+R11=0x0000000000000202 is an unknown value
+R12=0x00007fadde3f1838: <offset 0x0000000000219838> in /lib/x86_64-linux-gnu/libc.so.6 at 0x00007fadde1d8000
+R13=0x0 is NULL
+R14=0x00007fadde3f2ee8: <offset 0x000000000021aee8> in /lib/x86_64-linux-gnu/libc.so.6 at 0x00007fadde1d8000
+R15=0x00007fad6c16b770 points into unknown readable memory: 0x00007fad6c2fbcd0 | d0 bc 2f 6c ad 7f 00 00
+
+
+Registers:
+RAX=0x00007fad6c00008f, RBX=0x0000000000000000, RCX=0x00007fadde2ee25b, RDX=0x000ff5ad800011e0
+RSP=0x00007faccdffdc30, RBP=0x0000000000000001, RSI=0x0000000000000002, RDI=0x00007fadde090ac0
+R8 =0x0000000000000000, R9 =0x00000000000000ca, R10=0x0000000000000001, R11=0x0000000000000202
+R12=0x00007fadde3f1838, R13=0x0000000000000000, R14=0x00007fadde3f2ee8, R15=0x00007fad6c16b770
+RIP=0x00007fadde21d3fc, EFLAGS=0x0000000000010202, CSGSFS=0x002b000000000033, ERR=0x0000000000000000
+  TRAPNO=0x000000000000000d
+
+Top of Stack: (sp=0x00007faccdffdc30)
+0x00007faccdffdc30:   0000000000000000 0000000000000000
+0x00007faccdffdc40:   0000000400000000 0000000100000000
+0x00007faccdffdc50:   00007fad2d79859c 00007fad8eafde30
+0x00007faccdffdc60:   00007fad2d78e730 0000000000000000 
+
+Instructions: (pc=0x00007fadde21d3fc)
+0x00007fadde21d3dc:   1f 44 00 00 49 8b 47 08 48 85 c0 0f 84 13 01 00
+0x00007fadde21d3ec:   00 48 83 e8 01 48 89 c2 49 89 47 08 48 c1 e2 05
+0x00007fadde21d3fc:   49 8b 4c 17 10 48 83 f9 03 0f 84 ad 00 00 00 48
+0x00007fadde21d40c:   83 f9 04 74 4f 48 83 f9 02 75 cd 4c 01 fa 48 8b 
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x0 is NULL
+stack at sp + 1 slots: 0x0 is NULL
+stack at sp + 2 slots: 0x0000000400000000 is an unknown value
+stack at sp + 3 slots: 0x0000000100000000 is pointing into metadata
+stack at sp + 4 slots: 0x00007fad2d79859c points into unknown readable memory: 07 00 a0 06
+stack at sp + 5 slots: 0x00007fad8eafde30: _XDefaultIOErrorExit+0x0000000000000000 in /lib/x86_64-linux-gnu/libX11.so.6 at 0x00007fad8eac0000
+stack at sp + 6 slots: 0x00007fad2d78e730 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+stack at sp + 7 slots: 0x0 is NULL
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007facb40010f0, length=20, elements={
+0x00007fadd8024800, 0x00007fadd81c6800, 0x00007fadd81cb000, 0x00007fadd81e1800,
+0x00007fadd81e3800, 0x00007fadd81e5800, 0x00007fadd81e7800, 0x00007fadd81e9800,
+0x00007fadd8280800, 0x00007fadd8501000, 0x00007fad6c139000, 0x00007fad6c413000,
+0x00007fad6c2c6000, 0x00007fad2cebf800, 0x00007fad70a35000, 0x00007fad2cf22000,
+0x00007fad2d7e1800, 0x00007fad2d96d800, 0x00007fad90003800, 0x00007fad74011000
+}
+
+Java Threads: ( => current thread )
+  0x00007fadd8024800 JavaThread "main" [_thread_blocked, id=5276, stack(0x00007faddcb00000,0x00007faddcc00000)]
+  0x00007fadd81c6800 JavaThread "Reference Handler" daemon [_thread_blocked, id=5283, stack(0x00007fadb4c34000,0x00007fadb4d34000)]
+  0x00007fadd81cb000 JavaThread "Finalizer" daemon [_thread_blocked, id=5284, stack(0x00007fadb4b34000,0x00007fadb4c34000)]
+  0x00007fadd81e1800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=5285, stack(0x00007fadb4248000,0x00007fadb4348000)]
+  0x00007fadd81e3800 JavaThread "Service Thread" daemon [_thread_blocked, id=5286, stack(0x00007fadb4148000,0x00007fadb4248000)]
+  0x00007fadd81e5800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=5287, stack(0x00007fadb4048000,0x00007fadb4148000)]
+  0x00007fadd81e7800 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=5288, stack(0x00007fad8ff00000,0x00007fad90000000)]
+  0x00007fadd81e9800 JavaThread "Sweeper thread" daemon [_thread_blocked, id=5289, stack(0x00007fad8fe00000,0x00007fad8ff00000)]
+  0x00007fadd8280800 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=5290, stack(0x00007fad8fd00000,0x00007fad8fe00000)]
+  0x00007fadd8501000 JavaThread "JavaFX-Launcher" [_thread_blocked, id=5295, stack(0x00007fad8f100000,0x00007fad8f200000)]
+  0x00007fad6c139000 JavaThread "QuantumRenderer-0" daemon [_thread_in_Java, id=5296, stack(0x00007fad8ee00000,0x00007fad8ef00000)]
+  0x00007fad6c413000 JavaThread "InvokeLaterDispatcher" daemon [_thread_blocked, id=5313, stack(0x00007fad495d1000,0x00007fad496d1000)]
+  0x00007fad6c2c6000 JavaThread "JavaFX Application Thread" [_thread_in_native, id=5314, stack(0x00007fad494d1000,0x00007fad495d1000)]
+  0x00007fad2cebf800 JavaThread "Prism Font Disposer" daemon [_thread_blocked, id=5334, stack(0x00007fad0aebc000,0x00007fad0afbc000)]
+  0x00007fad70a35000 JavaThread "Cleaner-0" daemon [_thread_blocked, id=5338, stack(0x00007fad08c8e000,0x00007fad08d8e000)]
+  0x00007fad2cf22000 JavaThread "mysql-cj-abandoned-connection-cleanup" daemon [_thread_blocked, id=5339, stack(0x00007fad084bc000,0x00007fad085bc000)]
+  0x00007fad2d7e1800 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=5362, stack(0x00007fad096f2000,0x00007fad097f2000)]
+  0x00007fad2d96d800 JavaThread "AWT-XAWT" daemon [_thread_blocked, id=5363, stack(0x00007faccf140000,0x00007faccf240000)]
+  0x00007fad90003800 JavaThread "SIGTERM handler" daemon [_thread_blocked, id=9295, stack(0x00007fad8f900000,0x00007fad8fa00000)]
+=>0x00007fad74011000 JavaThread "XToolkt-Shutdown-Thread" [_thread_in_native, id=9297, stack(0x00007faccdf00000,0x00007facce000000)]
+
+Other Threads:
+  0x00007fadd81be800 VMThread "VM Thread" [stack: 0x00007fadb4d36000,0x00007fadb4e36000] [id=5282]
+  0x00007fadd84d4800 WatcherThread [stack: 0x00007fad8f500000,0x00007fad8f600000] [id=5294]
+  0x00007fadd803b800 GCTaskThread "GC Thread#0" [stack: 0x00007faddc700000,0x00007faddc800000] [id=5277]
+  0x00007fada4029000 GCTaskThread "GC Thread#1" [stack: 0x00007fad284f9000,0x00007fad285f9000] [id=5328]
+  0x00007fada402a800 GCTaskThread "GC Thread#2" [stack: 0x00007fad283f7000,0x00007fad284f7000] [id=5329]
+  0x00007fada402c800 GCTaskThread "GC Thread#3" [stack: 0x00007fad282f5000,0x00007fad283f5000] [id=5330]
+  0x00007fada402e000 GCTaskThread "GC Thread#4" [stack: 0x00007fad281f3000,0x00007fad282f3000] [id=5331]
+  0x00007fada402f800 GCTaskThread "GC Thread#5" [stack: 0x00007fad280f1000,0x00007fad281f1000] [id=5332]
+  0x00007fada4003800 GCTaskThread "GC Thread#6" [stack: 0x00007faccb970000,0x00007faccba70000] [id=5369]
+  0x00007fada4005000 GCTaskThread "GC Thread#7" [stack: 0x00007faccb86e000,0x00007faccb96e000] [id=5370]
+  0x00007fadd806c800 ConcurrentGCThread "G1 Main Marker" [stack: 0x00007fadc0210000,0x00007fadc0310000] [id=5278]
+  0x00007fadd806e000 ConcurrentGCThread "G1 Conc#0" [stack: 0x00007fadc010e000,0x00007fadc020e000] [id=5279]
+  0x00007fadb0001000 ConcurrentGCThread "G1 Conc#1" [stack: 0x00007fad0b4ff000,0x00007fad0b5ff000] [id=5333]
+  0x00007fadd80f5800 ConcurrentGCThread "G1 Refine#0" [stack: 0x00007fadb573a000,0x00007fadb583a000] [id=5280]
+  0x00007fadd80f7000 ConcurrentGCThread "G1 Young RemSet Sampling" [stack: 0x00007fadb5638000,0x00007fadb5738000] [id=5281]
+
+Threads with active compile tasks:
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007fadd8022420] Threads_lock - owner thread: 0x00007fad6c139000
+
+Heap address: 0x0000000086200000, size: 1950 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000100000000
+
+Heap:
+ garbage-first heap   total 124928K, used 71931K [0x0000000086200000, 0x0000000100000000)
+  region size 1024K, 24 young (24576K), 3 survivors (3072K)
+ Metaspace       used 62435K, capacity 63708K, committed 63872K, reserved 1105920K
+  class space    used 7212K, capacity 7795K, committed 7808K, reserved 1048576K
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, A=archive, TAMS=top-at-mark-start (previous, next)

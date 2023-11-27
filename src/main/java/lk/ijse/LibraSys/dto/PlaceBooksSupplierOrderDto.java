@@ -17,6 +17,7 @@ public class PlaceBooksSupplierOrderDto {
     private String supplierId;
     private String SupName;
     private String ContactNumber;
+    private String email;
     private LocalDate supplierDate;
 
     private List<SupplierCartTm> supplierCartTmList = new ArrayList<>();

@@ -18,13 +18,14 @@ public class PlacebookSupplierModel {
         String supplierId = palceBooksSupplierOrderDto.getSupplierId();
         String supName = palceBooksSupplierOrderDto.getSupName();
         String contactNumber = palceBooksSupplierOrderDto.getContactNumber();
+        String email = palceBooksSupplierOrderDto.getEmail();
 
         Connection connection = null;
         try {
             connection = DbConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
 
-            boolean isSupplierSaved = supplierModel.saveSupplier(supplierId,supName,contactNumber);
+            boolean isSupplierSaved = supplierModel.saveSupplier(supplierId,supName,contactNumber,email);
 
             if(isSupplierSaved){
                 boolean isUpdated = bookModel.updateBooks(palceBooksSupplierOrderDto.getSupplierCartTmList());

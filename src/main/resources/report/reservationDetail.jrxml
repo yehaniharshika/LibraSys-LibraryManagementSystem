@@ -91,13 +91,6 @@ ON  b.ISBN = r.ISBN;]]>
 			<rectangle>
 				<reportElement x="130" y="25" width="310" height="35" uuid="fcdcc56b-ef02-42da-bf2e-362f05d7eea3"/>
 			</rectangle>
-			<staticText>
-				<reportElement x="190" y="32" width="200" height="20" uuid="e5c44d35-7566-4a9e-baf1-4bc30f97e80f"/>
-				<textElement>
-					<font size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[RESERVATION  FROM]]></text>
-			</staticText>
 			<textField pattern="MMMMM dd, yyyy">
 				<reportElement x="430" y="-10" width="140" height="20" uuid="12d671c9-bd78-4f10-9afd-794db2ae4892"/>
 				<textElement>
@@ -118,6 +111,13 @@ ON  b.ISBN = r.ISBN;]]>
 					<font fontName="Serif" size="18" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ybraSys]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="34" width="170" height="19" forecolor="#3C16C7" uuid="692f9c2e-0061-4dd4-a161-dcce91357634"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESERVATION  FORM]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -158,19 +158,19 @@ ON  b.ISBN = r.ISBN;]]>
 				</textElement>
 				<text><![CDATA[Tel : 0382342348]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="-14" y="71" width="230" height="30" uuid="56975167-7afb-4705-88a4-3ed19dc7975a"/>
-				<textElement>
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Email : librasys9@gmail.com]]></text>
-			</staticText>
 			<line>
 				<reportElement x="-10" y="150" width="480" height="1" uuid="6bd7b54b-8549-48e5-8dff-b3174b64a8af"/>
 			</line>
 			<line>
 				<reportElement x="-20" y="172" width="595" height="1" uuid="72f8e04d-763f-4401-af96-f091ccb66fdd"/>
 			</line>
+			<staticText>
+				<reportElement x="-14" y="71" width="230" height="30" forecolor="#D6211E" uuid="ac31e5e0-fab7-473c-b2c0-e9d5314b96c0"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Email : librasys9@gmail.com]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>

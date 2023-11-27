@@ -83,7 +83,8 @@ create  table book(
 create table supplier(
     supplierId varchar(10) primary key ,
     supplierName varchar(1000) not null,
-    contactNumber varchar(15) not null
+    contactNumber varchar(15) not null,
+    email varchar(500) not null
 );
 
 

@@ -84,6 +84,9 @@ public class SupplierFormController {
     private TextField txtSupplierName;
 
     @FXML
+    private TextField txtEmail;
+
+    @FXML
     private TextField txtSupplyQuantity;
 
     private BookModel bookModel = new BookModel();
@@ -198,6 +201,7 @@ public class SupplierFormController {
             String supplierId = txtSupplierId.getText();
             String supName  = txtSupplierName.getText();
             String contactNumber =  txtContactNumber.getText();
+            String email = txtEmail.getText();
             LocalDate supplierDate = LocalDate.parse(lblSupplierDate.getText());
 
             List<SupplierCartTm> supplierCartTmList = new ArrayList<>();
@@ -206,9 +210,9 @@ public class SupplierFormController {
                 supplierCartTmList.add(supplierCartTm);
 
             }
-            System.out.println("Place Books supplier order from controller: "+ supplierCartTmList);
+            //System.out.println("Place Books supplier order from controller: "+ supplierCartTmList);
 
-            var placeBooksSupplierOrderDto = new PlaceBooksSupplierOrderDto(supplierId,supName,contactNumber,supplierDate,supplierCartTmList);
+            var placeBooksSupplierOrderDto = new PlaceBooksSupplierOrderDto(supplierId,supName,contactNumber,email,supplierDate,supplierCartTmList);
             try {
                 boolean isSuccess = placebookSupplierModel.placeBooksOrder(placeBooksSupplierOrderDto);
                 if (isSuccess){
