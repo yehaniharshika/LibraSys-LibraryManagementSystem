@@ -420,28 +420,4 @@ public class ReservationFormController {
         stage.show();
     }
 
-    @FXML
-    void printBookBorrowReturnOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void printBookBorrowSummeryOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void printReservationListOnAction(ActionEvent event) throws JRException, SQLException {
-        InputStream resourceAsStream = getClass().getResourceAsStream("/report/allReservationList.jrxml");
-        JasperDesign load = JRXmlLoader.load(resourceAsStream);
-        JasperReport jasperReport= JasperCompileManager.compileReport(load);
-
-        JasperPrint jasperPrint = JasperFillManager.fillReport(
-                jasperReport,
-                null,
-                DbConnection.getInstance().getConnection()
-        );
-        JasperViewer.viewReport(jasperPrint);
-    }
-
 }

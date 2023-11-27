@@ -123,7 +123,7 @@ public class MembershipFeeFormController {
         if (rButtonAmountmonthly.isSelected()){
             txtAmount.setText(rButtonAmountmonthly.getText());
         } else if (rButtonAmountSixMonths.isSelected()) {
-            txtAmount.setText(rButtonSixMonths.getText());
+            txtAmount.setText(rButtonAmountSixMonths.getText());
         } else if (rButtonAmountAnually.isSelected()) {
             txtAmount.setText(rButtonAmountAnually.getText());
         }
@@ -243,6 +243,7 @@ public class MembershipFeeFormController {
                     loadAllMembershipFee();
                     setCellValueFactory();
                     generateNextMembershipFeeId();
+
                 }else {
                     new Alert(Alert.AlertType.ERROR,"paid not success!!!").show();
                 }
@@ -335,20 +336,5 @@ public class MembershipFeeFormController {
         stage.setTitle("Dashboard Form");
         stage.centerOnScreen();
         stage.show();
-    }
-
-    @FXML
-    void printMembershipFeeListOnAction(ActionEvent event) throws JRException, SQLException {
-        InputStream resourceAsStream = getClass().getResourceAsStream("/report/membershipFee.jrxml");
-        JasperDesign load = JRXmlLoader.load(resourceAsStream);
-
-        JasperReport jasperReport = JasperCompileManager.compileReport(load);
-
-        JasperPrint jasperPrint = JasperFillManager.fillReport(
-                jasperReport,
-                null,
-                DbConnection.getInstance().getConnection()
-        );
-        JasperViewer.viewReport(jasperPrint,false);
     }
 }

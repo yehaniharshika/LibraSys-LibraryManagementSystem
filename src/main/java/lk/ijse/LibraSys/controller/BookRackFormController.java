@@ -249,19 +249,4 @@ public class BookRackFormController {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
     }
-
-    @FXML
-    void printBookRackListOnAction(ActionEvent event) throws JRException, SQLException {
-        InputStream resourceAsStream = getClass().getResourceAsStream("/report/bookRackList.jrxml");
-        JasperDesign load = JRXmlLoader.load(resourceAsStream);
-        JasperReport jasperReport = JasperCompileManager.compileReport(load);
-
-        JasperPrint jasperPrint = JasperFillManager.fillReport(
-                jasperReport,
-                null,
-                DbConnection.getInstance().getConnection()
-        );
-        JasperViewer.viewReport(jasperPrint);
-    }
-
 }

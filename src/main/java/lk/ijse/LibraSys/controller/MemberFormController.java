@@ -171,6 +171,7 @@ public class MemberFormController {
                         dto.getFeeId(),
                         dto.getSNumber()
 
+
                 ));
 
             }
@@ -281,7 +282,8 @@ public class MemberFormController {
 
 
 
-            var dto = new MemberDto(mid,name,address,gender,tel,feeId,sNumber,EmailAddress,IDNumber);
+
+            var dto = new MemberDto(mid,name,address,gender,tel,EmailAddress,IDNumber,feeId,sNumber);
 
             try {
                 boolean isSaved = memberModel.saveMember(dto);
@@ -398,21 +400,4 @@ public class MemberFormController {
         stage.centerOnScreen();
         stage.show();
     }
-
-    @FXML
-    void printMemberListOnAction(ActionEvent event) throws JRException, SQLException {
-        InputStream resourceAsStream = getClass().getResourceAsStream("/report/memberDetail.jrxml");
-        JasperDesign load = JRXmlLoader.load(resourceAsStream);
-        JasperReport jasperReport = JasperCompileManager.compileReport(load);
-
-        JasperPrint jasperPrint =
-                JasperFillManager.fillReport(
-                jasperReport,
-                null,
-                DbConnection.getInstance().getConnection()
-
-                );
-        JasperViewer.viewReport(jasperPrint,false);
-    }
-
 }
