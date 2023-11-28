@@ -139,17 +139,7 @@
             <Image url="@../icon/placeSupplierOrder.png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="888.0" layoutY="494.0" onAction="#btnBackOnAction" prefHeight="41.0" prefWidth="216.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="BACK" textFill="#fdfcfc" textOverrun="CENTER_WORD_ELLIPSIS">
-         <font>
-            <Font name="KacstOne Bold" size="12.0" />
-         </font>
-      </JFXButton>
       <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="916.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="945.0" layoutY="502.0">
-         <image>
-            <Image url="@../icon/Back.png" />
-         </image>
-      </ImageView>
       <TextField fx:id="txtEmail" layoutX="73.0" layoutY="356.0" prefHeight="42.0" prefWidth="356.0" promptText="Email Address" style="-fx-border-color: #2d3436;">
          <font>
             <Font name="System Bold" size="13.0" />

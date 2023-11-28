@@ -275,7 +275,7 @@ public class SupplierFormController {
         }
     }
 
-    @FXML
+    /*@FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_Form.fxml"));
         Scene scene = new Scene(anchorPane);
@@ -284,7 +284,7 @@ public class SupplierFormController {
         stage.setTitle("Dashboard Form");
         stage.centerOnScreen();
         stage.show();
-    }
+    }*/
 
     public void txtSuppliyQuantityOnAction(ActionEvent actionEvent) {
 
@@ -306,37 +306,6 @@ public class SupplierFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
-
-    }
-
-    @FXML
-    void printBookSupplierDetailsListOnAction(ActionEvent event) throws JRException, SQLException {
-        InputStream resourceAsStream = getClass().getResourceAsStream("/report/bookSupplierDetailList.jrxml");
-        JasperDesign load = JRXmlLoader.load(resourceAsStream);
-        JasperReport jasperReport = JasperCompileManager.compileReport(load);
-
-        JasperPrint jasperPrint = JasperFillManager.fillReport(
-                jasperReport,
-                null,
-                DbConnection.getInstance().getConnection()
-        );
-        JasperViewer.viewReport(jasperPrint);
-
-
-    }
-
-    @FXML
-    void printSupplierListOnAction(ActionEvent event) throws JRException, SQLException {
-        InputStream resourceAsStream = getClass().getResourceAsStream("/report/supplierList.jrxml");
-        JasperDesign load = JRXmlLoader.load(resourceAsStream);
-        JasperReport jasperReport= JasperCompileManager.compileReport(load);
-
-        JasperPrint jasperPrint = JasperFillManager.fillReport(
-                jasperReport,
-                null,
-                DbConnection.getInstance().getConnection()
-        );
-        JasperViewer.viewReport(jasperPrint);
 
     }
 

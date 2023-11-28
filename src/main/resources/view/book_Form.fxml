@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -16,22 +15,22 @@
    <children>
       <ImageView fitHeight="104.0" fitWidth="130.0" layoutX="235.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="29.0" fitWidth="34.0" layoutX="38.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" />
-      <JFXButton layoutX="1001.0" layoutY="406.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="      SAVE" textFill="#f5f3f3">
+      <JFXButton layoutX="1001.0" layoutY="462.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="      SAVE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1001.0" layoutY="459.0" onAction="#btnUpdateOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="         UPDATE" textFill="#f5f3f3">
+      <JFXButton layoutX="1001.0" layoutY="518.0" onAction="#btnUpdateOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="         UPDATE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1001.0" layoutY="569.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="      CLEAR" textFill="#f5f3f3">
+      <JFXButton layoutX="1001.0" layoutY="628.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="      CLEAR" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1001.0" layoutY="514.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="         DELETE" textFill="#f5f3f3">
+      <JFXButton layoutX="1001.0" layoutY="574.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="         DELETE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -65,11 +64,6 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <JFXButton layoutX="1001.0" layoutY="626.0" onAction="#btnBackOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="    BACK" textFill="#f5f3f3">
-         <font>
-            <Font name="KacstOne Bold" size="12.0" />
-         </font>
-      </JFXButton>
       <TableView fx:id="tblBook" layoutX="29.0" layoutY="435.0" prefHeight="319.0" prefWidth="904.0" style="-fx-background-color: #1B97B0;">
         <columns>
           <TableColumn fx:id="colISBN" prefWidth="125.5" text="ISBN" />
@@ -79,29 +73,24 @@
             <TableColumn fx:id="colAuthorId" prefWidth="215.5" text="Author ID" />
         </columns>
       </TableView>
-      <ImageView fitHeight="24.0" fitWidth="31.0" layoutX="1021.0" layoutY="468.0">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1022.0" layoutY="527.0">
          <image>
             <Image url="@../icon/Update.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1025.0" layoutY="578.0">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1025.0" layoutY="637.0">
          <image>
             <Image url="@../icon/Clear.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="18.0" fitWidth="24.0" layoutX="1024.0" layoutY="426.0">
+      <ImageView fitHeight="18.0" fitWidth="24.0" layoutX="1025.0" layoutY="474.0">
          <image>
             <Image url="@../icon/Save.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1025.0" layoutY="523.0">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1024.0" layoutY="583.0">
          <image>
             <Image url="@../icon/Delete.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="1028.0" layoutY="638.0">
-         <image>
-            <Image url="@../icon/Back.png" />
          </image>
       </ImageView>
       <Label layoutX="343.0" layoutY="33.0" prefHeight="89.0" prefWidth="503.0" style="-fx-border-color: #222f3e; -fx-background-color: #1B97B0;" text="                           BOOK  MANAGEMENT" textFill="#171717">
@@ -140,19 +129,6 @@
       <ImageView fitHeight="104.0" fitWidth="101.0" layoutX="408.0" layoutY="14.0">
          <image>
             <Image url="@../icon/book.png" />
-         </image>
-      </ImageView>
-      <JFXButton layoutX="948.0" layoutY="681.0" onAction="#printBookListOnAction" prefHeight="41.0" prefWidth="230.0" style="-fx-background-color: #6D214F; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text=" GENERATE REPORTS" textFill="#f8f8f8">
-         <font>
-            <Font name="KacstOne Bold" size="12.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <ImageView fitHeight="29.0" fitWidth="31.0" layoutX="962.0" layoutY="687.0">
-         <image>
-            <Image url="@../icon/generateReports.png" />
          </image>
       </ImageView>
    </children>

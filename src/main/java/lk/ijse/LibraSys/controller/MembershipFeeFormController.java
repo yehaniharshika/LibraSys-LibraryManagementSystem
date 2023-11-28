@@ -274,7 +274,7 @@ public class MembershipFeeFormController {
         }
 
         String status = txtStatus.getText();
-        boolean matches2 = Pattern.matches("(Anually|Monthly|For six monthes)" , status);
+        boolean matches2 = Pattern.matches("(Anually|Monthly|For Six monthes)" , status);
         if (!matches2){
             new Alert(Alert.AlertType.ERROR,"Invalid status!!!").show();
             return false;
@@ -327,16 +327,6 @@ public class MembershipFeeFormController {
         }
     }
 
-    @FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_Form.fxml"));
-        Scene scene = new Scene(anchorPane);
-        Stage stage = (Stage) root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Dashboard Form");
-        stage.centerOnScreen();
-        stage.show();
-    }
     /*@FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_Form.fxml"));

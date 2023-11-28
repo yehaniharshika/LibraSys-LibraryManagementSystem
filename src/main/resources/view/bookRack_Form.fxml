@@ -23,22 +23,7 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></TextField>
-      <JFXButton layoutX="44.0" layoutY="515.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="  SAVE" textFill="#f5f3f3">
-         <font>
-            <Font name="KacstOne Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="24.0" fitWidth="28.0">
-               <image>
-                  <Image url="@../icon/Save.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <JFXButton layoutX="137.0" layoutY="627.0" onAction="#btnBackOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="     BACK" textFill="#f5f3f3">
+      <JFXButton layoutX="44.0" layoutY="515.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="  SAVE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -46,7 +31,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="229.0" layoutY="515.0" onAction="#btnUpdateOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="           UPDATE" textFill="#f5f3f3">
+      <JFXButton layoutX="44.0" layoutY="572.0" onAction="#btnUpdateOnAction" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="           UPDATE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -54,7 +39,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="44.0" layoutY="570.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="       CLEAR" textFill="#f5f3f3">
+      <JFXButton layoutX="44.0" layoutY="691.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="       CLEAR" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -62,7 +47,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="229.0" layoutY="571.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="124.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="         DELETE" textFill="#f5f3f3">
+      <JFXButton layoutX="44.0" layoutY="630.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="138.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="         DELETE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -70,28 +55,23 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <TableView fx:id="tblBookrack" layoutX="401.0" layoutY="144.0" prefHeight="558.0" prefWidth="754.0" style="-fx-background-color: #1B97B0;">
+      <TableView fx:id="tblBookrack" layoutX="401.0" layoutY="144.0" prefHeight="601.0" prefWidth="771.0" style="-fx-background-color: #1B97B0;">
         <columns>
           <TableColumn fx:id="colCode" prefWidth="126.0" text="Rack Code" />
           <TableColumn fx:id="colQuantityBooks" prefWidth="160.0" text="Quantity of books" />
             <TableColumn fx:id="colCategory" prefWidth="155.5" text="Category Type" />
-            <TableColumn fx:id="colNameOfBooks" prefWidth="311.5" text="Name Of Books" />
+            <TableColumn fx:id="colNameOfBooks" prefWidth="328.5" text="Name Of Books" />
         </columns>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </TableView>
-      <ImageView fitHeight="24.0" fitWidth="28.0" layoutX="64.0" layoutY="579.0">
+      <ImageView fitHeight="24.0" fitWidth="28.0" layoutX="68.0" layoutY="700.0">
          <image>
             <Image url="@../icon/Clear.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="28.0" layoutX="154.0" layoutY="636.0">
-         <image>
-            <Image url="@../icon/Back.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="28.0" layoutX="245.0" layoutY="524.0">
+      <ImageView fitHeight="24.0" fitWidth="28.0" layoutX="68.0" layoutY="581.0">
          <image>
             <Image url="@../icon/Update.png" />
          </image>
@@ -114,7 +94,7 @@
             <Image url="@../icon/bookRack.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="28.0" layoutX="245.0" layoutY="580.0">
+      <ImageView fitHeight="24.0" fitWidth="28.0" layoutX="68.0" layoutY="639.0">
          <image>
             <Image url="@../icon/Delete.png" />
          </image>
@@ -125,9 +105,9 @@
          </font>
       </Label>
       <ImageView fitHeight="31.0" fitWidth="34.0" layoutX="314.0" layoutY="640.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="33.0" fitWidth="39.0" layoutX="950.0" layoutY="714.0">
+      <ImageView fitHeight="24.0" fitWidth="28.0" layoutX="70.0" layoutY="522.0">
          <image>
-            <Image url="@../icon/generateReports.png" />
+            <Image url="@../icon/Save.png" />
          </image>
       </ImageView>
    </children>

@@ -69,16 +69,6 @@
             <Image url="@../icon/sendEmail.png" />
          </image>
       </ImageView>
-      <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" layoutX="14.0" layoutY="14.0" onAction="#bnBackOnAction" prefHeight="26.0" prefWidth="30.0" ripplerFill="BLACK" style="-fx-background-color: white; -fx-background-radius: 100px;" text=" " textAlignment="CENTER">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="14.0" layoutY="14.0">
-         <image>
-            <Image url="@../icon/newBack.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="330.0" fitWidth="281.0" layoutX="861.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

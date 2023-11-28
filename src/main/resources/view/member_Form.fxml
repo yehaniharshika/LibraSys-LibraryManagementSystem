@@ -77,14 +77,6 @@
             <TableColumn fx:id="colSNumber" prefWidth="92.5" text="Sevice num" />
         </columns>
       </TableView>
-      <JFXButton layoutX="894.0" layoutY="99.0" onAction="#btnBackOnAction" prefHeight="41.0" prefWidth="117.0" style="-fx-background-color: #222f3e; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="       BACK" textFill="#f8f8f8">
-         <font>
-            <Font name="KacstOne Bold" size="12.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
       <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="697.0" layoutY="706.0" pickOnBounds="true" preserveRatio="true" />
       <JFXComboBox fx:id="cmbmembershipFeeId" layoutX="131.0" layoutY="135.0" onAction="#cmbMembershipFeeOnAction" prefHeight="33.0" prefWidth="146.0" />
       <Label fx:id="lblPaidDate" layoutX="566.0" layoutY="137.0" prefHeight="37.0" prefWidth="160.0">
@@ -128,11 +120,6 @@
       <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="942.0" layoutY="310.0">
          <image>
             <Image url="@../icon/Clear.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="22.0" fitWidth="24.0" layoutX="912.0" layoutY="109.0">
-         <image>
-            <Image url="@../icon/Back.png" />
          </image>
       </ImageView>
       <Label layoutX="53.0" layoutY="135.0" prefHeight="41.0" prefWidth="69.0" text="Fee ID :">

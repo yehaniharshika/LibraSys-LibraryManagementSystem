@@ -132,17 +132,6 @@ public class AuthorFormController {
 
     }
 
-    @FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_Form.fxml"));
-        Scene scene = new Scene(anchorPane);
-        Stage stage = (Stage) Anchor.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Dashboard Form");
-        stage.centerOnScreen();
-        stage.show();
-
-    }
 
     @FXML
     void btnClearOnAction(ActionEvent event) {

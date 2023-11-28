@@ -160,7 +160,7 @@ public class BookFormController {
         }
     }
 
-    @FXML
+    /*@FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_Form.fxml"));
         Scene scene = new Scene(anchorPane);
@@ -169,7 +169,7 @@ public class BookFormController {
         stage.setTitle("Dashboard Form");
         stage.centerOnScreen();
         stage.show();
-    }
+    }*/
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
@@ -336,11 +336,6 @@ public class BookFormController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-    }
-
-    @FXML
-    void printBookListOnAction(ActionEvent event) {
 
     }
 

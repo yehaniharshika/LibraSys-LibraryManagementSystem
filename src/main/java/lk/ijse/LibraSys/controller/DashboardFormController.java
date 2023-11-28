@@ -107,6 +107,20 @@ public class DashboardFormController {
         }
     }
 
+    @FXML
+    void btnDashboardOnAction(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_Form.fxml"));
+
+        Scene scene = new Scene(rootNode);
+
+        root.getScene().getWindow();
+        Stage primaryStage = (Stage) root.getScene().getWindow();
+
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Signup Form");
+        primaryStage.show();
+    }
+
 
     //jasper Report
     @FXML

@@ -336,10 +336,25 @@ public class MemberFormController {
         }
 
         String tel = txtTel.getText();
-        boolean matches4 = Pattern.matches("(070|071|072|074|075|076|077|078|027|066)\\d{7}",tel);
+        boolean matches4 = Pattern.matches("(070|071|072|074|075|076|077|078|038)\\d{7}",tel);
         if(!matches4){
             new Alert(Alert.AlertType.ERROR,"Mobile number Invalid!!!").show();
             return  false;
+        }
+
+        String EmailAddress = txtEmailAddress.getText();
+        boolean matches5 = Pattern.matches("[A-Za-z]{2,}@[A-Za-z]{2,}\\.[A-Za-z]{2,}|[a-zA-Z0-9]{2,}@[a-zA-Z]{2,}\\.[A-Za-z]{2,}|(^[a-zA-Z0-9_.-]+)@([a-zA-Z]+)([\\.])([a-zA-Z]+)$",EmailAddress);
+        if (!matches5){
+            new Alert(Alert.AlertType.ERROR,"Invalid email address!!!").show();
+            return  false;
+
+        }
+
+        String IDNumber = txtIDNumber.getText();
+        boolean matches6 = Pattern.matches("[0-9]{12}|[0-9]{9}[V]",IDNumber);
+        if (!matches6){
+            new Alert(Alert.AlertType.ERROR,"Invalid ID Number!!!").show();
+            return false;
         }
 
        return  true;
@@ -389,7 +404,7 @@ public class MemberFormController {
         }
     }
 
-    @FXML
+   /* @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
 
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_Form.fxml"));
@@ -399,5 +414,5 @@ public class MemberFormController {
         stage.setTitle("Dashboard Form");
         stage.centerOnScreen();
         stage.show();
-    }
+    }*/
 }
