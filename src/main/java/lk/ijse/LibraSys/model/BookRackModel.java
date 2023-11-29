@@ -14,6 +14,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookRackModel {
+
+    public String generateNextRackCode(String rackCode) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("SELECT  rackCode FROM bookRack ORDER BY rackCode DESC LIMIT 1");
+        ResultSet resultSet = pstm.executeQuery();
+        if (resultSet.next()){
+            return splitRackCode(resultSet.getString(1));
+        }
+        return splitRackCode(null);
+    }
+
+    private String splitRackCode(String currentRackCode) {
+        if (currentRackCode != null){
+            String[] split = currentRackCode.split("[R]");
+            int rackCode = Integer.parseInt(split[1]);
+            rackCode++;
+            return "R00" + rackCode;
+        }
+        return "R001";
+    }
+
     public boolean saveBookRack(BookRackDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement("INSERT INTO  bookRack VALUES (?,?,?,?)");

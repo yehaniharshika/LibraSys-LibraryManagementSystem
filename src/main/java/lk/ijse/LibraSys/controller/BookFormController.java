@@ -160,16 +160,6 @@ public class BookFormController {
         }
     }
 
-    /*@FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_Form.fxml"));
-        Scene scene = new Scene(anchorPane);
-        Stage stage = (Stage) Root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Dashboard Form");
-        stage.centerOnScreen();
-        stage.show();
-    }*/
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
@@ -270,14 +260,14 @@ public class BookFormController {
         }
 
         String  bookName = txtBookName.getText();
-        boolean matches1 = Pattern.matches("[A-Za-z\\s]{1,}", bookName);
+        boolean matches1 = Pattern.matches("[A-Za-z\\s]{2,}", bookName);
         if (!matches1){
             new Alert(Alert.AlertType.ERROR,"Invalid book name!!!").show();
             return  false;
         }
 
         String  category = txtCategory.getText();
-        boolean matches2 = Pattern.matches("[A-Za-z\\s]{1,}" , category);
+        boolean matches2 = Pattern.matches("[A-Za-z\\s]{3,}" , category);
         if (!matches2){
             new Alert(Alert.AlertType.ERROR,"Invalid book category!!!").show();
             return false;

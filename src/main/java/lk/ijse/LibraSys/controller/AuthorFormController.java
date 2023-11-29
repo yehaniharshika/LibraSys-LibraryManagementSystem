@@ -211,14 +211,14 @@ public class AuthorFormController {
         }
 
         String text = txtText.getText();
-        boolean isTextValidated = Pattern.matches("Mr|Mrs|Miss" , text);
+        boolean isTextValidated = Pattern.matches("Mr|Mrs|Miss|Thero" , text);
         if (!isTextValidated){
             new Alert(Alert.AlertType.ERROR,"Not valid type!!!").show();
             return  false;
         }
 
         String nationality = txtNationality.getText();
-        boolean isNationalityValidated = Pattern.matches("[A-Z][a-z]{1,}" ,nationality);
+        boolean isNationalityValidated = Pattern.matches("[A-Z][a-z]{3,}" ,nationality);
         if (!isNationalityValidated){
             new Alert(Alert.AlertType.ERROR,"Invalid Nationality!!!").show();
             return  false;

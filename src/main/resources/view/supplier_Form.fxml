@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -75,7 +76,7 @@
       </TableView>
       <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="991.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="990.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="931.0" layoutY="498.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="942.0" layoutY="505.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="32.0" fitWidth="33.0" layoutX="999.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="343.0" layoutY="33.0" prefHeight="89.0" prefWidth="530.0" style="-fx-border-color: #222f3e; -fx-background-color: #1B97B0;" text="                        SUPPLIER  MANAGE" textFill="#171717">
          <font>
@@ -97,7 +98,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblTotalBooksCount" layoutX="958.0" layoutY="596.0" prefHeight="41.0" prefWidth="64.0" textFill="#b51616">
+      <Label fx:id="lblTotalBooksCount" layoutX="975.0" layoutY="595.0" prefHeight="41.0" prefWidth="64.0" textFill="#b51616">
          <font>
             <Font name="System Bold" size="28.0" />
          </font>
@@ -145,5 +146,18 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </TextField>
+      <JFXButton buttonType="RAISED" layoutX="886.0" layoutY="500.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="216.0" style="-fx-background-color: #6D214F; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="       CLEAR" textFill="#faf4f4">
+         <font>
+            <Font name="KacstOne Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="946.0" layoutY="509.0">
+         <image>
+            <Image url="@../icon/Clear.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

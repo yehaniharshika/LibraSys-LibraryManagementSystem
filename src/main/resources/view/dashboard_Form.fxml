@@ -13,7 +13,7 @@
    <children>
       <AnchorPane layoutX="7.0" layoutY="7.0" prefHeight="765.0" prefWidth="285.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;">
          <children>
-            <JFXButton layoutX="31.0" layoutY="182.0" onAction="#btnMemberOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 2;" text="          Member">
+            <JFXButton layoutX="31.0" layoutY="175.0" onAction="#btnMemberOnAction" prefHeight="60.0" prefWidth="223.0" style="-fx-background-color: #1B97B0; -fx-background-radius: 2;" text="          Member">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -21,12 +21,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <ImageView fitHeight="60.0" fitWidth="72.0" layoutX="52.0" layoutY="185.0">
+            <ImageView fitHeight="49.0" fitWidth="72.0" layoutX="50.0" layoutY="181.0">
                <image>
                   <Image url="@../icon/Member.png" />
                </image>
             </ImageView>
-            <JFXButton layoutX="31.0" layoutY="410.0" onAction="#btnAuthorsOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="            Book Authors">
+            <JFXButton layoutX="31.0" layoutY="393.0" onAction="#btnAuthorsOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="            Book Authors">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -34,7 +34,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="31.0" layoutY="101.0" onAction="#btnMembershipFeeOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0; -fx-border-style: #2d3436;" text="            Membership Fee">
+            <JFXButton layoutX="31.0" layoutY="103.0" onAction="#btnMembershipFeeOnAction" prefHeight="60.0" prefWidth="223.0" style="-fx-background-color: #1B97B0; -fx-border-style: #2d3436;" text="                Membership Fee">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -42,12 +42,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <ImageView fitHeight="49.0" fitWidth="65.0" layoutX="48.0" layoutY="110.0">
+            <ImageView fitHeight="49.0" fitWidth="65.0" layoutX="53.0" layoutY="109.0">
                <image>
                   <Image url="@../icon/membershipFee.png" />
                </image>
             </ImageView>
-            <JFXButton layoutX="31.0" layoutY="262.0" onAction="#btnBookrackOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="      Book Rack">
+            <JFXButton layoutX="31.0" layoutY="248.0" onAction="#btnBookrackOnAction" prefHeight="60.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="        Book Rack">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -55,7 +55,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="31.0" layoutY="340.0" onAction="#btnBookOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="               Manage Books">
+            <JFXButton layoutX="31.0" layoutY="320.0" onAction="#btnBookOnAction" prefHeight="60.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="               Manage Books">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -63,17 +63,17 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <ImageView fitHeight="49.0" fitWidth="65.0" layoutX="53.0" layoutY="271.0">
+            <ImageView fitHeight="49.0" fitWidth="65.0" layoutX="53.0" layoutY="254.0">
                <image>
                   <Image url="@../icon/bookRack.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="72.0" layoutX="52.0" layoutY="343.0">
+            <ImageView fitHeight="66.0" fitWidth="65.0" layoutX="53.0" layoutY="308.0">
                <image>
                   <Image url="@../icon/book.png" />
                </image>
             </ImageView>
-            <JFXButton layoutX="31.0" layoutY="487.0" onAction="#btnReservationOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="         Reservation">
+            <JFXButton layoutX="31.0" layoutY="474.0" onAction="#btnReservationOnAction" prefHeight="60.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="         Reservation">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -81,7 +81,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="31.0" layoutY="560.0" onAction="#btnSupplierOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="               Book Supplier">
+            <JFXButton layoutX="31.0" layoutY="548.0" onAction="#btnSupplierOnAction" prefHeight="60.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="               Book Supplier">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -89,7 +89,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton layoutX="31.0" layoutY="705.0" onAction="#btnLogoutOnAction" prefHeight="49.0" prefWidth="223.0" style="-fx-background-color: #2d3436;" text="          LOGOUT" textFill="#fffcfc">
+            <JFXButton layoutX="31.0" layoutY="694.0" onAction="#btnLogoutOnAction" prefHeight="25.0" prefWidth="223.0" style="-fx-background-color: #2d3436;" text="          LOGOUT" textFill="#fffcfc">
                <font>
                   <Font name="Gidugu" size="21.0" />
                </font>
@@ -97,32 +97,32 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <ImageView fitHeight="43.0" fitWidth="44.0" layoutX="63.0" layoutY="705.0">
+            <ImageView fitHeight="41.0" fitWidth="44.0" layoutX="69.0" layoutY="698.0">
                <image>
                   <Image url="@../icon/logout2.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="72.0" layoutX="51.0" layoutY="563.0">
+            <ImageView fitHeight="60.0" fitWidth="72.0" layoutX="49.0" layoutY="548.0">
                <image>
                   <Image url="@../icon/supplier.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="72.0" layoutX="49.0" layoutY="487.0">
+            <ImageView fitHeight="60.0" fitWidth="72.0" layoutX="49.0" layoutY="474.0">
                <image>
                   <Image url="@../icon/reservation.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="49.0" fitWidth="65.0" layoutX="55.0" layoutY="419.0">
+            <ImageView fitHeight="49.0" fitWidth="65.0" layoutX="53.0" layoutY="402.0">
                <image>
                   <Image url="@../icon/Author .png" />
                </image>
             </ImageView>
-            <Label fx:id="lblDate" layoutX="31.0" layoutY="8.0" prefHeight="33.0" prefWidth="223.0">
+            <Label fx:id="lblDate" layoutX="31.0" layoutY="7.0" prefHeight="30.0" prefWidth="223.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <JFXButton layoutX="31.0" layoutY="633.0" onAction="#btnSendingEmailOnAction" prefHeight="66.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="           Sending  Email">
+            <JFXButton layoutX="31.0" layoutY="619.0" onAction="#btnSendingEmailOnAction" prefHeight="60.0" prefWidth="223.0" style="-fx-background-color: #1B97B0;" text="           Sending  Email">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -130,12 +130,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <ImageView fitHeight="60.0" fitWidth="72.0" layoutX="44.0" layoutY="636.0">
+            <ImageView fitHeight="49.0" fitWidth="56.0" layoutX="57.0" layoutY="625.0">
                <image>
                   <Image url="@../icon/sendingMail.png" />
                </image>
             </ImageView>
-            <JFXButton layoutX="31.0" layoutY="41.0" onAction="#btnDashboardOnAction" prefHeight="49.0" prefWidth="223.0" style="-fx-background-color: #2d3436;" text="DASHBOARD" textFill="#fffcfc">
+            <JFXButton layoutX="31.0" layoutY="43.0" onAction="#btnDashboardOnAction" prefHeight="49.0" prefWidth="223.0" style="-fx-background-color: #2d3436;" text="  DASHBOARD" textFill="#fffcfc">
                <font>
                   <Font name="Gidugu" size="21.0" />
                </font>
@@ -143,11 +143,14 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
+            <ImageView fitHeight="33.0" fitWidth="44.0" layoutX="47.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="57.0" layoutY="53.0">
+               <image>
+                  <Image url="@../../../../../../Downloads/home.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="60.0" fitWidth="65.0" layoutX="516.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="60.0" fitWidth="65.0" layoutX="750.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="74.0" fitWidth="88.0" layoutX="956.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true" />
       <AnchorPane fx:id="Root" layoutX="298.0" layoutY="7.0" prefHeight="765.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;">
          <children>
             <Label layoutX="14.0" layoutY="2.0" prefHeight="25.0" prefWidth="223.0" text="WELCOME TO DASHBOARD!!!">
@@ -274,9 +277,6 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <ImageView fitHeight="66.0" fitWidth="81.0" layoutX="112.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="66.0" fitWidth="81.0" layoutX="122.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="66.0" fitWidth="81.0" layoutX="364.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true" />
             <AnchorPane fx:id="anchor" layoutX="16.0" layoutY="243.0" prefHeight="512.0" prefWidth="1165.0" style="-fx-background-color: #95a5a6;">
                <children>
                   <ImageView fitHeight="66.0" fitWidth="81.0" layoutX="120.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" />

@@ -13,9 +13,7 @@
 
 <AnchorPane fx:id="Root" prefHeight="765.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.BookFormController">
    <children>
-      <ImageView fitHeight="104.0" fitWidth="130.0" layoutX="235.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="29.0" fitWidth="34.0" layoutX="38.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" />
-      <JFXButton layoutX="1001.0" layoutY="462.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="      SAVE" textFill="#f5f3f3">
+      <JFXButton layoutX="1001.0" layoutY="462.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #6D214F; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="      SAVE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -25,12 +23,12 @@
             <Font name="KacstOne Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1001.0" layoutY="628.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="      CLEAR" textFill="#f5f3f3">
+      <JFXButton layoutX="1001.0" layoutY="574.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #6D214F; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="      CLEAR" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1001.0" layoutY="574.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="         DELETE" textFill="#f5f3f3">
+      <JFXButton layoutX="1001.0" layoutY="632.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="         DELETE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -78,7 +76,7 @@
             <Image url="@../icon/Update.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1025.0" layoutY="637.0">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1025.0" layoutY="583.0">
          <image>
             <Image url="@../icon/Clear.png" />
          </image>
@@ -88,7 +86,7 @@
             <Image url="@../icon/Save.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1024.0" layoutY="583.0">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1025.0" layoutY="641.0">
          <image>
             <Image url="@../icon/Delete.png" />
          </image>
@@ -98,13 +96,11 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <ImageView fitHeight="79.0" fitWidth="86.0" layoutX="365.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="14.0" layoutY="12.0" prefHeight="33.0" prefWidth="254.0" text="Reading completes Human!!!!" textFill="#921b64">
          <font>
             <Font name="MathJax_Main-Bold" size="17.0" />
          </font>
       </Label>
-      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="509.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true" />
       <TextField fx:id="txtBookName" layoutX="768.0" layoutY="222.0" prefHeight="41.0" prefWidth="356.0" promptText="Book Name" style="-fx-border-color: #2d3436;">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -126,9 +122,9 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <ImageView fitHeight="104.0" fitWidth="101.0" layoutX="408.0" layoutY="14.0">
+      <ImageView fitHeight="79.0" fitWidth="109.0" layoutX="408.0" layoutY="38.0">
          <image>
-            <Image url="@../icon/book.png" />
+            <Image url="@../../../../../../Downloads/Book.png" />
          </image>
       </ImageView>
    </children>

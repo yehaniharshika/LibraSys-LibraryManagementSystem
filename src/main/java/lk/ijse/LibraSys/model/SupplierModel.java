@@ -7,8 +7,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SupplierModel {
+
+    public String generateNextSupplierId(String supplierId) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("SELECT supplierId FROM supplier ORDER BY supplierId DESC LIMIT 1");
+
+    }
 
     public String getSupplierCount() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
@@ -45,9 +53,27 @@ public class SupplierModel {
             dto = new SupplierDto(
               resultSet.getString(1),
               resultSet.getString(2),
-              resultSet.getString(3)
+              resultSet.getString(3),
+              resultSet.getString(4)
             );
         }
         return dto;
+    }
+
+    public List<SupplierDto> getAllSupplier() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM supplier");
+
+        List<SupplierDto> supplierList = new ArrayList<>();
+        ResultSet resultSet = pstm.executeQuery();
+        while (resultSet.next()){
+            supplierList.add(new SupplierDto(
+                 resultSet.getString(1),
+                 resultSet.getString(2),
+                 resultSet.getString(3),
+                 resultSet.getString(4)
+            ));
+        }
+        return supplierList;
     }
 }

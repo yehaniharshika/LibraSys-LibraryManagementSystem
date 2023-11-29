@@ -117,7 +117,7 @@ public class DashboardFormController {
         Stage primaryStage = (Stage) root.getScene().getWindow();
 
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Signup Form");
+        primaryStage.setTitle("Dashboard");
         primaryStage.show();
     }
 

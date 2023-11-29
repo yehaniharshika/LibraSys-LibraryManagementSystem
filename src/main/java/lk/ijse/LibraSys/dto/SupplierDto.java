@@ -11,4 +11,5 @@ public class SupplierDto {
     private String supplierId;
     private String supName;
     private String contactNumber;
+    private String  email;
 }

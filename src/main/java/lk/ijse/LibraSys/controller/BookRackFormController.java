@@ -64,6 +64,16 @@ public class BookRackFormController {
         loadAllBookRacks();
         setCellValueFactory();
         tableListener();
+        generateNextRackCode();
+    }
+
+    private void generateNextRackCode() {
+        try {
+            String rackCode = bookRackModel.generateNextRackCode(txtCode.getText());
+            txtCode.setText(rackCode);
+        } catch (SQLException e) {
+           new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
     }
 
     private void tableListener() {

@@ -35,7 +35,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="31.0" layoutY="710.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa;" text="       CLEAR" textFill="#fffbfb">
+      <JFXButton layoutX="31.0" layoutY="653.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #6D214F; -fx-background-radius: 8; -fx-border-color: #f5f6fa;" text="       CLEAR" textFill="#fffbfb">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -51,7 +51,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="32.0" layoutY="657.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #6D214F; -fx-background-radius: 8; -fx-border-color: #f5f6fa;" text="       DELETE" textFill="#fdfafa">
+      <JFXButton layoutX="31.0" layoutY="708.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa;" text="       DELETE" textFill="#fdfafa">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -81,7 +81,7 @@
             <Font name="System Bold" size="15.0" />
          </font></Label>
       <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="45.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="50.0" layoutY="665.0">
+      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="50.0" layoutY="716.0">
          <image>
             <Image url="@../icon/Delete.png" />
          </image>
@@ -96,8 +96,8 @@
             <Image url="@../icon/Save.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="40.0" layoutY="663.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="42.0" layoutY="716.0">
+      <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="238.0" layoutY="665.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="47.0" layoutY="659.0">
          <image>
             <Image url="@../icon/Clear.png" />
          </image>

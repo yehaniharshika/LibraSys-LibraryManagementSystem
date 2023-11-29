@@ -12,21 +12,18 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.LibraSys.db.DbConnection;
+//import lk.ijse.LibraSys.db.DbConnection;
 import lk.ijse.LibraSys.dto.MemberDto;
 import lk.ijse.LibraSys.dto.MembershipFeeDto;
-import lk.ijse.LibraSys.dto.SignupDto;
+//import lk.ijse.LibraSys.dto.SignupDto;
 import lk.ijse.LibraSys.dto.tm.MemberTm;
 import lk.ijse.LibraSys.model.MemberModel;
 import lk.ijse.LibraSys.model.MembershipFeeModel;
 import lk.ijse.LibraSys.model.SignupModel;
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JasperViewer;
+
 
 import java.io.IOException;
-import java.io.InputStream;
+//import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -100,7 +97,6 @@ public class MemberFormController {
     private MembershipFeeModel membershipFeeModel = new MembershipFeeModel();
     //private ObservableList<MemberTm> obList = FXCollections.observableArrayList();
     private MemberModel memberModel = new MemberModel();
-    private SignupModel signupModel =new SignupModel();
 
 
     public  void initialize(){
@@ -199,7 +195,6 @@ public class MemberFormController {
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
-
         clearFields();
         generateNextMemberId();
     }

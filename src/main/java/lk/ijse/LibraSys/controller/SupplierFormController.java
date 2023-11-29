@@ -100,7 +100,28 @@ public class SupplierFormController {
         loadAllBookISBNs();
         setDate();
         setCellValueFactory();
+        clearFields();
+        clearAllFields();
     }
+
+    private void clearAllFields() {
+        txtSupplierId.setText("");
+        txtSupplierName.setText("");
+        txtContactNumber.setText("");
+        txtEmail.setText("");
+        lblBookName.setText("");
+        lblQtyOnHand.setText("");
+        cmbBookISBN.setValue("");
+
+    }
+
+    private void clearFields() {
+        txtSupplierId.setText("");
+        txtSupplierName.setText("");
+        txtContactNumber.setText("");
+        txtEmail.setText("");
+    }
+
 
     private void setDate() {
         lblSupplierDate.setText(String.valueOf(LocalDate.now()));
@@ -132,7 +153,6 @@ public class SupplierFormController {
 
     @FXML
     void btnAddSupplierCartOnAction(ActionEvent event) {
-       // String supplierId = txtSupplierId.getText();
         String ISBN = cmbBookISBN.getValue();
         String bookName = lblBookName.getText();
         int qty = Integer.parseInt(txtSupplyQuantity.getText());
@@ -141,7 +161,7 @@ public class SupplierFormController {
         setRemoveBtnAction(btn);
         btn.setCursor(Cursor.HAND);
         btn.setStyle("-fx-background-color: pink");
-        btn.setStyle("-fx-border-color: blue;");
+        btn.setStyle("-fx-border-color: blue");
         btn.setStyle("-fx-background-radius: 15");
         btn.setStyle("-fx-border-radius: 15");
         if (!obList.isEmpty()){
@@ -186,6 +206,11 @@ public class SupplierFormController {
 
     }
 
+    @FXML
+    void btnClearOnAction(ActionEvent event) {
+        clearFields();
+    }
+
     private void calculateTotal() {
         int booksTotal = 0;
         for(int i=0 ;i < tblSupplierDetail.getItems().size();i++ ){
@@ -217,6 +242,7 @@ public class SupplierFormController {
                 boolean isSuccess = placebookSupplierModel.placeBooksOrder(placeBooksSupplierOrderDto);
                 if (isSuccess){
                     new Alert(Alert.AlertType.CONFIRMATION,"Order success!!!").show();
+                    clearAllFields();
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -242,12 +268,19 @@ public class SupplierFormController {
             return false;
         }
 
-        /*String contactNumber = txtContactNumber.getText();
+        String contactNumber = txtContactNumber.getText();
         boolean isContactNumberValidated = Pattern.matches("(070|071|072|074|075|076|077|078|034|081|054|027|066|038|091|035|065|011|025|031|047|063|055|057|032|033|051|021|024|067|037|023|041|045|026)\\d{7}",contactNumber);
-        if (isContactNumberValidated){
+        if (!isContactNumberValidated){
             new Alert(Alert.AlertType.ERROR,"Invalid contact number!!!").show();
             return false;
-        }*/
+        }
+
+        String email = txtEmail.getText();
+        boolean isEmailValidated = Pattern.matches("[A-Za-z]{2,}@[A-Za-z]{2,}\\.[A-Za-z]{2,}|[a-zA-Z0-9]{2,}@[a-zA-Z]{2,}\\.[A-Za-z]{2,}|(^[a-zA-Z0-9_.-]+)@([a-zA-Z]+)([\\.])([a-zA-Z]+)$",email);
+        if (!isEmailValidated){
+            new Alert(Alert.AlertType.ERROR,"Invalid Email!!!").show();
+            return  false;
+        }
         return  true;
     }
     @FXML
@@ -287,7 +320,6 @@ public class SupplierFormController {
     }*/
 
     public void txtSuppliyQuantityOnAction(ActionEvent actionEvent) {
-
         btnAddSupplierCartOnAction(actionEvent);
     }
 
@@ -300,6 +332,7 @@ public class SupplierFormController {
                 txtSupplierId.setText(dto.getSupplierId());
                 txtSupplierName.setText(dto.getSupName());
                 txtContactNumber.setText(dto.getContactNumber());
+                txtEmail.setText(dto.getEmail());
             }else{
                 new Alert(Alert.AlertType.ERROR,"Supplier not found!!!").show();
             }

@@ -267,7 +267,7 @@ public class MembershipFeeFormController {
         }
 
         String name = txtName.getText();
-        boolean matches1 = Pattern.matches("[A-Za-z\\s]{1,}",name);
+        boolean matches1 = Pattern.matches("[A-Za-z\\s]{3,}",name);
         if (!matches1){
             new Alert(Alert.AlertType.ERROR,"Invalid name!!!").show();
             return  false;
