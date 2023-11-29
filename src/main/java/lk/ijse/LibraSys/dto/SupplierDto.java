@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 public class SupplierDto {
     private String supplierId;
-    private String supName;
+    private String supplierName;
     private String contactNumber;
     private String  email;
 }

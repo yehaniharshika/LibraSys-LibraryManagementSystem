@@ -23,10 +23,6 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></TextField>
-      <TextField fx:id="txtSupplierId" layoutX="73.0" layoutY="185.0" onAction="#txtSupplierIdOnAction" prefHeight="42.0" prefWidth="356.0" promptText="Supplier  ID" style="-fx-border-color: #2d3436;">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font></TextField>
       <TextField fx:id="txtContactNumber" layoutX="73.0" layoutY="300.0" prefHeight="42.0" prefWidth="356.0" promptText="Contact Number" style="-fx-border-color: #2d3436;">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -159,5 +155,10 @@
             <Image url="@../icon/Clear.png" />
          </image>
       </ImageView>
+      <TextField fx:id="txtSupplierId" layoutX="73.0" layoutY="185.0" onAction="#txtSupplierIdOnAction" prefHeight="42.0" prefWidth="356.0" promptText="Supplier ID" style="-fx-border-color: #2d3436;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

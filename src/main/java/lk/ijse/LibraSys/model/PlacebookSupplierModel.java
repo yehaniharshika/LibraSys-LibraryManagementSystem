@@ -3,6 +3,7 @@ package lk.ijse.LibraSys.model;
 import lk.ijse.LibraSys.db.DbConnection;
 import lk.ijse.LibraSys.dto.BookSupplierDetailDto;
 import lk.ijse.LibraSys.dto.PlaceBooksSupplierOrderDto;
+import lk.ijse.LibraSys.dto.SupplierDto;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -25,6 +26,8 @@ public class PlacebookSupplierModel {
             connection = DbConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
 
+
+            //man methana wenas kara
             boolean isSupplierSaved = supplierModel.saveSupplier(supplierId,supName,contactNumber,email);
 
             if(isSupplierSaved){

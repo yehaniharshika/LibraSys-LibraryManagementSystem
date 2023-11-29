@@ -12,11 +12,11 @@ import java.util.List;
 
 public class SupplierModel {
 
-    public String generateNextSupplierId(String supplierId) throws SQLException {
+   /* public String generateNextSupplierId(String supplierId) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement("SELECT supplierId FROM supplier ORDER BY supplierId DESC LIMIT 1");
 
-    }
+    }*/
 
     public String getSupplierCount() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
@@ -30,6 +30,7 @@ public class SupplierModel {
         return count;
 
     }
+
     public boolean saveSupplier(String supplierId,String supName,String contactNumber,String email) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement("INSERT INTO supplier VALUES (?,?,?,?)");
@@ -40,6 +41,40 @@ public class SupplierModel {
         pstm.setString(4,email);
 
         return pstm.executeUpdate() > 0;
+    }
+
+    /*public boolean saveSupplier(SupplierDto dto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("INSERT INTO supplier VALUES (?,?,?,?)");
+
+        pstm.setString(1, dto.getSupplierId());
+        pstm.setString(2, dto.getSupplierName());
+        pstm.setString(3, dto.getContactNumber());
+        pstm.setString(4, dto.getEmail());
+
+        return pstm.executeUpdate() > 0;
+    }*/
+
+    public boolean updateSupplier(SupplierDto dto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("UPDATE supplier SET supplierName=?,contactNumber=?,email=? WHERE supplierId=?");
+
+        pstm.setString(1, dto.getSupplierName());
+        pstm.setString(2, dto.getContactNumber());
+        pstm.setString(3, dto.getEmail());
+        pstm.setString(4, dto.getSupplierId());
+
+        boolean isUpdated = pstm.executeUpdate()>0;
+        return  isUpdated;
+    }
+
+    public boolean deleteSupplier(String supplierId) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("DELETE  FROM  supplier WHERE  supplierId=?");
+        pstm.setString(1,supplierId);
+
+        boolean isDeleted = pstm.executeUpdate()>0;
+        return  isDeleted;
     }
 
     public SupplierDto searchSupplier(String supplierId) throws SQLException {
@@ -60,6 +95,7 @@ public class SupplierModel {
         return dto;
     }
 
+
     public List<SupplierDto> getAllSupplier() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement("SELECT * FROM supplier");
@@ -76,4 +112,6 @@ public class SupplierModel {
         }
         return supplierList;
     }
+
+
 }

@@ -21,14 +21,11 @@ import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.MonthDay;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
@@ -368,6 +365,14 @@ public class DashboardFormController {
 
         this.anchor.getChildren().clear();
         this.anchor.getChildren().add(node);
+    }
+
+    @FXML
+    void btnAddSupplierOnAction(ActionEvent event) throws IOException {
+        Parent node = FXMLLoader.load(this.getClass().getResource("/view/supplier_Form.fxml"));
+
+        this.Root.getChildren().clear();
+        this.Root.getChildren().add(node);
     }
 
 }

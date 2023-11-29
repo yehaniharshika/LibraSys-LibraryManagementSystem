@@ -14,7 +14,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.LibraSys.db.DbConnection;
 import lk.ijse.LibraSys.dto.BookDto;
 import lk.ijse.LibraSys.dto.PlaceBooksSupplierOrderDto;
 import lk.ijse.LibraSys.dto.SupplierDto;
@@ -22,13 +21,8 @@ import lk.ijse.LibraSys.dto.tm.SupplierCartTm;
 import lk.ijse.LibraSys.model.BookModel;
 import lk.ijse.LibraSys.model.PlacebookSupplierModel;
 import lk.ijse.LibraSys.model.SupplierModel;
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -44,6 +38,9 @@ public class SupplierFormController {
 
     @FXML
     private JFXComboBox<String> cmbBookISBN;
+
+    @FXML
+    private JFXComboBox<String> cmbSupplierId;
 
     @FXML
     private TableColumn<?, ?> colAction;
@@ -104,6 +101,8 @@ public class SupplierFormController {
         clearAllFields();
     }
 
+
+
     private void clearAllFields() {
         txtSupplierId.setText("");
         txtSupplierName.setText("");
@@ -150,6 +149,21 @@ public class SupplierFormController {
             throw new RuntimeException(e);
         }
     }
+
+    /*private void loadAllSupplierIds() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+
+        try {
+            List<SupplierDto> supplierIdList = supplierModel.getAllSupplier();
+
+            for (SupplierDto dto : supplierIdList){
+                obList.add(dto.getSupplierId());
+            }
+            cmbSupplierId.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }*/
 
     @FXML
     void btnAddSupplierCartOnAction(ActionEvent event) {
@@ -221,8 +235,7 @@ public class SupplierFormController {
 
     @FXML
     void PlaceBooksOrderOnAction(ActionEvent event) {
-        boolean isValidated = validateSupplier();
-        if (isValidated){
+
             String supplierId = txtSupplierId.getText();
             String supName  = txtSupplierName.getText();
             String contactNumber =  txtContactNumber.getText();
@@ -247,7 +260,7 @@ public class SupplierFormController {
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
             }
-        }
+
 
     }
 
@@ -309,14 +322,17 @@ public class SupplierFormController {
     }
 
     /*@FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_Form.fxml"));
-        Scene scene = new Scene(anchorPane);
-        Stage stage = (Stage) Root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Dashboard Form");
-        stage.centerOnScreen();
-        stage.show();
+    void cmbSupplierOnAction(ActionEvent event) {
+        String supplierId = (String) cmbSupplierId.getValue();
+
+        try {
+            SupplierDto dto = supplierModel.searchSupplier(supplierId);
+            txtSupplierName.setText(dto.getSupplierName());
+            txtContactNumber.setText(dto.getContactNumber());
+            txtEmail.setText(dto.getEmail());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }*/
 
     public void txtSuppliyQuantityOnAction(ActionEvent actionEvent) {
@@ -330,7 +346,7 @@ public class SupplierFormController {
             SupplierDto dto =supplierModel.searchSupplier(supplierId);
             if (dto != null){
                 txtSupplierId.setText(dto.getSupplierId());
-                txtSupplierName.setText(dto.getSupName());
+                txtSupplierName.setText(dto.getSupplierName());
                 txtContactNumber.setText(dto.getContactNumber());
                 txtEmail.setText(dto.getEmail());
             }else{
