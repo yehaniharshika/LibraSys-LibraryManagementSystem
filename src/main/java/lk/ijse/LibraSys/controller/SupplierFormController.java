@@ -94,13 +94,25 @@ public class SupplierFormController {
 
 
     public  void initialize() {
+        generateNextSupplierId();
         loadAllBookISBNs();
         setDate();
         setCellValueFactory();
-        clearFields();
-        clearAllFields();
+//        clearFields();
+//        clearAllFields();
+
     }
 
+    private void generateNextSupplierId() {
+        try {
+            String supplierId = supplierModel.generateNextSupplierId(txtSupplierId.getText());
+            System.out.println(supplierId);
+            txtSupplierId.setText(supplierId);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+
+        }
+    }
 
 
     private void clearAllFields() {
@@ -235,33 +247,33 @@ public class SupplierFormController {
 
     @FXML
     void PlaceBooksOrderOnAction(ActionEvent event) {
+            boolean isValidate = validateSupplier();
+            if (isValidate){
+                String supplierId = txtSupplierId.getText();
+                String supName  = txtSupplierName.getText();
+                String contactNumber =  txtContactNumber.getText();
+                String email = txtEmail.getText();
+                LocalDate supplierDate = LocalDate.parse(lblSupplierDate.getText());
 
-            String supplierId = txtSupplierId.getText();
-            String supName  = txtSupplierName.getText();
-            String contactNumber =  txtContactNumber.getText();
-            String email = txtEmail.getText();
-            LocalDate supplierDate = LocalDate.parse(lblSupplierDate.getText());
+                List<SupplierCartTm> supplierCartTmList = new ArrayList<>();
+                for (int i =0 ; i < tblSupplierDetail.getItems().size(); i++){
+                    SupplierCartTm supplierCartTm = obList.get(i);
+                    supplierCartTmList.add(supplierCartTm);
 
-            List<SupplierCartTm> supplierCartTmList = new ArrayList<>();
-            for (int i =0 ; i < tblSupplierDetail.getItems().size(); i++){
-                SupplierCartTm supplierCartTm = obList.get(i);
-                supplierCartTmList.add(supplierCartTm);
-
-            }
-            //System.out.println("Place Books supplier order from controller: "+ supplierCartTmList);
-
-            var placeBooksSupplierOrderDto = new PlaceBooksSupplierOrderDto(supplierId,supName,contactNumber,email,supplierDate,supplierCartTmList);
-            try {
-                boolean isSuccess = placebookSupplierModel.placeBooksOrder(placeBooksSupplierOrderDto);
-                if (isSuccess){
-                    new Alert(Alert.AlertType.CONFIRMATION,"Order success!!!").show();
-                    clearAllFields();
                 }
-            } catch (SQLException e) {
-                new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+                //System.out.println("Place Books supplier order from controller: "+ supplierCartTmList);
+
+                var placeBooksSupplierOrderDto = new PlaceBooksSupplierOrderDto(supplierId,supName,contactNumber,email,supplierDate,supplierCartTmList);
+                try {
+                    boolean isSuccess = placebookSupplierModel.placeBooksOrder(placeBooksSupplierOrderDto);
+                    if (isSuccess){
+                        new Alert(Alert.AlertType.CONFIRMATION,"Order success!!!").show();
+                        clearAllFields();
+                    }
+                } catch (SQLException e) {
+                    new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+                }
             }
-
-
     }
 
     private boolean validateSupplier(){
@@ -321,19 +333,7 @@ public class SupplierFormController {
         }
     }
 
-    /*@FXML
-    void cmbSupplierOnAction(ActionEvent event) {
-        String supplierId = (String) cmbSupplierId.getValue();
 
-        try {
-            SupplierDto dto = supplierModel.searchSupplier(supplierId);
-            txtSupplierName.setText(dto.getSupplierName());
-            txtContactNumber.setText(dto.getContactNumber());
-            txtEmail.setText(dto.getEmail());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
 
     public void txtSuppliyQuantityOnAction(ActionEvent actionEvent) {
         btnAddSupplierCartOnAction(actionEvent);

@@ -35,6 +35,18 @@ public class MembershipFeeModel {
         }
     }
 
+    public static String getTotalAmount() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("SELECT SUM(amount)  FROM membershipFee");
+        ResultSet resultSet = pstm.executeQuery();
+
+        String amount = null;
+        if (resultSet.next()){
+            amount = resultSet.getString(1);
+        }
+        return amount;
+    }
+
     public boolean saveMembersipFee(MembershipFeeDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 

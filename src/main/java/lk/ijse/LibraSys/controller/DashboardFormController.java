@@ -367,12 +367,5 @@ public class DashboardFormController {
         this.anchor.getChildren().add(node);
     }
 
-    @FXML
-    void btnAddSupplierOnAction(ActionEvent event) throws IOException {
-        Parent node = FXMLLoader.load(this.getClass().getResource("/view/supplier_Form.fxml"));
-
-        this.Root.getChildren().clear();
-        this.Root.getChildren().add(node);
-    }
 
 }

@@ -94,6 +94,7 @@ public class BookRackFormController {
     @FXML
     void btnClearOnAction(ActionEvent event) {
         clearFields();
+        generateNextRackCode();
 
     }
 

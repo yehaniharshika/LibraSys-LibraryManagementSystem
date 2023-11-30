@@ -128,6 +128,7 @@ public class BookRackModel {
 
          return isqtyUpdated;
      }
+
      public boolean updatenameOfBooks(String rackCode,String nameOfBooks) throws SQLException {
          Connection connection = DbConnection.getInstance().getConnection();
          PreparedStatement pstm = connection.prepareStatement("UPDATE bookrack SET nameOfBooks= nameOfBooks +? WHERE rackCode=?");

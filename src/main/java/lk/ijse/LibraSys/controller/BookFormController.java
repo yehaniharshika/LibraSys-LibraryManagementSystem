@@ -172,8 +172,13 @@ public class BookFormController {
         txtBookName.setText("");
         txtCategory.setText("");
         txtQtyOnHand.setText("");
-        cmbRackCode.setValue("");
-        cmbAuthorId.setValue("");
+        if (cmbRackCode != null) {
+            cmbRackCode.setValue("");
+        }
+
+        if (cmbAuthorId != null) {
+            cmbAuthorId.setValue("");
+        }
         lblAuthorName.setText("");
         lblCategoryType.setText("");
     }
@@ -308,7 +313,10 @@ public class BookFormController {
 
         try {
             BookRackDto bookRackDto = bookRackModel.serchBookRack(rackCode);
-            lblCategoryType.setText(bookRackDto.getCategoryOfBooks());
+            if (bookRackDto != null){
+                lblCategoryType.setText(bookRackDto.getCategoryOfBooks());
+            }
+
 
 
         } catch (SQLException e) {
@@ -322,7 +330,10 @@ public class BookFormController {
 
         try {
             AuthorDto authorDto = authorModel.searchAuthor(authorId);
-            lblAuthorName.setText(authorDto.getAuthorName());
+            if (authorDto != null){
+                lblAuthorName.setText(authorDto.getAuthorName());
+            }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

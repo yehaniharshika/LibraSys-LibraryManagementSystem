@@ -391,8 +391,11 @@ public class MemberFormController {
         String id = String.valueOf(cmbmembershipFeeId.getValue());
         try {
             MembershipFeeDto membershipFeeDto = membershipFeeModel.searchMembershipFee(id);
-            lblPaidDate.setText(String.valueOf(membershipFeeDto.getDate()));
-            txtName.setText(membershipFeeDto.getName());
+            if (membershipFeeDto != null){
+                lblPaidDate.setText(String.valueOf(membershipFeeDto.getDate()));
+                txtName.setText(membershipFeeDto.getName());
+            }
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

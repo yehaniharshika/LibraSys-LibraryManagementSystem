@@ -12,11 +12,40 @@ import java.util.List;
 
 public class SupplierModel {
 
-   /* public String generateNextSupplierId(String supplierId) throws SQLException {
+    public String generateNextSupplierId(String supplierId) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement("SELECT supplierId FROM supplier ORDER BY supplierId DESC LIMIT 1");
 
-    }*/
+        ResultSet resultSet = pstm.executeQuery();
+        if (resultSet.next()){
+            return splitSupplierId(resultSet.getString(1));
+
+        }
+        return  splitSupplierId(null);
+    }
+
+
+        private String splitSupplierId(String currentId) {
+            if(currentId != null) {
+                String[] strings = currentId.split("SP0");
+                int id = Integer.parseInt(strings[1]);
+                id++;
+                String ID = String.valueOf(id);
+                int length = ID.length();
+                if (length < 2){
+                    return "SP00"+id;
+                }else {
+                    if (length < 3){
+                        return "SP0"+id;
+                    }else {
+                        return "SP"+id;
+                    }
+                }
+            }
+            return "SP001";
+        }
+
+
 
     public String getSupplierCount() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
@@ -43,17 +72,7 @@ public class SupplierModel {
         return pstm.executeUpdate() > 0;
     }
 
-    /*public boolean saveSupplier(SupplierDto dto) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
-        PreparedStatement pstm = connection.prepareStatement("INSERT INTO supplier VALUES (?,?,?,?)");
 
-        pstm.setString(1, dto.getSupplierId());
-        pstm.setString(2, dto.getSupplierName());
-        pstm.setString(3, dto.getContactNumber());
-        pstm.setString(4, dto.getEmail());
-
-        return pstm.executeUpdate() > 0;
-    }*/
 
     public boolean updateSupplier(SupplierDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();

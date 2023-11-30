@@ -39,6 +39,9 @@ public class MembershipFeeFormController {
     public Label lblPaidDate;
 
     @FXML
+    private Label lblTotalAmount;
+    
+    @FXML
     private ToggleGroup Status;
 
     @FXML
@@ -98,10 +101,20 @@ public class MembershipFeeFormController {
         setDate();
         loadAllMembershipFee();
         setCellValueFactory();
+        setTotalAmount();
         generateNextMembershipFeeId();
         tableListener();
 
     }
+
+    private void setTotalAmount() {
+        try {
+            lblTotalAmount.setText(membershipFeeModel.getTotalAmount());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private void tableListener() {
         tblMembershipFee.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
             setData((MembershipFeeTm) newValue);
@@ -213,6 +226,7 @@ public class MembershipFeeFormController {
            if(isDeleted){
               new Alert(Alert.AlertType.CONFIRMATION,"Deleted successfully!!").show();
               loadAllMembershipFee();
+              setTotalAmount();
            }
        } catch (SQLException e) {
            new Alert(Alert.AlertType.CONFIRMATION,"Deleted not successfully").show();
@@ -240,6 +254,7 @@ public class MembershipFeeFormController {
                     new Alert(Alert.AlertType.CONFIRMATION,"success!!").show();
                     clearFields();
                     setDate();
+                    setTotalAmount();
                     loadAllMembershipFee();
                     setCellValueFactory();
                     generateNextMembershipFeeId();

@@ -381,13 +381,13 @@ public class ReservationFormController {
 
     @FXML
     void cmbBookOnAction(ActionEvent event) {
-        System.out.println("-------------------------------------");
+
         String ISBN = cmbISBN.getValue();
         if(ISBN!=null){
             try {
                 BookDto dto = bookModel.searchBook(ISBN);
                 if(dto!=null){
-                    System.out.println("dto : "+dto);
+                    //System.out.println("dto : "+dto);
                     lblBookName.setText(dto.getBookName());
                     lblQtyOnHand.setText(dto.getQtyOnHand());
                 }
