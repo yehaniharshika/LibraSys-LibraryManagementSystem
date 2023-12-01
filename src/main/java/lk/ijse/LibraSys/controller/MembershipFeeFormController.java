@@ -130,7 +130,7 @@ public class MembershipFeeFormController {
         txtStatus.setText(row.getStatus());
 
     }
-
+    //get total amount
     @FXML
     void getAmount(ActionEvent event) {
         if (rButtonAmountmonthly.isSelected()){
@@ -153,7 +153,7 @@ public class MembershipFeeFormController {
         }
     }
 
-
+    //generate next membership fee Id
     private void generateNextMembershipFeeId() {
         try {
             String id = membershipFeeModel.generateNaxtMembershipFeeId(txtId.getText());
@@ -164,6 +164,7 @@ public class MembershipFeeFormController {
 
     }
 
+    //set value to the table
     private void setCellValueFactory() {
         colFeeid.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new  PropertyValueFactory<>("name"));
@@ -172,6 +173,7 @@ public class MembershipFeeFormController {
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
     }
 
+    //load all membership Fee
     private void loadAllMembershipFee() {
         var model = new  MembershipFeeModel();
 

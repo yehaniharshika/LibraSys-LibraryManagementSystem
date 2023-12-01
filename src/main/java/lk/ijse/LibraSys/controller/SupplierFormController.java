@@ -120,6 +120,7 @@ public class SupplierFormController {
         lblBookName.setText("");
         lblQtyOnHand.setText("");
         cmbBookISBN.setValue("");
+        txtSupplyQuantity.setText("");
 
     }
 
@@ -207,10 +208,9 @@ public class SupplierFormController {
 
         setRemoveBtnAction(btn);
         btn.setCursor(Cursor.HAND);
-        btn.setStyle("-fx-background-color: pink");
-        btn.setStyle("-fx-border-color: blue");
-        btn.setStyle("-fx-background-radius: 15");
-        btn.setStyle("-fx-border-radius: 15");
+        btn.setStyle("-fx-background-color:#cf6a87; -fx-border-color: black; -fx-background-radius: 15; -fx-border-radius: 15; -fx-font-weight: bold");
+        btn.setMinWidth(112);
+        btn.setMinHeight(30);
         if (!obList.isEmpty()){
             for (int i=0 ; i<tblSupplierDetail.getItems().size() ; i++){
                 if (colBookISBN.getCellData(i).equals(ISBN)){
@@ -255,7 +255,9 @@ public class SupplierFormController {
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
+
         clearFields();
+        generateNextSupplierId();
     }
 
     private void calculateTotal() {
@@ -290,6 +292,7 @@ public class SupplierFormController {
                     if (isSuccess){
                         new Alert(Alert.AlertType.CONFIRMATION,"Order success!!!").show();
                         clearAllFields();
+                        generateNextSupplierId();
                     }
                 } catch (SQLException e) {
                     new Alert(Alert.AlertType.ERROR,e.getMessage()).show();

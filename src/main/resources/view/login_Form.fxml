@@ -21,9 +21,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <AnchorPane layoutX="870.0" layoutY="97.0" prefHeight="556.0" prefWidth="440.0" style="-fx-background-color: #f5f6fa; -fx-background-radius: 2;">
+      <AnchorPane layoutX="879.0" layoutY="119.0" prefHeight="512.0" prefWidth="437.0" style="-fx-background-color: #ffffff; -fx-background-radius: 2;">
          <children>
-            <TextField fx:id="txtUserName" layoutX="64.0" layoutY="186.0" prefHeight="42.0" prefWidth="313.0" promptText="User Name" style="-fx-background-color: #1B97B0;">
+            <TextField fx:id="txtUserName" layoutX="65.0" layoutY="129.0" prefHeight="42.0" prefWidth="313.0" promptText="User Name" style="-fx-background-color: #1B97B0;">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -31,7 +31,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <TextField fx:id="txtServiceNumber" layoutX="64.0" layoutY="98.0" prefHeight="42.0" prefWidth="313.0" promptText="Service Number" style="-fx-background-color: #1B97B0;">
+            <TextField fx:id="txtServiceNumber" layoutX="64.0" layoutY="68.0" prefHeight="42.0" prefWidth="313.0" promptText="Service Number" style="-fx-background-color: #1B97B0;">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -39,7 +39,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <TextField fx:id="txtPassword" layoutX="64.0" layoutY="278.0" prefHeight="42.0" prefWidth="313.0" promptText="Password" style="-fx-background-color: #1B97B0;">
+            <TextField fx:id="txtPassword" layoutX="65.0" layoutY="190.0" prefHeight="42.0" prefWidth="313.0" promptText="Password" style="-fx-background-color: #1B97B0;">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -47,7 +47,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <JFXButton layoutX="102.0" layoutY="381.0" onAction="#btnLoginOnAction" prefHeight="49.0" prefWidth="218.0" style="-fx-background-color: #2d3436; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #f5f6fa;" text="LOGIN" textFill="#fcfafa">
+            <JFXButton layoutX="110.0" layoutY="304.0" onAction="#btnLoginOnAction" prefHeight="49.0" prefWidth="218.0" style="-fx-background-color: #2d3436; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #f5f6fa;" text="LOGIN" textFill="#fcfafa">
                <font>
                   <Font name="Gidugu" size="20.0" />
                </font>
@@ -55,18 +55,32 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <Label layoutX="65.0" layoutY="439.0" prefHeight="22.0" prefWidth="176.0" text="Don't have an account?" textFill="#636e72">
+            <Label layoutX="55.0" layoutY="367.0" prefHeight="22.0" prefWidth="176.0" text="Don't have an account?" textFill="#636e72">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Hyperlink layoutX="241.0" layoutY="439.0" onAction="#hyperSignUpOnAction" prefHeight="22.0" prefWidth="106.0" text="Sign up here" />
-            <Label layoutX="34.0" layoutY="461.0" prefHeight="33.0" prefWidth="392.0" text="If you read books,,You will become a personable human!!" textFill="#c23616">
+            <Hyperlink layoutX="231.0" layoutY="367.0" onAction="#hyperSignUpOnAction" prefHeight="22.0" prefWidth="106.0" text="Sign up here">
                <font>
-                  <Font name="Dyuthi Regular" size="16.0" />
+                  <Font name="System Bold" size="13.0" />
+               </font></Hyperlink>
+            <Label layoutX="58.0" layoutY="397.0" prefHeight="33.0" prefWidth="346.0" text="There is no friend as loyal as a book !!!!" textFill="#b51616">
+               <font>
+                  <Font name="MathJax_Main-Bold" size="17.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
+      <ImageView fitHeight="95.0" fitWidth="100.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="64.0" fitWidth="71.0" layoutX="29.0" layoutY="14.0">
+         <image>
+            <Image url="@../icon/education.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="14.0" layoutY="71.0" prefHeight="33.0" prefWidth="114.0" text="LybraSys" textFill="#0c0c0c">
+         <font>
+            <Font name="MathJax_Main-Bold" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -81,18 +81,18 @@ public class MemberModel {
 
     public  boolean updateMember(MemberDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
-        PreparedStatement pstm = connection.prepareStatement("UPDATE member SET name=?, address=?, gender=? ,tel =? ,EmailAddress =?,IDNumber=? feeId=?,sNumber=? WHERE  mid=?");
+        PreparedStatement pstm = connection.prepareStatement("UPDATE member SET name=?, address=?, gender=? ,tel =? ,EmailAddress =?,IDNumber=?, feeId=?,sNumber=? WHERE  mid=?");
 
 
-        pstm.setString(1,dto.getMid());
-        pstm.setString(2, dto.getName());
-        pstm.setString(3, dto.getAddress());
-        pstm.setString(4,dto.getGender());
-        pstm.setString(5,dto.getTel());
-        pstm.setString(6,dto.getEmailAddress());
-        pstm.setString(7,dto.getIDNumber());
-        pstm.setString(8, dto.getFeeId());
-        pstm.setString(9, dto.getSNumber());
+        pstm.setString(1,dto.getName());
+        pstm.setString(2,dto.getAddress());
+        pstm.setString(3,dto.getGender());
+        pstm.setString(4,dto.getTel());
+        pstm.setString(5,dto.getEmailAddress());
+        pstm.setString(6,dto.getIDNumber());
+        pstm.setString(7,dto.getFeeId());
+        pstm.setString(8, dto.getSNumber());
+        pstm.setString(9, dto.getMid());
 
 
         boolean isUpdated = pstm.executeUpdate() > 0;

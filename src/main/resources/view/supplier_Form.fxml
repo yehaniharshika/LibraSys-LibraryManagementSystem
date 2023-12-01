@@ -14,10 +14,13 @@
 
 <AnchorPane fx:id="Root" prefHeight="765.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.SupplierFormController">
    <children>
-      <JFXButton buttonType="RAISED" layoutX="980.0" layoutY="446.0" onAction="#btnAddSupplierCartOnAction" prefHeight="41.0" prefWidth="203.0" style="-fx-background-color: #c0392b; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text=" ADD TO CART" textFill="#fdfcfc" textOverrun="CENTER_WORD_ELLIPSIS">
+      <JFXButton buttonType="RAISED" layoutX="980.0" layoutY="446.0" onAction="#btnAddSupplierCartOnAction" prefHeight="41.0" prefWidth="203.0" style="-fx-background-color: #273c75; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text=" ADD TO CART" textFill="#fdfcfc" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <TextField fx:id="txtSupplierName" layoutX="73.0" layoutY="242.0" prefHeight="42.0" prefWidth="356.0" promptText="Supplier Name" style="-fx-border-color: #2d3436;">
          <font>
@@ -103,11 +106,17 @@
          <font>
             <Font name="KacstOne Bold" size="13.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <JFXButton layoutX="980.0" layoutY="715.0" onAction="#PlaceBooksOrderOnAction" prefHeight="41.0" prefWidth="203.0" style="-fx-background-color: #273c75; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="         PLACE BOOKS ORDER" textFill="#fdfcfc">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <Label layoutX="73.0" layoutY="412.0" prefHeight="42.0" prefWidth="137.0" text="Supplier Date : ">
          <font>

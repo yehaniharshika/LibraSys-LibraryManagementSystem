@@ -215,6 +215,7 @@ public class BookFormController {
                 txtCategory.setText(dto.getCategory());
                 txtQtyOnHand.setText(dto.getQtyOnHand());
                 cmbRackCode.setValue(dto.getRackCode());
+                cmbAuthorId.setValue(dto.getAuthorId());
             }else{
                 new Alert(Alert.AlertType.ERROR,"Book not found!!!").show();
             }
@@ -316,8 +317,6 @@ public class BookFormController {
             if (bookRackDto != null){
                 lblCategoryType.setText(bookRackDto.getCategoryOfBooks());
             }
-
-
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

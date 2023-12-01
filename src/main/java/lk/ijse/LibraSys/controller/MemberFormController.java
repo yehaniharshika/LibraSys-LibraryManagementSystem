@@ -124,6 +124,7 @@ public class MemberFormController {
         txtEmailAddress.setText(row.getEmailAddress());
         txtIDNumber.setText(row.getIDNumber());
         cmbmembershipFeeId.setValue(row.getFeeId());
+        txtSnumber.setText(row.getSNumber());
 
     }
 
