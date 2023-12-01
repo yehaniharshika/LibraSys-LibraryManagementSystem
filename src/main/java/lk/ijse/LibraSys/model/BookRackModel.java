@@ -26,11 +26,21 @@ public class BookRackModel {
     }
 
     private String splitRackCode(String currentRackCode) {
-        if (currentRackCode != null){
-            String[] split = currentRackCode.split("[R]");
-            int rackCode = Integer.parseInt(split[1]);
+        if(currentRackCode != null) {
+            String[] strings = currentRackCode.split("R0");
+            int rackCode = Integer.parseInt(strings[1]);
             rackCode++;
-            return "R00" + rackCode;
+            String ID = String.valueOf(rackCode);
+            int length = ID.length();
+            if (length < 2){
+                return "R00"+rackCode;
+            }else {
+                if (length < 3){
+                    return "R0"+rackCode;
+                }else {
+                    return "R"+rackCode;
+                }
+            }
         }
         return "R001";
     }
@@ -68,7 +78,7 @@ public class BookRackModel {
         return isDeleted;
     }
 
-    public BookRackDto serchBookRack(String rackCode) throws SQLException {
+    public BookRackDto searchBookRack(String rackCode) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement("SELECT * FROM bookRack WHERE rackCode=?");
         pstm.setString(1,rackCode);

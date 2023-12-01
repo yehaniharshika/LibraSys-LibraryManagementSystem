@@ -34,7 +34,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lblMemberName" layoutX="598.0" layoutY="152.0" prefHeight="41.0" prefWidth="200.0" textFill="#c4272a">
+      <Label fx:id="lblMemberName" layoutX="592.0" layoutY="153.0" prefHeight="41.0" prefWidth="254.0" textFill="#c4272a">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
@@ -100,7 +100,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="lblQtyOnHand" layoutX="629.0" layoutY="244.0" prefHeight="41.0" prefWidth="102.0" textFill="#c4272a">
+      <Label fx:id="lblQtyOnHand" layoutX="653.0" layoutY="243.0" prefHeight="41.0" prefWidth="83.0" textFill="#c4272a">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

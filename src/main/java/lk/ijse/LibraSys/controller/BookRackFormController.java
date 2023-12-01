@@ -236,7 +236,7 @@ public class BookRackFormController {
         String rackCode = txtCode.getText();
 
         try {
-            BookRackDto dto = bookRackModel.serchBookRack(rackCode);
+            BookRackDto dto = bookRackModel.searchBookRack(rackCode);
 
             if (dto != null){
                 txtCode.setText(dto.getRackCode());

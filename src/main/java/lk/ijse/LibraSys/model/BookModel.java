@@ -37,11 +37,21 @@ public class BookModel {
     }
 
     private String splitBookISBN(String currentBookISBN) {
-        if (currentBookISBN != null){
-            String[] split = currentBookISBN.split("[B]");
-            int ISBN= Integer.parseInt(split[1]);
+        if(currentBookISBN != null) {
+            String[] strings = currentBookISBN.split("B0");
+            int ISBN = Integer.parseInt(strings[1]);
             ISBN++;
-            return "B00" + ISBN;
+            String ID = String.valueOf(ISBN);
+            int length = ID.length();
+            if (length < 2){
+                return "B00"+ISBN;
+            }else {
+                if (length < 3){
+                    return "B0"+ISBN;
+                }else {
+                    return "B"+ISBN;
+                }
+            }
         }
         return "B001";
     }

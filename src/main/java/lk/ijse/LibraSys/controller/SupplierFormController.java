@@ -98,15 +98,12 @@ public class SupplierFormController {
         loadAllBookISBNs();
         setDate();
         setCellValueFactory();
-//        clearFields();
-//        clearAllFields();
 
     }
 
     private void generateNextSupplierId() {
         try {
             String supplierId = supplierModel.generateNextSupplierId(txtSupplierId.getText());
-            System.out.println(supplierId);
             txtSupplierId.setText(supplierId);
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -162,20 +159,44 @@ public class SupplierFormController {
         }
     }
 
-    /*private void loadAllSupplierIds() {
-        ObservableList<String> obList = FXCollections.observableArrayList();
-
+    @FXML
+    void btnDeleteOnAction(ActionEvent event) {
+        String supplierId = txtSupplierId.getText();
         try {
-            List<SupplierDto> supplierIdList = supplierModel.getAllSupplier();
-
-            for (SupplierDto dto : supplierIdList){
-                obList.add(dto.getSupplierId());
+            boolean isDeleted = supplierModel.deleteSupplier(supplierId);
+            if (isDeleted){
+                new Alert(Alert.AlertType.INFORMATION,"Supplier Deleted Successfully!!!").show();
+                clearFields();
+            }else{
+                new Alert(Alert.AlertType.ERROR,"supplier not deleted!!!").show();
             }
-            cmbSupplierId.setItems(obList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }*/
+
+    }
+
+    @FXML
+    void btnUpdateOnAction(ActionEvent event) {
+        String supplierId = txtSupplierId.getText();
+        String supplierName = txtSupplierName.getText();
+        String contactNumber = txtContactNumber.getText();
+        String email = txtEmail.getText();
+
+        var dto = new SupplierDto(supplierId,supplierName,contactNumber,email);
+
+        try {
+            boolean isUpdated = supplierModel.updateSupplier(dto);
+
+            if (isUpdated){
+                new Alert(Alert.AlertType.INFORMATION,"supplier updated successfully!!!").show();
+            }else{
+                new Alert(Alert.AlertType.ERROR,"supplier not updated!!!").show();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @FXML
     void btnAddSupplierCartOnAction(ActionEvent event) {
@@ -326,8 +347,10 @@ public class SupplierFormController {
         txtSupplyQuantity.requestFocus();
         try {
             BookDto dto = bookModel.searchBook(ISBN);
-            lblBookName.setText(dto.getBookName());
-            lblQtyOnHand.setText(dto.getQtyOnHand());
+            if (dto != null){
+                lblBookName.setText(dto.getBookName());
+                lblQtyOnHand.setText(dto.getQtyOnHand());
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -338,8 +361,8 @@ public class SupplierFormController {
     public void txtSuppliyQuantityOnAction(ActionEvent actionEvent) {
         btnAddSupplierCartOnAction(actionEvent);
     }
-
-    public void txtSupplierIdOnAction(ActionEvent actionEvent) {
+    @FXML
+    void txtSupplierIdOnAction(ActionEvent event) {
         String supplierId = txtSupplierId.getText();
 
         try {
@@ -355,9 +378,7 @@ public class SupplierFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
-
     }
-
 }
 
 

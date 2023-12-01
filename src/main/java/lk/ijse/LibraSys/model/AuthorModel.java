@@ -36,12 +36,21 @@ public class AuthorModel {
     }
 
     private String splitAuthorId(String currentAuthorId) {
-        if (currentAuthorId != null){
-            String[] split = currentAuthorId.split("[A]");
-            int authorId = Integer.parseInt(split[1]);
-            authorId++;
-            return "A00" + authorId;
-
+        if(currentAuthorId != null) {
+            String[] strings = currentAuthorId.split("A0");
+            int authorid = Integer.parseInt(strings[1]);
+            authorid++;
+            String ID = String.valueOf(authorid);
+            int length = ID.length();
+            if (length < 2){
+                return "A00"+authorid;
+            }else {
+                if (length < 3){
+                    return "A0"+authorid;
+                }else {
+                    return "A"+authorid;
+                }
+            }
         }
         return "A001";
     }

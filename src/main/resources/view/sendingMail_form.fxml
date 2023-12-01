@@ -59,20 +59,45 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <ImageView fitHeight="69.0" fitWidth="88.0" layoutX="356.0" layoutY="42.0">
-         <image>
-            <Image url="@../icon/sendingMail.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="794.0" layoutY="465.0">
          <image>
             <Image url="@../icon/sendEmail.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="290.0" fitWidth="218.0" layoutX="861.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="255.0" fitWidth="176.0" layoutX="895.0" layoutY="144.0">
+      <ImageView fitHeight="63.0" fitWidth="74.0" layoutX="366.0" layoutY="45.0">
          <image>
-            <Image url="@../icon/member.png" />
+            <Image url="@../icon/mailSending.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="290.0" fitWidth="276.0" layoutX="871.0" layoutY="61.0">
+         <image>
+            <Image url="@../icon/girlReadingBook.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="861.0" layoutY="343.0" prefHeight="26.0" prefWidth="286.0" text="Books,,,,,they allow you to move " textFill="#00010c">
+         <font>
+            <Font name="MathJax_Main-Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="861.0" layoutY="365.0" prefHeight="20.0" prefWidth="286.0" text="around the sacs without moving " textFill="#0c0b0c">
+         <font>
+            <Font name="MathJax_Main-Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="861.0" layoutY="387.0" prefHeight="22.0" prefWidth="286.0" text="you feet.............." textFill="#050505">
+         <font>
+            <Font name="MathJax_Main-Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="861.0" layoutY="409.0" prefHeight="22.0" prefWidth="286.0" text="Reading completes Human!!!!" textFill="#921b64">
+         <font>
+            <Font name="MathJax_Main-Bold" size="17.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="199.0" fitWidth="188.0" layoutX="700.0" layoutY="157.0">
+         <image>
+            <Image url="@../icon/boyReadingBook.png" />
          </image>
       </ImageView>
    </children>

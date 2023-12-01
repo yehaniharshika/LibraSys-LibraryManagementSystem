@@ -14,7 +14,7 @@
 
 <AnchorPane fx:id="Root" prefHeight="765.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.BookFormController">
    <children>
-      <JFXButton layoutX="1001.0" layoutY="462.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #6D214F; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="      SAVE" textFill="#f5f3f3">
+      <JFXButton layoutX="984.0" layoutY="463.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #6D214F; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="      SAVE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -22,7 +22,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="1001.0" layoutY="518.0" onAction="#btnUpdateOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="         UPDATE" textFill="#f5f3f3">
+      <JFXButton layoutX="984.0" layoutY="519.0" onAction="#btnUpdateOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="         UPDATE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -30,7 +30,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="1001.0" layoutY="574.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #6D214F; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="      CLEAR" textFill="#f5f3f3">
+      <JFXButton layoutX="984.0" layoutY="575.0" onAction="#btnClearOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #6D214F; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="      CLEAR" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -38,7 +38,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton layoutX="1001.0" layoutY="632.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="         DELETE" textFill="#f5f3f3">
+      <JFXButton layoutX="984.0" layoutY="633.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="140.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-color: #f5f6fa; -fx-border-radius: 8;" text="         DELETE" textFill="#f5f3f3">
          <font>
             <Font name="KacstOne Bold" size="12.0" />
          </font>
@@ -65,7 +65,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="65.0" layoutY="374.0" prefHeight="41.0" prefWidth="124.0" text="Author name :">
+      <Label layoutX="66.0" layoutY="362.0" prefHeight="41.0" prefWidth="124.0" text="Author name :">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -75,7 +75,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <TableView fx:id="tblBook" layoutX="29.0" layoutY="435.0" prefHeight="319.0" prefWidth="904.0" style="-fx-background-color: #1B97B0;">
+      <TableView fx:id="tblBook" layoutX="29.0" layoutY="428.0" prefHeight="326.0" prefWidth="904.0" style="-fx-background-color: #1B97B0;">
         <columns>
           <TableColumn fx:id="colISBN" prefWidth="125.5" text="ISBN" />
           <TableColumn fx:id="colBookName" prefWidth="216.5" text="Book Name" />
@@ -84,22 +84,22 @@
             <TableColumn fx:id="colAuthorId" prefWidth="215.5" text="Author ID" />
         </columns>
       </TableView>
-      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1022.0" layoutY="527.0">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1013.0" layoutY="528.0">
          <image>
             <Image url="@../icon/Update.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1025.0" layoutY="583.0">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1013.0" layoutY="584.0">
          <image>
             <Image url="@../icon/Clear.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="18.0" fitWidth="24.0" layoutX="1025.0" layoutY="474.0">
+      <ImageView fitHeight="18.0" fitWidth="24.0" layoutX="1013.0" layoutY="475.0">
          <image>
             <Image url="@../icon/Save.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1025.0" layoutY="641.0">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1013.0" layoutY="642.0">
          <image>
             <Image url="@../icon/Delete.png" />
          </image>
@@ -130,7 +130,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lblAuthorName" layoutX="188.0" layoutY="374.0" prefHeight="41.0" prefWidth="254.0" textFill="#2814bf">
+      <Label fx:id="lblAuthorName" layoutX="186.0" layoutY="362.0" prefHeight="41.0" prefWidth="254.0" textFill="#2814bf">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>

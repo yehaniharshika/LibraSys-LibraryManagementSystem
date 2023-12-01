@@ -24,17 +24,25 @@ public class MembershipFeeModel {
         return splitFeeId(null);
     }
 
-    private String splitFeeId(String currentMembershipFeeId) {
-        if (currentMembershipFeeId != null){
-            String[] split = currentMembershipFeeId.split("[F]");
-            int id = Integer.parseInt(split[1]);
+    private String splitFeeId(String currentId) {
+        if(currentId != null) {
+            String[] strings = currentId.split("F0");
+            int id = Integer.parseInt(strings[1]);
             id++;
-            return "F0" + id;
-        }else {
-            return "F001";
+            String ID = String.valueOf(id);
+            int length = ID.length();
+            if (length < 2){
+                return "F00"+id;
+            }else {
+                if (length < 3){
+                    return "F0"+id;
+                }else {
+                    return "F"+id;
+                }
+            }
         }
+        return "F001";
     }
-
     public static String getTotalAmount() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement("SELECT SUM(amount)  FROM membershipFee");

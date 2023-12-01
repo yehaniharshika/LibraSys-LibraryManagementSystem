@@ -317,7 +317,7 @@ public class MemberFormController {
         }
 
         String address = txtAddress.getText();
-        boolean matches2 = Pattern.matches("[0-9]{1,}\\/[A-Z]\\s[a-zA-Z]+$",address);
+        boolean matches2 = Pattern.matches("[0-9]{1,}\\/[A-Z]\\s[a-zA-Z]+$|[0-9]{1,}[/0-9]{1,}\\s([A-Za-z])\\w+",address);
         if(!matches2){
             new Alert(Alert.AlertType.ERROR,"Invalid address!!!").show();
             return  false;

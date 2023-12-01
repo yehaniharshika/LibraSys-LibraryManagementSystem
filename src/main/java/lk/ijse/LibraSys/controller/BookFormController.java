@@ -312,7 +312,7 @@ public class BookFormController {
         String rackCode = cmbRackCode.getValue();
 
         try {
-            BookRackDto bookRackDto = bookRackModel.serchBookRack(rackCode);
+            BookRackDto bookRackDto = bookRackModel.searchBookRack(rackCode);
             if (bookRackDto != null){
                 lblCategoryType.setText(bookRackDto.getCategoryOfBooks());
             }

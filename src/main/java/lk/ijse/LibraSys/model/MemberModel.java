@@ -39,14 +39,23 @@ public class MemberModel {
         return count;
     }
     private String splitMemberId(String currentMemberId) {
-        if (currentMemberId != null){
-            String[]  split = currentMemberId.split("[M]");
-            int mid = Integer.parseInt(split[1]);
-            mid++;
-            return "M00" + mid;
-        }else {
-            return "M001";
+        if(currentMemberId != null) {
+            String[] strings = currentMemberId.split("M0");
+            int id = Integer.parseInt(strings[1]);
+            id++;
+            String ID = String.valueOf(id);
+            int length = ID.length();
+            if (length < 2){
+                return "M00"+id;
+            }else {
+                if (length < 3){
+                    return "M0"+id;
+                }else {
+                    return "M"+id;
+                }
+            }
         }
+        return "M001";
     }
 
     public boolean saveMember(MemberDto dto) throws SQLException {

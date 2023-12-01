@@ -350,6 +350,8 @@ public class ReservationFormController {
         stage.setTitle("Member Form");
         stage.centerOnScreen();
         stage.show();
+        loadMemberIds();
+
     }
 
     @FXML
