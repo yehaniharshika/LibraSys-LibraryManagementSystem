@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchor" prefHeight="512.0" prefWidth="1165.0" style="-fx-background-color: #95a5a6; -fx-border-color: #222f3e;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.SendingMailFormController">
+<AnchorPane fx:id="anchor" prefHeight="520.0" prefWidth="1165.0" style="-fx-background-color: #95a5a6; -fx-border-color: #222f3e;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.SendingMailFormController">
    <children>
       <Label layoutX="335.0" layoutY="32.0" prefHeight="89.0" prefWidth="480.0" style="-fx-border-color: #222f3e; -fx-background-color: #1B97B0;" text="                SENDING EMAIL MESSAGE " textFill="#171717">
          <font>

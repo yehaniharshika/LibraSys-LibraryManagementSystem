@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="520.0" prefWidth="1165.0" style="-fx-background-color: #95a5a6;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.QrGeneratorFormController">
+   <children>
+      <Label layoutX="376.0" layoutY="29.0" prefHeight="89.0" prefWidth="509.0" style="-fx-border-color: #222f3e; -fx-background-color: #1B97B0;" text="               QUICK READ CODES GENERATOR" textFill="#171717">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtText" layoutX="41.0" layoutY="183.0" onAction="#onAction" onKeyReleased="#onKeyReleased" prefHeight="44.0" prefWidth="347.0" promptText="enter member ID &amp; name here" style="-fx-border-color: #222f3e;" />
+      <Button fx:id="btnGenerate" layoutX="41.0" layoutY="413.0" mnemonicParsing="false" onAction="#btnGenerateOnAction" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: lightblue;" text="GENERATE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnClear" layoutX="256.0" layoutY="413.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: red;" text="CLEAR">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="pic" fitHeight="340.0" fitWidth="375.0" layoutX="651.0" layoutY="152.0">
+         <image>
+            <Image url="@../icon/qrGeneratePic.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="68.0" fitWidth="78.0" layoutX="401.0" layoutY="40.0">
+         <image>
+            <Image url="@../icon/qrGenerator.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

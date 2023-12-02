@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="765.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MembershipFeeFormController">
+<AnchorPane fx:id="root" prefHeight="772.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MembershipFeeFormController">
    <children>
       <TextField fx:id="txtId" layoutX="28.0" layoutY="191.0" onAction="#txtSearchOnAction" prefHeight="42.0" prefWidth="362.0" promptText="Fee ID" style="-fx-border-color: #2f3640;">
          <font>
@@ -59,7 +59,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <TableView fx:id="tblMembershipFee" layoutX="419.0" layoutY="181.0" prefHeight="518.0" prefWidth="755.0" style="-fx-background-color: #1B97B0;">
+      <TableView fx:id="tblMembershipFee" layoutX="419.0" layoutY="181.0" prefHeight="529.0" prefWidth="755.0" style="-fx-background-color: #1B97B0;">
         <columns>
           <TableColumn fx:id="colFeeid" prefWidth="90.0" text="Fee ID" />
           <TableColumn fx:id="colName" prefWidth="211.5" text="Member Name" />
@@ -160,12 +160,12 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXRadioButton>
-      <Label fx:id="lblTotalAmount" layoutX="993.0" layoutY="708.0" prefHeight="41.0" prefWidth="181.0" textFill="#b51616">
+      <Label fx:id="lblTotalAmount" layoutX="993.0" layoutY="716.0" prefHeight="41.0" prefWidth="181.0" textFill="#b51616">
          <font>
             <Font name="System Bold" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="854.0" layoutY="708.0" prefHeight="41.0" prefWidth="139.0" text="Total Amount : ">
+      <Label layoutX="854.0" layoutY="721.0" prefHeight="41.0" prefWidth="139.0" text="Total Amount : ">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

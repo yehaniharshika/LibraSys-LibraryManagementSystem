@@ -367,5 +367,22 @@ public class DashboardFormController {
         this.anchor.getChildren().add(node);
     }
 
+    @FXML
+    void btnQRgeneratorOnAction(ActionEvent event) throws IOException {
+        Parent node = FXMLLoader.load(this.getClass().getResource("/view/qrGenerator_form.fxml"));
+
+        this.anchor.getChildren().clear();
+        this.anchor.getChildren().add(node);
+    }
+
+    @FXML
+    void btnQRreaderOnAction(ActionEvent event) throws IOException {
+        Parent node = FXMLLoader.load(this.getClass().getResource("/view/qrReader_form.fxml"));
+
+        this.anchor.getChildren().clear();
+        this.anchor.getChildren().add(node);
+
+    }
+
 
 }

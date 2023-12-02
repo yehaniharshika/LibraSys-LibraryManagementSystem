@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="765.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MemberFormController">
+<AnchorPane fx:id="pane" prefHeight="772.0" prefWidth="1196.0" style="-fx-background-color: #c8d6e5; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.MemberFormController">
    <children>
       <JFXButton layoutX="920.0" layoutY="190.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="132.0" style="-fx-background-color: #2d3436; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #f5f6fa;" text="     SAVE" textFill="#faf5f5">
          <font>
@@ -64,7 +64,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <TableView fx:id="tblMember" layoutX="15.0" layoutY="409.0" prefHeight="345.0" prefWidth="1166.0" style="-fx-background-color: #1B97B0;">
+      <TableView fx:id="tblMember" layoutX="15.0" layoutY="409.0" prefHeight="351.0" prefWidth="1166.0" style="-fx-background-color: #1B97B0;">
         <columns>
           <TableColumn fx:id="colMid" prefWidth="84.0" text="Member ID" />
           <TableColumn fx:id="colMembername" prefWidth="182.0" text="Member Name" />
