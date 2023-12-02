@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchor" prefHeight="512.0" prefWidth="1165.0" style="-fx-background-color: #95a5a6;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.SendingMailFormController">
+<AnchorPane fx:id="anchor" prefHeight="512.0" prefWidth="1165.0" style="-fx-background-color: #95a5a6; -fx-border-color: #222f3e;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.SendingMailFormController">
    <children>
       <Label layoutX="335.0" layoutY="32.0" prefHeight="89.0" prefWidth="480.0" style="-fx-border-color: #222f3e; -fx-background-color: #1B97B0;" text="                SENDING EMAIL MESSAGE " textFill="#171717">
          <font>
@@ -85,7 +85,7 @@
             <Font name="MathJax_Main-Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="861.0" layoutY="387.0" prefHeight="22.0" prefWidth="286.0" text="you feet.............." textFill="#050505">
+      <Label layoutX="861.0" layoutY="387.0" prefHeight="22.0" prefWidth="286.0" text="your feet.............." textFill="#050505">
          <font>
             <Font name="MathJax_Main-Bold" size="17.0" />
          </font>

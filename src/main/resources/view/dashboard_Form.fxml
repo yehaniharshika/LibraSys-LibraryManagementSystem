@@ -416,7 +416,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="16.0" layoutY="27.0" prefHeight="25.0" prefWidth="247.0" text="Reading completes  Human!!!!">
+            <Label layoutX="16.0" layoutY="27.0" prefHeight="25.0" prefWidth="553.0" text="There is no frigate like a book,,To take us lands away !!!!">
                <font>
                   <Font name="MathJax_Main-Bold" size="16.0" />
                </font>
