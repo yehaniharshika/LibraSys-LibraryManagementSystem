@@ -10,10 +10,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.LoginFormController">
+<AnchorPane fx:id="root" prefHeight="780.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.LoginFormController">
    <children>
-      <ImageView fitHeight="750.0" fitWidth="1400.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="750.0" fitWidth="1400.0">
+      <ImageView fitHeight="780.0" fitWidth="1500.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="780.0" fitWidth="1500.0">
          <image>
             <Image url="@../assets/login.jpg" />
          </image>
@@ -21,7 +21,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <AnchorPane layoutX="879.0" layoutY="119.0" prefHeight="512.0" prefWidth="437.0" style="-fx-background-color: #ffffff; -fx-background-radius: 2;">
+      <AnchorPane layoutX="948.0" layoutY="134.0" prefHeight="512.0" prefWidth="437.0" style="-fx-background-color: #ffffff; -fx-background-radius: 2;">
          <children>
             <TextField fx:id="txtUserName" layoutX="65.0" layoutY="129.0" prefHeight="42.0" prefWidth="313.0" promptText="User Name" style="-fx-background-color: #1B97B0;">
                <font>

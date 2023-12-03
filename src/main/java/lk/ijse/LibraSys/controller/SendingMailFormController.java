@@ -79,7 +79,7 @@ public static class Mail implements Runnable {
     }
 
     public boolean outMail() throws MessagingException, AddressException {
-        String from = "mrgreen6013@gmail.com"; //sender's email address
+        String from = "librasys9@gmail.com"; //sender's email address
         String host = "localhost";
 
         Properties properties = new Properties();
