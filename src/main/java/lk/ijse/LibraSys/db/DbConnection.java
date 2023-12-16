@@ -9,13 +9,11 @@ public class DbConnection {
     private Connection connection;
 
     private DbConnection() throws SQLException {
-        connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/LibraSys",
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/LibraSys",
                 "root",
                 "Ijse@1234"
         );
     }
-
     public static DbConnection getInstance() throws SQLException {
         if(dbConnection == null){
             dbConnection = new DbConnection();

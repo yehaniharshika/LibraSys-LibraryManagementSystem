@@ -170,6 +170,7 @@ public class BookRackFormController {
                     new Alert(Alert.AlertType.CONFIRMATION,"Book Rack Adding Successfully!!!").show();
                     clearFields();
                     loadAllBookRacks();
+                    generateNextRackCode();
                     setCellValueFactory();
                 }else {
                     new Alert(Alert.AlertType.ERROR,"Book rack Adding failed!!!").show();

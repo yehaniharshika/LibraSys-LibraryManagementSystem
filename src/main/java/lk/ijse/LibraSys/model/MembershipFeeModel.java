@@ -81,11 +81,11 @@ public class MembershipFeeModel {
         String sql = "UPDATE membershipFee SET name = ?, amount = ? ,date = ?, status = ?  WHERE fee_id =?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
-        pstm.setString(1, dto.getId());
-        pstm.setString(2, dto.getName());
-        pstm.setString(3, String.valueOf(dto.getAmount()));
-        pstm.setString(4, String.valueOf(dto.getDate()));
-        pstm.setString(5, dto.getStatus());
+        pstm.setString(1, dto.getName());
+        pstm.setString(2, String.valueOf(dto.getAmount()));
+        pstm.setString(3, String.valueOf(dto.getDate()));
+        pstm.setString(4, dto.getStatus());
+        pstm.setString(5, dto.getId());
 
         return pstm.executeUpdate() > 0 ;
 

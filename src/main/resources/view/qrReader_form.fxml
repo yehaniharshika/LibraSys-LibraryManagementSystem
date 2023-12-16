@@ -11,12 +11,12 @@
 
 <AnchorPane fx:id="mainPanel" prefHeight="520.0" prefWidth="1165.0" style="-fx-background-color: #95a5a6;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.LibraSys.controller.QrReaderFormController">
    <children>
-      <Label layoutX="393.0" layoutY="20.0" prefHeight="82.0" prefWidth="460.0" style="-fx-border-color: #222f3e; -fx-background-color: #1B97B0;" text="                        QR CODE READER" textFill="#171717">
+      <Label layoutX="393.0" layoutY="20.0" prefHeight="82.0" prefWidth="460.0" style="-fx-border-color: #222f3e; -fx-background-color: #1B97B0;" text="                   QR CODE READER" textFill="#171717">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="btnStart" defaultButton="true" layoutX="64.0" layoutY="458.0" mnemonicParsing="false" onAction="#btnStartOnAction" prefHeight="37.0" prefWidth="116.0" style="-fx-background-radius: 5; -fx-border-color: #222f3e; -fx-border-radius: 5;" text="Start">
+      <Button fx:id="btnStart" defaultButton="true" layoutX="64.0" layoutY="458.0" mnemonicParsing="false" onAction="#btnStartOnAction" prefHeight="37.0" prefWidth="116.0" style="-fx-background-radius: 5; -fx-border-color: #222f3e; -fx-border-radius: 5;" text="START" textOverrun="CLIP">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -24,7 +24,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnEnd" layoutX="270.0" layoutY="458.0" mnemonicParsing="false" onAction="#btnEndOnAction" prefHeight="37.0" prefWidth="123.0" style="-fx-border-color: #222f3e; -fx-background-radius: 5; -fx-border-radius: 5;" text="Pause">
+      <Button fx:id="btnEnd" layoutX="270.0" layoutY="458.0" mnemonicParsing="false" onAction="#btnEndOnAction" prefHeight="37.0" prefWidth="123.0" style="-fx-border-color: #222f3e; -fx-background-radius: 5; -fx-border-radius: 5;" text="PAUSE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -35,7 +35,10 @@
       <Button layoutX="1010.0" layoutY="458.0" mnemonicParsing="false" onAction="#txtAreaClearOnAction" prefHeight="37.0" prefWidth="123.0" style="-fx-background-color: red; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #222f3e;" text="CLEAR">
          <font>
             <Font name="System Bold" size="13.0" />
-         </font></Button>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <TextArea fx:id="txtArea" editable="false" layoutX="740.0" layoutY="128.0" prefHeight="257.0" prefWidth="382.0" promptText="Embedded data in QR code" style="-fx-background-color: #EEEDED; -fx-border-color: #222f3e;">
          <font>
             <Font name="System Bold" size="13.0" />

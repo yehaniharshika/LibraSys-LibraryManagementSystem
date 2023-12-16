@@ -316,6 +316,7 @@ public class MembershipFeeFormController {
                 new Alert(Alert.AlertType.CONFIRMATION,"successfully updated!").show();
                 clearFields();
                 setDate();
+                loadAllMembershipFee();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();

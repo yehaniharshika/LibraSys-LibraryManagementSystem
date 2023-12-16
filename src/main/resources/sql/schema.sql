@@ -98,4 +98,19 @@ create table booksSupplier_detail(
     constraint foreign key(ISBN) references book(ISBN) on update cascade on delete cascade
 );
 
+select
+    b.ISBN,
+    b.bookName,
+    s.supplierId,
+    s.supplierName,
+    s.contactNumber,
+    sd.qty,
+    sd.supplierDate
+from book b
+         join booksSupplier_detail sd
+              on b.ISBN = sd.ISBN
+         join supplier s
+              on s.supplierId = sd.supplierId;
+
+
 
